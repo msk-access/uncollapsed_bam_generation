@@ -7,20 +7,20 @@ $namespaces:
 inputs:
   - id: fastq2
     type: File
-    'sbg:x': -638.232421875
-    'sbg:y': -288.46490478515625
+    'sbg:x': 0
+    'sbg:y': 213.59373474121094
   - id: fastq1
     type: File
-    'sbg:x': -629.4970092773438
-    'sbg:y': -43.10979080200195
+    'sbg:x': 0
+    'sbg:y': 320.390625
   - id: reference
     type: File
-    'sbg:x': -579.896240234375
-    'sbg:y': 164.53863525390625
+    'sbg:x': 0
+    'sbg:y': 0
   - id: known_sites_1
     type: File
-    'sbg:x': -567.4667358398438
-    'sbg:y': 355.0628356933594
+    'sbg:x': 0
+    'sbg:y': 106.79686737060547
   - id: M
     type: boolean?
     'sbg:exposed': true
@@ -81,25 +81,34 @@ inputs:
   - id: optical_duplicate_pixel_distance
     type: int?
     'sbg:exposed': true
+  - id: sort_order_1
+    type: string?
+    'sbg:exposed': true
+  - id: number_of_threads_1
+    type: int?
+    'sbg:exposed': true
+  - id: bam_compression_level_1
+    type: int?
+    'sbg:exposed': true
 outputs:
   - id: clstats2
     outputSource:
       - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': -226.53366088867188
-    'sbg:y': -384.7630920410156
+    'sbg:x': 369.0805358886719
+    'sbg:y': 46.39842987060547
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
     type: File
-    'sbg:x': -224.69078063964844
-    'sbg:y': -239.06234741210938
+    'sbg:x': 369.0805358886719
+    'sbg:y': 153.1953125
   - id: output
     outputSource:
       - calculate_apply_bqsr_cwl/output
     type: File?
-    'sbg:x': 620.751708984375
-    'sbg:y': 326.4988708496094
+    'sbg:x': 1422.0601806640625
+    'sbg:y': 160.1953125
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -120,8 +129,8 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    'sbg:x': -449
-    'sbg:y': -112
+    'sbg:x': 167.37496948242188
+    'sbg:y': 139.19529724121094
   - id: bwa_mem_0_7_5a
     in:
       - id: M
@@ -138,12 +147,16 @@ steps:
       - id: sam
     run: command_line_tools/bwa_mem_0.7.5a/bwa_mem_0.7.5a.cwl
     label: bwa-mem
-    'sbg:x': -236
-    'sbg:y': -48
+    'sbg:x': 369
+    'sbg:y': 314.9886169433594
   - id: picard_add_or_replace_read_groups_1_96
     in:
+      - id: number_of_threads
+        source: number_of_threads_1
       - id: input
         source: bwa_mem_0_7_5a/sam
+      - id: sort_order
+        source: sort_order_1
       - id: read_group_identifier
         source: read_group_identifier
       - id: read_group_sequnecing_center
@@ -156,13 +169,15 @@ steps:
         source: read_group_sample_name
       - id: read_group_sequencing_platform
         source: read_group_sequencing_platform
+      - id: bam_compression_level
+        source: bam_compression_level_1
     out:
       - id: bam
     run: >-
       command_line_tools/picard_add_or_replace_read_groups_1.96/picard_add_or_replace_read_groups_1.96.cwl
     label: picard_add_or_replace_read_groups_1.96
-    'sbg:x': 15.287079811096191
-    'sbg:y': -99.61151885986328
+    'sbg:x': 615.714111328125
+    'sbg:y': 326.3766784667969
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: memory_per_job
@@ -192,8 +207,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 255.9733123779297
-    'sbg:y': -141.24972534179688
+    'sbg:x': 798.26171875
+    'sbg:y': 213.70108032226562
   - id: abra_fx_cwl
     in:
       - id: reference_fasta
@@ -205,8 +220,8 @@ steps:
       - id: bam
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 326.5209655761719
-    'sbg:y': 124.83001708984375
+    'sbg:x': 964.1070556640625
+    'sbg:y': 146.1953125
   - id: calculate_apply_bqsr_cwl
     in:
       - id: reference
@@ -219,8 +234,8 @@ steps:
       - id: output
     run: subworkflows/calculate_apply_bqsr-cwl.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 416.6186828613281
-    'sbg:y': 326.2715148925781
+    'sbg:x': 1190.1539306640625
+    'sbg:y': 146.1953125
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
