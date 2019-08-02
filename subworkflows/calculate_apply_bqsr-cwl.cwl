@@ -17,6 +17,10 @@ inputs:
     type: File
     'sbg:x': -577.3988647460938
     'sbg:y': 145
+  - id: known_sites_2
+    type: File?
+    'sbg:x': -802
+    'sbg:y': -112
 outputs:
   - id: output
     outputSource:
@@ -33,13 +37,15 @@ steps:
         source: known_sites_1
       - id: reference
         source: reference
+      - id: known_sites_2
+        source: known_sites_2
     out:
       - id: output
     run: >-
       ../command_line_tools/gatk_BaseRecalibrator_4.1.2.0/gatk_baserecalibrator_4.1.2.0.cwl
     label: gatk_base_recalibrator_4.1.2.0
-    'sbg:x': -308.3984375
-    'sbg:y': -18
+    'sbg:x': -187
+    'sbg:y': -239
   - id: gatk_apply_bqsr_4_1_2_0
     in:
       - id: reference
