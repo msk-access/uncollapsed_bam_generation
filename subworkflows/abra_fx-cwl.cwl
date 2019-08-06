@@ -10,13 +10,21 @@ inputs:
       - File
       - type: array
         items: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': -1193.5728759765625
     'sbg:y': 221.94479370117188
   - id: reference_fasta
     type: File
+    secondaryFiles:
+      - .fai
+      - ^.dict
     'sbg:x': -1170.9459228515625
     'sbg:y': -175.96751403808594
   - id: option_bedgraph
+    type: boolean?
+    'sbg:exposed': true
+  - id: bam_index
     type: boolean?
     'sbg:exposed': true
 outputs:
@@ -24,6 +32,8 @@ outputs:
     outputSource:
       - picard_fix_mate_information_1_96/bam
     type: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': 80
     'sbg:y': -24
 steps:
@@ -58,6 +68,8 @@ steps:
         source: reference_fasta
       - id: targets
         source: bedtools_merge/output_file
+      - id: bam_index
+        source: bam_index
     out:
       - id: realigned_bam
     run: ../command_line_tools/abra2_2.17/abra2_2.17.cwl

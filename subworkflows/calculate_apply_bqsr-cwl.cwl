@@ -7,18 +7,27 @@ $namespaces:
 inputs:
   - id: reference
     type: File
-    'sbg:x': -564.3988647460938
-    'sbg:y': -145
+    secondaryFiles:
+      - .fai
+      - ^.dict
+    'sbg:x': -529.8873901367188
+    'sbg:y': -374.4850158691406
   - id: known_sites_1
     type: File
+    secondaryFiles:
+      - .idx
     'sbg:x': -612.3988647460938
     'sbg:y': -17
   - id: input
     type: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': -577.3988647460938
     'sbg:y': 145
   - id: known_sites_2
     type: File?
+    secondaryFiles:
+      - .idx
     'sbg:x': -802
     'sbg:y': -112
 outputs:
@@ -26,6 +35,8 @@ outputs:
     outputSource:
       - gatk_apply_bqsr_4_1_2_0/output
     type: File?
+    secondaryFiles:
+      - ^.bai
     'sbg:x': 399.60113525390625
     'sbg:y': -43
 steps:

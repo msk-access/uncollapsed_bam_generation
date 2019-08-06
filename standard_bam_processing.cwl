@@ -7,14 +7,22 @@ $namespaces:
 inputs:
   - id: fastq2
     type: File
-    'sbg:x': -163.90850830078125
-    'sbg:y': 293.79345703125
+    'sbg:x': -189.7229461669922
+    'sbg:y': 264.0501403808594
   - id: fastq1
     type: File
     'sbg:x': -139.38040161132812
     'sbg:y': 509.3804016113281
   - id: reference
     type: File
+    secondaryFiles:
+      - .fai
+      - ^.dict
+      - .amb
+      - .ann
+      - .bwt
+      - .pac
+      - .sa
     'sbg:x': -79.02245330810547
     'sbg:y': -302.34814453125
   - id: M
@@ -73,16 +81,26 @@ inputs:
     'sbg:exposed': true
   - id: known_sites_1
     type: File
+    secondaryFiles:
+      - .idx
     'sbg:x': -290.86785888671875
     'sbg:y': -31.705486297607422
   - id: known_sites_2
     type: File?
+    secondaryFiles:
+      - .idx
     'sbg:x': -277.68792724609375
     'sbg:y': 137.75094604492188
   - id: sort_order
     type: string?
     'sbg:exposed': true
   - id: option_bedgraph
+    type: boolean?
+    'sbg:exposed': true
+  - id: create_bam_index_1
+    type: boolean?
+    'sbg:exposed': true
+  - id: bam_index
     type: boolean?
     'sbg:exposed': true
 outputs:
@@ -101,9 +119,10 @@ outputs:
   - id: output
     outputSource:
       - calculate_apply_bqsr_cwl/output
-    type: File?
-    'sbg:x': 1677.9327392578125
-    'sbg:y': -53.91935729980469
+      - picard_mark_duplicates_2_8_1/bam
+    type: 'File[]?'
+    'sbg:x': 1576.23681640625
+    'sbg:y': -24.9184513092041
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -143,8 +162,8 @@ steps:
       - id: sam
     run: command_line_tools/bwa_mem_0.7.5a/bwa_mem_0.7.5a.cwl
     label: bwa-mem
-    'sbg:x': 479.9430847167969
-    'sbg:y': 499.3034362792969
+    'sbg:x': 447.61474609375
+    'sbg:y': 499
   - id: picard_add_or_replace_read_groups_1_96
     in:
       - id: input
@@ -163,6 +182,8 @@ steps:
         source: read_group_sample_name
       - id: read_group_sequencing_platform
         source: read_group_sequencing_platform
+      - id: create_bam_index
+        source: create_bam_index_1
     out:
       - id: bam
     run: >-
@@ -222,12 +243,14 @@ steps:
         source: reference
       - id: option_bedgraph
         source: option_bedgraph
+      - id: bam_index
+        source: bam_index
     out:
       - id: bam
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 767.1005859375
-    'sbg:y': -192.817626953125
+    'sbg:x': 824.81494140625
+    'sbg:y': -299.37060546875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
