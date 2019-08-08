@@ -7,12 +7,12 @@ $namespaces:
 inputs:
   - id: fastq2
     type: File
-    'sbg:x': -189.7229461669922
-    'sbg:y': 264.0501403808594
+    'sbg:x': 0
+    'sbg:y': 1600.40625
   - id: fastq1
     type: File
-    'sbg:x': -139.38040161132812
-    'sbg:y': 509.3804016113281
+    'sbg:x': 0
+    'sbg:y': 1707.046875
   - id: reference
     type: File
     secondaryFiles:
@@ -23,106 +23,128 @@ inputs:
       - .bwt
       - .pac
       - .sa
-    'sbg:x': -79.02245330810547
-    'sbg:y': -302.34814453125
-  - id: M
-    type: boolean?
-    'sbg:exposed': true
-  - id: paired
-    type: boolean
-    'sbg:exposed': true
-  - id: gzip
-    type: boolean
-    'sbg:exposed': true
-  - id: read_group_identifier
-    type: string
-    'sbg:exposed': true
-  - id: read_group_sequnecing_center
-    type: string
-    'sbg:exposed': true
-  - id: read_group_library
-    type: int
-    'sbg:exposed': true
-  - id: read_group_platform_unit
-    type: string
-    'sbg:exposed': true
-  - id: read_group_sample_name
-    type: string
-    'sbg:exposed': true
-  - id: memory_per_job
-    type: int?
-    'sbg:exposed': true
-  - id: memory_overhead
-    type: int?
-    'sbg:exposed': true
-  - id: number_of_threads
-    type: int?
-    'sbg:exposed': true
-  - id: validation_stringency
-    type: string?
-    'sbg:exposed': true
-  - id: bam_compression_level
-    type: int?
-    'sbg:exposed': true
-  - id: create_bam_index
-    type: boolean?
-    'sbg:exposed': true
-  - id: assume_sorted
-    type: boolean?
-    'sbg:exposed': true
-  - id: duplicate_scoring_strategy
-    type: string?
-    'sbg:exposed': true
-  - id: P
-    type: boolean?
-    'sbg:exposed': true
-  - id: read_group_sequencing_platform
-    type: string
-    'sbg:exposed': true
+    'sbg:x': 0
+    'sbg:y': 106.6875
   - id: known_sites_1
     type: File
     secondaryFiles:
       - .idx
-    'sbg:x': -290.86785888671875
-    'sbg:y': -31.705486297607422
+    'sbg:x': 0
+    'sbg:y': 1387.03125
   - id: known_sites_2
     type: File?
     secondaryFiles:
       - .idx
-    'sbg:x': -277.68792724609375
-    'sbg:y': 137.75094604492188
-  - id: sort_order
-    type: string?
-    'sbg:exposed': true
-  - id: option_bedgraph
+    'sbg:x': 0
+    'sbg:y': 1280.390625
+  - id: bam_compression_level
+    type: int?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 1173.609375
+  - id: paired
+    type: boolean
+    'sbg:x': 0
+    'sbg:y': 853.734375
+  - id: gzip
+    type: boolean
+    'sbg:x': 0
+    'sbg:y': 1493.71875
+  - id: P
     type: boolean?
-    'sbg:exposed': true
+    'sbg:x': 0
+    'sbg:y': 960.375
+  - id: M
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 1173.75
+  - id: read_group_sequnecing_center
+    type: string
+    'sbg:x': 0
+    'sbg:y': 213.375
+  - id: read_group_sequencing_platform
+    type: string
+    'sbg:x': 0
+    'sbg:y': 320.109375
+  - id: read_group_sample_name
+    type: string
+    'sbg:x': 0
+    'sbg:y': 426.84375
+  - id: read_group_platform_unit
+    type: string
+    'sbg:x': 0
+    'sbg:y': 533.578125
+  - id: read_group_library
+    type: int
+    'sbg:x': 0
+    'sbg:y': 640.3125
+  - id: read_group_identifier
+    type: string
+    'sbg:x': 0
+    'sbg:y': 747.046875
   - id: create_bam_index_1
     type: boolean?
-    'sbg:exposed': true
+    'sbg:x': 910.4716796875
+    'sbg:y': 394.5094299316406
+  - id: validation_stringency
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 0
+  - id: number_of_threads
+    type: int?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 640.125
+  - id: memory_per_job
+    type: int?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 746.8125
+  - id: memory_overhead
+    type: int?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 853.546875
+  - id: duplicate_scoring_strategy
+    type: string?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 960.28125
+  - id: create_bam_index
+    type: boolean?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 1066.96875
+  - id: assume_sorted
+    type: boolean?
+    'sbg:x': 740.8355712890625
+    'sbg:y': 1280.25
   - id: bam_index
     type: boolean?
-    'sbg:exposed': true
+    'sbg:x': 0
+    'sbg:y': 1813.6875
+  - id: option_bedgraph
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 1067.0625
+  - id: sort_order
+    type: string?
+    'sbg:x': 1238.203857421875
+    'sbg:y': -810.7881469726562
 outputs:
   - id: clstats2
     outputSource:
       - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': 369.08056640625
-    'sbg:y': 46.4453125
+    'sbg:x': 523.8824462890625
+    'sbg:y': 832.546875
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
     type: File
-    'sbg:x': 369.08056640625
-    'sbg:y': 153.3359375
+    'sbg:x': 523.8824462890625
+    'sbg:y': 939.1875
   - id: output
     outputSource:
       - calculate_apply_bqsr_cwl/output
       - picard_mark_duplicates_2_8_1/bam
     type: 'File[]?'
-    'sbg:x': 1576.23681640625
-    'sbg:y': -24.9184513092041
+    'sbg:x': 1981.063720703125
+    'sbg:y': 906.8671875
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -143,8 +165,8 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    'sbg:x': 60.10823059082031
-    'sbg:y': 428.3694152832031
+    'sbg:x': 319.15625
+    'sbg:y': 885.8203125
   - id: bwa_mem_0_7_5a
     in:
       - id: M
@@ -162,8 +184,8 @@ steps:
       - id: sam
     run: command_line_tools/bwa_mem_0.7.5a/bwa_mem_0.7.5a.cwl
     label: bwa-mem
-    'sbg:x': 447.61474609375
-    'sbg:y': 499
+    'sbg:x': 523.8824462890625
+    'sbg:y': 1066.828125
   - id: picard_add_or_replace_read_groups_1_96
     in:
       - id: input
@@ -189,8 +211,8 @@ steps:
     run: >-
       command_line_tools/picard_add_or_replace_read_groups_1.96/picard_add_or_replace_read_groups_1.96.cwl
     label: picard_add_or_replace_read_groups_1.96
-    'sbg:x': 441.2775573730469
-    'sbg:y': 278.8172607421875
+    'sbg:x': 1653.717041015625
+    'sbg:y': 117.58490753173828
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: memory_per_job
@@ -216,8 +238,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 794.15576171875
-    'sbg:y': 378.57080078125
+    'sbg:x': 1750.21337890625
+    'sbg:y': 1567.026123046875
   - id: calculate_apply_bqsr_cwl
     in:
       - id: reference
@@ -232,8 +254,8 @@ steps:
       - id: output
     run: subworkflows/calculate_apply_bqsr-cwl.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 1528.6962890625
-    'sbg:y': 391.689453125
+    'sbg:x': 1736.88037109375
+    'sbg:y': 885.8203125
   - id: abra_fx_cwl
     in:
       - id: input_bam
@@ -249,8 +271,8 @@ steps:
       - id: bam
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 824.81494140625
-    'sbg:y': -299.37060546875
+    'sbg:x': 1492.025146484375
+    'sbg:y': 885.8671875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement

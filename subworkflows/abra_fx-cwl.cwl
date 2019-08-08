@@ -23,10 +23,12 @@ inputs:
     'sbg:y': -175.96751403808594
   - id: option_bedgraph
     type: boolean?
-    'sbg:exposed': true
+    'sbg:x': -1052.5999755859375
+    'sbg:y': -323.5162353515625
   - id: bam_index
     type: boolean?
-    'sbg:exposed': true
+    'sbg:x': -504.757568359375
+    'sbg:y': 108.0183334350586
 outputs:
   - id: bam
     outputSource:
@@ -74,8 +76,8 @@ steps:
       - id: realigned_bam
     run: ../command_line_tools/abra2_2.17/abra2_2.17.cwl
     label: abra2_2.17
-    'sbg:x': -345.47686767578125
-    'sbg:y': -45.99028015136719
+    'sbg:x': -470.00372314453125
+    'sbg:y': -41.73903274536133
   - id: bedtools_genomecov
     in:
       - id: input
