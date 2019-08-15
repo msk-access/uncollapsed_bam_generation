@@ -12,44 +12,46 @@ inputs:
         items: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': -1193.5728759765625
-    'sbg:y': 221.94479370117188
+    'sbg:x': -21
+    'sbg:y': 186
   - id: reference_fasta
     type: File
     secondaryFiles:
       - .fai
       - ^.dict
-    'sbg:x': -1170.9459228515625
-    'sbg:y': -175.96751403808594
-  - id: option_bedgraph
-    type: boolean?
-    'sbg:x': -1052.5999755859375
-    'sbg:y': -323.5162353515625
+    'sbg:x': 0
+    'sbg:y': 0
   - id: bam_index
     type: boolean?
-    'sbg:x': -504.757568359375
-    'sbg:y': 108.0183334350586
+    'sbg:x': 0
+    'sbg:y': 321
+  - id: option_bedgraph
+    type: boolean?
+    'sbg:x': -0.9758758544921875
+    'sbg:y': 473.5
 outputs:
   - id: bam
     outputSource:
-      - picard_fix_mate_information_1_96/bam
+      - picard_fix_mate_information_1_97/bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 80
-    'sbg:y': -24
+    'sbg:x': 964.0241088867188
+    'sbg:y': 49.5
 steps:
-  - id: picard_fix_mate_information_1_96
+  - id: bedtools_genomecov
     in:
       - id: input
-        source: abra2_2_17/realigned_bam
+        source: input_bam
+      - id: option_bedgraph
+        source: option_bedgraph
     out:
-      - id: bam
+      - id: output_file
     run: >-
-      ../command_line_tools/picard_fix_mate_information_1.96/picard_fix_mate_information_1.96.cwl
-    label: picard_fix_mate_information_1.96
-    'sbg:x': -115
-    'sbg:y': -10
+      command_line_tools/bedtools_genomecov_v2.28.0_cv2/bedtools_genomecov_v2.28.0_cv2.cwl
+    label: bedtools_genomecov
+    'sbg:x': 263.0245666503906
+    'sbg:y': 372.5
   - id: bedtools_merge
     in:
       - id: input
@@ -57,11 +59,11 @@ steps:
     out:
       - id: output_file
     run: >-
-      ../command_line_tools/bedtools_merge_v2.28.0_cv2/bedtools_merge_v2.28.0_cv2.cwl
+      command_line_tools/bedtools_merge_v2.28.0_cv2/bedtools_merge_v2.28.0_cv2.cwl
     label: bedtools_merge
-    'sbg:x': -544
-    'sbg:y': -354
-  - id: abra2_2_17
+    'sbg:x': 400
+    'sbg:y': -102
+  - id: abra2_2_18
     in:
       - id: input_bam
         source:
@@ -74,21 +76,19 @@ steps:
         source: bam_index
     out:
       - id: realigned_bam
-    run: ../command_line_tools/abra2_2.17/abra2_2.17.cwl
+    run: command_line_tools/abra2_2.17/abra2_2.17.cwl
     label: abra2_2.17
-    'sbg:x': -470.00372314453125
-    'sbg:y': -41.73903274536133
-  - id: bedtools_genomecov
+    'sbg:x': 572
+    'sbg:y': 96
+  - id: picard_fix_mate_information_1_97
     in:
       - id: input
-        source: input_bam
-      - id: option_bedgraph
-        source: option_bedgraph
+        source: abra2_2_18/realigned_bam
     out:
-      - id: output_file
+      - id: bam
     run: >-
-      ../command_line_tools/bedtools_genomecov_v2.28.0_cv2/bedtools_genomecov_v2.28.0_cv2.cwl
-    label: bedtools_genomecov
-    'sbg:x': -804.4765625
-    'sbg:y': -225.5
+      command_line_tools/picard_fix_mate_information_1.96/picard_fix_mate_information_1.96.cwl
+    label: picard_fix_mate_information_1.96
+    'sbg:x': 673.0241088867188
+    'sbg:y': 306.5
 requirements: []
