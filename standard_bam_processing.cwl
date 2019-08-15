@@ -19,8 +19,8 @@ inputs:
       - .bwt
       - .pac
       - .sa
-    'sbg:x': 0
-    'sbg:y': 106.7421875
+    'sbg:x': 23.071672439575195
+    'sbg:y': 122.1501693725586
   - id: known_sites_1
     type: File
     secondaryFiles:
@@ -39,8 +39,8 @@ inputs:
     'sbg:y': 1157.53125
   - id: paired
     type: boolean
-    'sbg:x': 0
-    'sbg:y': 853.9765625
+    'sbg:x': -249.77468872070312
+    'sbg:y': 938.44921875
   - id: gzip
     type: boolean
     'sbg:x': 0
@@ -49,18 +49,6 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 0
-  - id: number_of_threads
-    type: int?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 410.34375
-  - id: memory_per_job
-    type: int?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 517.0859375
-  - id: memory_overhead
-    type: int?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 623.8359375
   - id: duplicate_scoring_strategy
     type: string?
     'sbg:x': 523.8824462890625
@@ -82,7 +70,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 1067.453125
   - id: fastq1
-    type: 'File[]'
+    type: File
     'sbg:x': 0
     'sbg:y': 1707.8828125
   - id: read_group_sequnecing_center
@@ -121,6 +109,10 @@ inputs:
     type: boolean?
     'sbg:x': 0
     'sbg:y': 1814.6171875
+  - id: sort_order
+    type: string?
+    'sbg:x': 211.4326934814453
+    'sbg:y': -134.37013244628906
 outputs:
   - id: clstats2
     outputSource:
@@ -161,20 +153,10 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    scatter:
-      - fastq1
-      - fastq2
-    scatterMethod: dotproduct
-    'sbg:x': 319.15625
-    'sbg:y': 939.671875
+    'sbg:x': 506.3310241699219
+    'sbg:y': 472.3157043457031
   - id: picard_mark_duplicates_2_8_1
     in:
-      - id: memory_per_job
-        source: memory_per_job
-      - id: memory_overhead
-        source: memory_overhead
-      - id: number_of_threads
-        source: number_of_threads
       - id: input
         source: alignment/bam
       - id: validation_stringency
@@ -192,8 +174,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 1126.840576171875
-    'sbg:y': 1296.966064453125
+    'sbg:x': 2328.3779296875
+    'sbg:y': 2168.15283203125
   - id: calculate_apply_bqsr_cwl
     in:
       - id: known_sites_1
@@ -202,12 +184,14 @@ steps:
         source: abra_fx_cwl/bam
       - id: known_sites_2
         source: known_sites_2
+      - id: reference
+        source: reference
     out:
       - id: output
     run: subworkflows/calculate_apply_bqsr-cwl.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 1695.3192138671875
-    'sbg:y': 630.4578857421875
+    'sbg:x': 1775.5426025390625
+    'sbg:y': -314.498291015625
   - id: abra_fx_cwl
     in:
       - id: input_bam
@@ -223,8 +207,8 @@ steps:
       - id: bam
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 1312.0098876953125
-    'sbg:y': 939.6796875
+    'sbg:x': 1330.2593994140625
+    'sbg:y': 892.6348266601562
   - id: alignment
     in:
       - id: reference
@@ -239,6 +223,8 @@ steps:
         source: M
       - id: read_group_identifier
         source: read_group_identifier
+      - id: sort_order
+        source: sort_order
       - id: create_bam_index
         source: create_bam_index_1
       - id: read_group_sequnecing_center
@@ -255,9 +241,8 @@ steps:
       - id: bam
     run: subworkflows/alignment.cwl
     label: alignment
-    'sbg:x': 523.8824462890625
-    'sbg:y': 1441.0078125
+    'sbg:x': 3339.23583984375
+    'sbg:y': 460.068359375
 requirements:
   - class: SubworkflowFeatureRequirement
-  - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
