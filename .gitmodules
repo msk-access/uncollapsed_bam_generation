@@ -2,6 +2,3 @@
 	path = command_line_tools
 	url = https://github.com/mskcc/cwl-commandlinetools.git
 	branch = 0.3.0
-[submodule "subworkflows/command_line_tools"]
-	path = subworkflows/command_line_tools
-	url = https://github.com/mskcc/cwl-commandlinetools.git
