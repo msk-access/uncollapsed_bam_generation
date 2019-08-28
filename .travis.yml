@@ -4,11 +4,13 @@ python:
 install: pip install -r requirements.txt
 before_install:
   - fileid="19Ncjp89IWcIq1XuurFkGu2GZUU0Zzrna"
-  - filename="MyFile.csv"
+  - filename="test-data.tar.gz"
   - curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
   - curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}
-  - tar -xzvf test-data.tar.gz
-script: toil-cwl-runner
+  - tar -xzvf $filename
+script:
+#  toil-cwl-runner standard_bam_processing.cwl example_input.json
+ - cwltool standard_bam_processing.cwl example_input.json
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
