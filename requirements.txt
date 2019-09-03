@@ -1,0 +1,3 @@
+toil-ionox0[cwl]==0.0.7
+pytz
+typing==3.7.4
