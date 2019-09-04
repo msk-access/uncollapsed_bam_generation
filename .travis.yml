@@ -3,16 +3,5 @@ language: python
 python:
   - 3.7
 
-# Todo: delete after confirming that travis doesn't need these
-
-#install: pip install -r requirements.txt
-
-#before_install:
-#  - fileid="19Ncjp89IWcIq1XuurFkGu2GZUU0Zzrna"
-#  - filename="test-data.tar.gz"
-#  - curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
-#  - curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}
-#  - tar -xzvf $filename
-
 script:
 - tox
