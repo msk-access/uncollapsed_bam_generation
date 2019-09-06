@@ -9,8 +9,6 @@ filename=test-data.tar.gz
 # Skip if already have test data
 [[ -f $filename ]] && exit 0
 
-echo "HERE"
-
 curl -c ./cookie -s -k -L "https://drive.google.com/uc?export=download&id=$fileid" > /dev/null
 
 curl -k -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}

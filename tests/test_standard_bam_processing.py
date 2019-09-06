@@ -42,15 +42,10 @@ def setup_module():
     ]
 
     print('Calling cwltool with cmd:\n{}'.format(cmd))
-    p = Popen(cmd, stdin=PIPE, stdout=PIPE, close_fds=True)
-    # todo: just redirect to a file instead of using global
-    output_string = p.stdout.read()
-
-    global OUTPUT_JSON
-    OUTPUT_JSON = json.loads(output_string)
 
     with open(OUTPUT_JSON_FILENAME, 'w') as f:
-        json.dump(OUTPUT_JSON, f)
+        p = Popen(cmd, stdin=PIPE, stdout=f, close_fds=True)
+        p.wait()
 
 
 def teardown_module():
@@ -66,39 +61,34 @@ def teardown_module():
     os.remove(OUTPUT_JSON_FILENAME)
 
 
-def test_trimming_results():
-    """
-    Trimgalore results should exist
-    """
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt')
-
-
-def test_bam_results():
-    """
-    Bam and index should exist
-
-    From both MD step as well as after IR and BQSR steps
-    """
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bai')
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam')
-
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bai')
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam')
-
-
-def test_md_metrics():
-    """
-    Metrics from MarkDuplicates should exist
-    """
-    assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.metrics')
-
-
 def test_output_json():
     """
     General tests for output json
-
-    Todo: need to check that each result file is there
-    Todo: then we don't need the above asserts?
     """
-    # assert OUTPUT_JSON['clstats2']['size'] == 1904
-    assert len(OUTPUT_JSON['output']) == 4
+    output_json = json.loads(open(OUTPUT_JSON_FILENAME, 'r').read())
+
+    assert output_json['clstats1']
+    assert output_json['clstats2']
+
+    # Todo: why do these have the same basename??
+    assert output_json['clstats1']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
+    assert output_json['clstats2']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
+
+    outputs_list = output_json['output']
+    assert len(outputs_list) == 4
+
+    md_bam = list(filter(lambda x: '_md.bam' in x['basename'], outputs_list))
+    assert len(md_bam) == 1
+    assert md_bam[0]['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam'
+
+    bqsr_bam = list(filter(lambda x: '_fm_bqsr.bam' in x['basename'], outputs_list))
+    assert len(bqsr_bam) == 1
+    assert bqsr_bam[0]['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam'
+
+    trim_reports = list(filter(lambda x: '_trimming_report.txt' in x['basename'], outputs_list))
+    assert len(trim_reports) == 2
+
+
+if __name__ == '__main__':
+    import pytest
+    pytest.main()
