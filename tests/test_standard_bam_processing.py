@@ -69,24 +69,14 @@ def test_output_json():
 
     assert output_json['clstats1']
     assert output_json['clstats2']
+    assert output_json['bqsr_bam']
+    assert output_json['md_bam']
 
     # Todo: why do these have the same basename??
     assert output_json['clstats1']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
     assert output_json['clstats2']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
-
-    outputs_list = output_json['output']
-    assert len(outputs_list) == 4
-
-    md_bam = list(filter(lambda x: '_md.bam' in x['basename'], outputs_list))
-    assert len(md_bam) == 1
-    assert md_bam[0]['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam'
-
-    bqsr_bam = list(filter(lambda x: '_fm_bqsr.bam' in x['basename'], outputs_list))
-    assert len(bqsr_bam) == 1
-    assert bqsr_bam[0]['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam'
-
-    trim_reports = list(filter(lambda x: '_trimming_report.txt' in x['basename'], outputs_list))
-    assert len(trim_reports) == 2
+    assert output_json['bqsr_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam'
+    assert output_json['md_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam'
 
 
 if __name__ == '__main__':
