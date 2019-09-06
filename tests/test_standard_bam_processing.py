@@ -4,10 +4,18 @@
 """Tests for `standard_bam_processing` package."""
 
 import os
-import pytest
+import json
+import pprint
 import shutil
-import subprocess
+import logging
 
+from subprocess import Popen, PIPE, STDOUT
+
+
+# Global to store output json for subsequent testing
+OUTPUT_JSON = None
+
+OUTPUT_JSON_FILENAME = 'pipeline_result.json'
 
 RESULT_FILES = [
     # Cookie file from test data download step
@@ -20,13 +28,11 @@ RESULT_FILES = [
     'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.metrics',
 ]
 
+
 def setup_module():
     """
     Run the workflow with cwltool
     """
-    print('SETUP')
-
-
     cmd = [
         'cwltool',
         '--preserve-environment',
@@ -35,22 +41,28 @@ def setup_module():
         'example_input.json'
     ]
 
-    rc = subprocess.check_call(cmd)
+    print('Calling cwltool with cmd:\n{}'.format(cmd))
+    p = Popen(cmd, stdin=PIPE, stdout=PIPE, close_fds=True)
+    output_string = p.stdout.read()
 
-    print('cwltool return code: ' + str(rc))
+    global OUTPUT_JSON
+    OUTPUT_JSON = json.loads(output_string)
+
+    with open(OUTPUT_JSON_FILENAME, 'wb') as f:
+        json.dump(OUTPUT_JSON, f)
 
 
 def teardown_module():
     """
     Delete output files
     """
-    print('TEARDOWN')
-
     for file in RESULT_FILES:
         if os.path.exists(file):
             os.remove(file)
 
     #shutil.rmtree('test_data_access')
+
+    os.remove(OUTPUT_JSON_FILENAME)
 
 
 def test_trimming_results():
@@ -80,4 +92,9 @@ def test_md_metrics():
     assert os.path.exists('test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.metrics')
 
 
-pytest.main()
+def test_output_json():
+    """
+    General tests for output json
+    """
+    assert OUTPUT_JSON['clstats2']['size'] == 1904
+    assert len(OUTPUT_JSON['output']) == 4
