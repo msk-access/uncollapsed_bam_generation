@@ -43,12 +43,13 @@ def setup_module():
 
     print('Calling cwltool with cmd:\n{}'.format(cmd))
     p = Popen(cmd, stdin=PIPE, stdout=PIPE, close_fds=True)
+    # todo: just redirect to a file instead of using global
     output_string = p.stdout.read()
 
     global OUTPUT_JSON
     OUTPUT_JSON = json.loads(output_string)
 
-    with open(OUTPUT_JSON_FILENAME, 'wb') as f:
+    with open(OUTPUT_JSON_FILENAME, 'w') as f:
         json.dump(OUTPUT_JSON, f)
 
 
