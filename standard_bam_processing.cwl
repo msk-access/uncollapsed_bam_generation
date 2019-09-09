@@ -113,6 +113,16 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 106.6875
+  - id: output
+    type: string?
+    label: aln_output_file_name
+    'sbg:x': -268.4370422363281
+    'sbg:y': 2196.8056640625
+  - id: output_file_name
+    type: string?
+    label: picard_output_file_name
+    'sbg:x': -110.30335998535156
+    'sbg:y': 2516.548828125
 outputs:
   - id: clstats2
     outputSource:
@@ -242,6 +252,10 @@ steps:
         source: read_group_platform_unit
       - id: read_group_library
         source: read_group_library
+      - id: output_file_name
+        source: output_file_name
+      - id: output
+        source: output
     out:
       - id: bam
     run: subworkflows/alignment.cwl
