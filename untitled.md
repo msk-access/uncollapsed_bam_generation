@@ -1,22 +1,21 @@
-# Untitled
+# Quick Start
 
 ## Running the ACCESS standard bam workflow
 
-Becoming a super hero is a fairly straight forward process:
+Step 1:
 
 ```
-$ give me super-powers
+$ git clone --recursive https://github.com/msk-access/standard_bam_processing.git
 ```
 
 {% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+ This will clone the CWL files
 {% endhint %}
 
-Once you're strong enough, save the world:
+Step 2 - Generate an inputs file in json or yaml format:
 
 ```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
+$ blah blah...
 ```
 
 
