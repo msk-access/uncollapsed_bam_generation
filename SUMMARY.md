@@ -1,5 +1,6 @@
 # Table of contents
 
 * [ACCESS standard bam processing](README.md)
-* [Quick Start](untitled.md)
+* [Quick Start](quickstart.md)
+* [Untitled](untitled.md)
 
