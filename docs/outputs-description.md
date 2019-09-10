@@ -19,5 +19,3 @@ description: Here are the various outputs of the workflow
 * `sample_1_R1_001_val_1_srt_md.metrics`
   * The MarkDuplicates metrics file
 
-
-

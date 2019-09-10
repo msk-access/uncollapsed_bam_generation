@@ -17,7 +17,3 @@ description: Versions of tools in order of process
   * [BaseRecalibrator](https://github.com/mskcc/cwl-commandlinetools/tree/master/gatk_BaseRecalibrator_4.1.2.0)
   * [ApplyBQSR](https://github.com/mskcc/cwl-commandlinetools/tree/master/gatk_ApplyBQSR_4.1.2.0)
 
-
-
-
-

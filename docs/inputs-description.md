@@ -51,7 +51,6 @@ Here is an example json of inputs:
     "sort_order": "coordinate",
     "validation_stringency": "LENIENT"
 }
-
 ```
 
 {% hint style="info" %}
