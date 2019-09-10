@@ -1,12 +1,8 @@
-# ACCESS\_standard\_bam
-
-Workflow for making MSK-ACCESS standard binary alignment mapping file.
+# ACCESS standard bam processing
 
 [![](https://travis-ci.com/msk-access/standard_bam_processing.svg?branch=feature%2Fstandard_bam_workflow)](https://travis-ci.com/msk-access/standard_bam_processing)
 
-
-=======
-# ACCESS standard bam processing
+[Documentation](https://msk-access.gitbook.io/standard-bam-processing/)
 
 #### Workflow for generating MSK-ACCESS standard binary alignment mapping files
 
