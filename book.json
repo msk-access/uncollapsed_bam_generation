@@ -1,6 +1,6 @@
 {
-    "title": "区块链工程师面试宝典",
-    "author": "Haoyu LIN",
+    "title": "MSK ACCESS Standard Bam Processing",
+    "author": "Ronak Shah, Ian Johnson, Shalabh Suman",
     "output.name": "site",
     "gitbook": "3.2.3",
     "root": "./docs",
@@ -51,10 +51,10 @@
             ]
         },
         "github": {
-            "url": "https://github.com/ChrisLinn/blockchain-cheatsheet"
+            "url": "https://github.com/msk-access/standard_bam_processing"
         },
         "github-buttons": {
-            "repo": "ChrisLinn/blockchain-cheatsheet",
+            "repo": "msk-access/standard_bam_processing",
             "types": [
                 "star",
                 "watch",
@@ -69,22 +69,22 @@
         },
         "sharing": {
            "douban": false,
-           "facebook": false,
-           "google": false,
+           "facebook": true,
+           "google": true,
            "hatenaBookmark": false,
            "instapaper": false,
            "line": false,
-           "linkedin": false,
-           "messenger": false,
+           "linkedin": true,
+           "messenger": true,
            "pocket": false,
            "qq": false,
            "qzone": false,
            "stumbleupon": false,
-           "twitter": false,
+           "twitter": true,
            "viber": false,
            "vk": false,
            "weibo": false,
-           "whatsapp": false,
+           "whatsapp": true,
            "all": [
                "facebook", "google", "twitter",
                "weibo", "instapaper", "linkedin",
@@ -92,8 +92,8 @@
            ]
        },
         "tbfed-pagefooter": {
-            "copyright": "Copyright © Haoyu LIN 2017-2018",
-            "modify_label": "该文件修订时间：",
+            "copyright": "Copyright © MSK 2019",
+            "modify_label": "standard_bam_processing",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "simple-page-toc": {
@@ -120,9 +120,9 @@
             "wechat": "",
             "alipay": "",
             "title": "",
-            "button": "赞赏 👍  ",
-            "alipayText": "支付宝打赏",
-            "wechatText": "微信打赏"
+            "button": "Donate 👍",
+            "alipayText": "MSK ACCESS",
+            "wechatText": "MSK ACCESS"
         }
     }
 }
