@@ -8,7 +8,7 @@ inputs:
   - id: fastq2
     type: File
     'sbg:x': 0
-    'sbg:y': 1920.921875
+    'sbg:y': 2991.625
   - id: reference
     type: File
     secondaryFiles:
@@ -20,154 +20,238 @@ inputs:
       - .pac
       - .sa
     'sbg:x': 0
-    'sbg:y': 213.421875
+    'sbg:y': 747.90625
   - id: known_sites_1
     type: File
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 1707.484375
+    'sbg:y': 2671.09375
   - id: known_sites_2
     type: File?
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 1600.78125
+    'sbg:y': 2564.25
   - id: bam_compression_level
     type: int?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 1136.2578125
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1885.609375
   - id: paired
     type: boolean
     'sbg:x': 0
-    'sbg:y': 960.53125
+    'sbg:y': 1602.65625
   - id: gzip
     type: boolean
     'sbg:x': 0
-    'sbg:y': 1814.203125
+    'sbg:y': 2884.78125
   - id: validation_stringency
     type: string?
     'sbg:x': 0
-    'sbg:y': 0
+    'sbg:y': 106.84375
   - id: duplicate_scoring_strategy
     type: string?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 709.3984375
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1458.234375
   - id: create_bam_index
     type: boolean?
     label: picard_md_create_bam_index_flag
-    'sbg:x': 523.8824462890625
-    'sbg:y': 816.1328125
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1565.078125
   - id: assume_sorted
     type: boolean?
-    'sbg:x': 523.8824462890625
-    'sbg:y': 1242.9609375
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1992.453125
   - id: bam_index
     type: boolean?
     label: abra_bam_index_flag
     'sbg:x': 0
-    'sbg:y': 2241.078125
+    'sbg:y': 3525.84375
   - id: option_bedgraph
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1387.359375
+    'sbg:y': 2030.03125
   - id: fastq1
     type: File
     'sbg:x': 0
-    'sbg:y': 2027.625
+    'sbg:y': 3098.46875
   - id: read_group_sequnecing_center
     type: string
     'sbg:x': 0
-    'sbg:y': 320.140625
+    'sbg:y': 854.75
   - id: read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 426.875
+    'sbg:y': 961.59375
   - id: read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 533.609375
+    'sbg:y': 1068.4375
   - id: read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 640.34375
+    'sbg:y': 1175.28125
   - id: read_group_library
     type: int
     'sbg:x': 0
-    'sbg:y': 747.078125
+    'sbg:y': 1282.125
   - id: read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 853.8125
+    'sbg:y': 1388.96875
   - id: P
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1067.234375
+    'sbg:y': 1709.5
   - id: M
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1494.078125
+    'sbg:y': 2350.5625
   - id: create_bam_index_1
     type: boolean?
     label: picard_addrg_bam_index_flag
     'sbg:x': 0
-    'sbg:y': 2134.34375
+    'sbg:y': 3205.3125
   - id: sort_order
     type: string?
     'sbg:x': 0
-    'sbg:y': 106.71875
+    'sbg:y': 427.375
   - id: output
     type: string?
     label: aln_output_file_name
     'sbg:x': 0
-    'sbg:y': 1280.640625
+    'sbg:y': 1923.1875
   - id: output_file_name
     type: string?
     label: picard_output_file_name
     'sbg:x': 0
-    'sbg:y': 1173.9375
+    'sbg:y': 1816.34375
+  - id: window_size
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 0
+  - id: soft_clip_contig
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 534.21875
+  - id: scoring_gap_alignments
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 641.0625
+  - id: maximum_mixmatch_rate
+    type: float?
+    'sbg:x': 0
+    'sbg:y': 2136.875
+  - id: maximum_average_depth
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 2243.71875
+  - id: ignore_bad_assembly
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 2777.9375
+  - id: contig_anchor
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 3312.15625
+  - id: consensus_sequence
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 3419
+  - id: suppress_warn
+    type: boolean?
+    label: trim_galore_suppress_warn
+    'sbg:x': 0
+    'sbg:y': 213.6875
+  - id: stringency
+    type: int?
+    label: trim_galore_stringency
+    'sbg:x': 0
+    'sbg:y': 320.53125
+  - id: quality
+    type: int?
+    label: trim_galore_quality
+    'sbg:x': 0
+    'sbg:y': 1495.8125
+  - id: length
+    type: int?
+    label: trim_galore_length
+    'sbg:x': 0
+    'sbg:y': 2457.40625
+  - id: adapter2
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 3632.6875
+  - id: adapter
+    type: string?
+    'sbg:x': 0
+    'sbg:y': 3739.53125
+  - id: bqsr_read_filter
+    type: string?
+    'sbg:x': 1397.937744140625
+    'sbg:y': 1792.765625
 outputs:
   - id: clstats2
     outputSource:
       - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': 523.8824462890625
-    'sbg:y': 922.8515625
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1671.921875
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
     type: File
-    'sbg:x': 523.8824462890625
-    'sbg:y': 1029.5546875
+    'sbg:x': 609.8592529296875
+    'sbg:y': 1778.765625
   - id: bqsr_bam
     outputSource:
       - calculate_apply_bqsr_cwl/output
+      - calculate_apply_bqsr_cwl/bqsr_bam
     type: File?
     secondaryFiles:
       - ^.bai
-    'sbg:x': 1800.99951171875
-    'sbg:y': 1120.5546875
+    'sbg:x': 2139.892578125
+    'sbg:y': 1869.765625
   - id: md_bam
     outputSource:
       - picard_mark_duplicates_2_8_1/bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 1311.9609375
-    'sbg:y': 1046.203125
+    'sbg:x': 1397.937744140625
+    'sbg:y': 1685.921875
+  - id: output_file
+    outputSource:
+      - abra_fx_cwl/output_file
+    type: File?
+    label: indel_realign_targets
+    'sbg:x': 1879.986328125
+    'sbg:y': 1788.34375
 steps:
   - id: trim_galore_0_6_2
     in:
+      - id: adapter
+        source: adapter
+      - id: adapter2
+        source: adapter2
       - id: fastq1
         source: fastq1
       - id: fastq2
         source: fastq2
+      - id: length
+        source: length
       - id: paired
         default: false
         source: paired
       - id: gzip
         default: false
         source: gzip
+      - id: quality
+        source: quality
+      - id: stringency
+        source: stringency
+      - id: suppress_warn
+        source: suppress_warn
     out:
       - id: clfastq1
       - id: clfastq2
@@ -175,8 +259,8 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    'sbg:x': 319.15625
-    'sbg:y': 1099.5390625
+    'sbg:x': 319.125
+    'sbg:y': 1806.765625
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: input
@@ -196,24 +280,28 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 987.1328735351562
-    'sbg:y': 1085.5546875
+    'sbg:x': 1073.109619140625
+    'sbg:y': 1834.765625
   - id: calculate_apply_bqsr_cwl
     in:
       - id: known_sites_1
         source: known_sites_1
       - id: input
-        source: abra_fx_cwl/bam
+        source:
+          - abra_fx_cwl/bam
+          - abra_fx_cwl/abra_fx_bam
       - id: known_sites_2
         source: known_sites_2
       - id: reference
         source: reference
+      - id: read_filter
+        source: bqsr_read_filter
     out:
-      - id: output
+      - id: bqsr_bam
     run: subworkflows/calculate_apply_bqsr-cwl.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 1556.816162109375
-    'sbg:y': 1099.5390625
+    'sbg:x': 1879.986328125
+    'sbg:y': 1923.1875
   - id: abra_fx_cwl
     in:
       - id: input_bam
@@ -225,12 +313,29 @@ steps:
         source: bam_index
       - id: option_bedgraph
         source: option_bedgraph
+      - id: window_size
+        source: window_size
+      - id: soft_clip_contig
+        source: soft_clip_contig
+      - id: scoring_gap_alignments
+        source: scoring_gap_alignments
+      - id: maximum_mixmatch_rate
+        source: maximum_mixmatch_rate
+      - id: maximum_average_depth
+        source: maximum_average_depth
+      - id: ignore_bad_assembly
+        source: ignore_bad_assembly
+      - id: contig_anchor
+        source: contig_anchor
+      - id: consensus_sequence
+        source: consensus_sequence
     out:
-      - id: bam
+      - id: abra_fx_bam
+      - id: output_file
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 1311.9609375
-    'sbg:y': 1173.90625
+    'sbg:x': 1397.937744140625
+    'sbg:y': 1976.609375
   - id: alignment
     in:
       - id: reference
@@ -267,8 +372,8 @@ steps:
       - id: bam
     run: subworkflows/alignment.cwl
     label: alignment
-    'sbg:x': 523.8824462890625
-    'sbg:y': 1440.6796875
+    'sbg:x': 609.8592529296875
+    'sbg:y': 2190.296875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
