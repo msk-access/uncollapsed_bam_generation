@@ -205,7 +205,6 @@ outputs:
     'sbg:y': 1778.765625
   - id: bqsr_bam
     outputSource:
-      - calculate_apply_bqsr_cwl/output
       - calculate_apply_bqsr_cwl/bqsr_bam
     type: File?
     secondaryFiles:
@@ -288,7 +287,6 @@ steps:
         source: known_sites_1
       - id: input
         source:
-          - abra_fx_cwl/bam
           - abra_fx_cwl/abra_fx_bam
       - id: known_sites_2
         source: known_sites_2
