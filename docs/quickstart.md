@@ -2,19 +2,19 @@
 
 ## Running the ACCESS standard bam workflow
 
-#### Step 1 -  Clone the project from GitHub:
+### Step 1 -  Clone the project from GitHub:
 
 ```text
 $ git clone --recursive https://github.com/msk-access/standard_bam_processing.git
 ```
 
-#### Step 2 - Generate an inputs file 
+### Step 2 - Generate an inputs file
 
 Using either json or yaml format, following these specifications:
 
 [https://app.gitbook.com/@msk-access/s/standard-bam-processing/v/develop/inputs-description](https://app.gitbook.com/@msk-access/s/standard-bam-processing/v/develop/inputs-description)
 
-#### Step 3 - Run the workflow with a CWL executor:
+### Step 3 - Run the workflow with a CWL executor:
 
 ```text
 $ cwltool standard_bam_processing.cwl inputs.json
@@ -45,6 +45,4 @@ $ toil-cwl-runner \
 
 $ cwltool standard\_bam\_processing.cwl --help
 {% endhint %}
-
-
 
