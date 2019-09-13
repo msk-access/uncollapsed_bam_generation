@@ -33,27 +33,6 @@ inputs:
       - .idx
     'sbg:x': 0
     'sbg:y': 2564.25
-  - id: bam_compression_level
-    type: int?
-    'sbg:x': 609.8592529296875
-    'sbg:y': 1885.609375
-  - id: validation_stringency
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 106.84375
-  - id: duplicate_scoring_strategy
-    type: string?
-    'sbg:x': 609.8592529296875
-    'sbg:y': 1458.234375
-  - id: create_bam_index
-    type: boolean?
-    label: picard_md_create_bam_index_flag
-    'sbg:x': 609.8592529296875
-    'sbg:y': 1565.078125
-  - id: assume_sorted
-    type: boolean?
-    'sbg:x': 609.8592529296875
-    'sbg:y': 1992.453125
   - id: bam_index
     type: boolean?
     label: abra_bam_index_flag
@@ -95,19 +74,6 @@ inputs:
     type: boolean?
     'sbg:x': 0
     'sbg:y': 1709.5
-  - id: M
-    type: boolean?
-    'sbg:x': 0
-    'sbg:y': 2350.5625
-  - id: create_bam_index_1
-    type: boolean?
-    label: picard_addrg_bam_index_flag
-    'sbg:x': 0
-    'sbg:y': 3205.3125
-  - id: sort_order
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 427.375
   - id: output
     type: string?
     label: aln_output_file_name
@@ -255,22 +221,22 @@ steps:
       - id: input
         source: alignment/bam
       - id: validation_stringency
-        source: validation_stringency
+        default: LENIENT
       - id: bam_compression_level
-        source: bam_compression_level
+        default: 0
       - id: create_bam_index
-        source: create_bam_index
+        default: true
       - id: assume_sorted
-        source: assume_sorted
+        default: true
       - id: duplicate_scoring_strategy
-        source: duplicate_scoring_strategy
+        default: SUM_OF_BASE_QUALITIES
     out:
       - id: bam
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 1073.109619140625
-    'sbg:y': 1834.765625
+    'sbg:x': 886.9013671875
+    'sbg:y': 1862.02685546875
   - id: calculate_apply_bqsr_cwl
     in:
       - id: known_sites_1
@@ -336,13 +302,13 @@ steps:
       - id: P
         source: P
       - id: M
-        source: M
+        default: true
       - id: read_group_identifier
         source: read_group_identifier
       - id: sort_order
-        source: sort_order
+        default: coordinate
       - id: create_bam_index
-        source: create_bam_index_1
+        default: true
       - id: read_group_sequnecing_center
         source: read_group_sequnecing_center
       - id: read_group_sequencing_platform
