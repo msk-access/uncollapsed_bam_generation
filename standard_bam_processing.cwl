@@ -190,6 +190,11 @@ inputs:
     type: string?
     'sbg:x': 1397.937744140625
     'sbg:y': 1792.765625
+  - id: number_of_threads
+    type: int?
+    label: abra_number_of_threads
+    'sbg:x': 1252.799560546875
+    'sbg:y': 1510.1484375
 outputs:
   - id: clstats2
     outputSource:
@@ -286,8 +291,7 @@ steps:
       - id: known_sites_1
         source: known_sites_1
       - id: input
-        source:
-          - abra_fx_cwl/abra_fx_bam
+        source: abra_fx_cwl/abra_fx_bam
       - id: known_sites_2
         source: known_sites_2
       - id: reference
@@ -327,6 +331,8 @@ steps:
         source: contig_anchor
       - id: consensus_sequence
         source: consensus_sequence
+      - id: number_of_threads
+        source: number_of_threads
     out:
       - id: abra_fx_bam
       - id: output_file
