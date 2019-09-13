@@ -37,14 +37,6 @@ inputs:
     type: int?
     'sbg:x': 609.8592529296875
     'sbg:y': 1885.609375
-  - id: paired
-    type: boolean
-    'sbg:x': 0
-    'sbg:y': 1602.65625
-  - id: gzip
-    type: boolean
-    'sbg:x': 0
-    'sbg:y': 2884.78125
   - id: validation_stringency
     type: string?
     'sbg:x': 0
@@ -158,11 +150,6 @@ inputs:
     type: boolean?
     'sbg:x': 0
     'sbg:y': 3419
-  - id: suppress_warn
-    type: boolean?
-    label: trim_galore_suppress_warn
-    'sbg:x': 0
-    'sbg:y': 213.6875
   - id: stringency
     type: int?
     label: trim_galore_stringency
@@ -245,17 +232,15 @@ steps:
       - id: length
         source: length
       - id: paired
-        default: false
-        source: paired
+        default: true
       - id: gzip
-        default: false
-        source: gzip
+        default: true
       - id: quality
         source: quality
       - id: stringency
         source: stringency
       - id: suppress_warn
-        source: suppress_warn
+        default: true
     out:
       - id: clfastq1
       - id: clfastq2
