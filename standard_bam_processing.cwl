@@ -222,6 +222,12 @@ outputs:
     label: indel_realign_targets
     'sbg:x': 1926.0166015625
     'sbg:y': 1738.015625
+  - id: standard_bam_alignment_metrics
+    outputSource:
+      - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
+    type: File
+    'sbg:x': 2210.352294921875
+    'sbg:y': 2112.447998046875
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -369,6 +375,19 @@ steps:
     label: alignment
     'sbg:x': 643.3026123046875
     'sbg:y': 2140.625
+  - id: picard_collect_alignment_summary_metrics_2_8_1
+    in:
+      - id: input
+        source: calculate_apply_bqsr_cwl/bqsr_bam
+      - id: reference_sequence
+        source: reference
+    out:
+      - id: alignment_metrics
+    run: >-
+      command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
+    label: picard_collect_alignment_summary_metrics_2.8.1
+    'sbg:x': 1946.731201171875
+    'sbg:y': 2173.33203125
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
