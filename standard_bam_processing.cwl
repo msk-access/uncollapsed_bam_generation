@@ -148,6 +148,22 @@ inputs:
     label: abra_number_of_threads
     'sbg:x': 1252.799560546875
     'sbg:y': 1510.1484375
+  - id: validation_stringency
+    type: string?
+    'sbg:x': 784.5325317382812
+    'sbg:y': 1687.5247802734375
+  - id: bam_compression_level
+    type: int?
+    'sbg:x': 653.1180419921875
+    'sbg:y': 1952.3883056640625
+  - id: duplicate_scoring_strategy
+    type: string?
+    'sbg:x': 703.4293823242188
+    'sbg:y': 1829.0955810546875
+  - id: create_bam_index
+    type: boolean?
+    'sbg:x': 682.6547241210938
+    'sbg:y': 1612.4459228515625
 outputs:
   - id: clstats2
     outputSource:
@@ -222,14 +238,18 @@ steps:
         source: alignment/bam
       - id: validation_stringency
         default: LENIENT
+        source: validation_stringency
       - id: bam_compression_level
         default: 0
+        source: bam_compression_level
       - id: create_bam_index
         default: true
+        source: create_bam_index
       - id: assume_sorted
         default: true
       - id: duplicate_scoring_strategy
         default: SUM_OF_BASE_QUALITIES
+        source: duplicate_scoring_strategy
     out:
       - id: bam
     run: >-
