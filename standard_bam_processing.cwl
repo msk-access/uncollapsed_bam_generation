@@ -199,7 +199,7 @@ outputs:
     'sbg:y': 1778.765625
   - id: bqsr_bam
     outputSource:
-      - calculate_apply_bqsr_cwl/bqsr_bam
+      - calculate_apply_bqsr/bqsr_bam
     type: File?
     secondaryFiles:
       - ^.bai
@@ -215,7 +215,7 @@ outputs:
     'sbg:y': 1685.921875
   - id: output_file
     outputSource:
-      - abra_fx_cwl/output_file
+      - abra_fx/output_file
     type: File?
     label: indel_realign_targets
     'sbg:x': 1926.0166015625
@@ -286,12 +286,12 @@ steps:
     label: picard_mark_duplicates_2.8.1
     'sbg:x': 1073.109619140625
     'sbg:y': 1834.765625
-  - id: calculate_apply_bqsr_cwl
+  - id: calculate_apply_bqsr
     in:
       - id: known_sites_1
         source: known_sites_1
       - id: input
-        source: abra_fx_cwl/abra_fx_bam
+        source: abra_fx/abra_fx_bam
       - id: known_sites_2
         source: known_sites_2
       - id: reference
@@ -300,11 +300,11 @@ steps:
         source: bqsr_read_filter
     out:
       - id: bqsr_bam
-    run: subworkflows/calculate_apply_bqsr-cwl.cwl
+    run: subworkflows/calculate_apply_bqsr.cwl
     label: calculate_apply_bqsr.cwl
     'sbg:x': 1879.986328125
     'sbg:y': 1923.1875
-  - id: abra_fx_cwl
+  - id: abra_fx
     in:
       - id: input_bam
         source:
@@ -336,7 +336,7 @@ steps:
     out:
       - id: abra_fx_bam
       - id: output_file
-    run: subworkflows/abra_fx-cwl.cwl
+    run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
     'sbg:x': 1397.937744140625
     'sbg:y': 1976.609375
@@ -384,7 +384,7 @@ steps:
   - id: picard_collect_alignment_summary_metrics_2_8_1
     in:
       - id: input
-        source: calculate_apply_bqsr_cwl/bqsr_bam
+        source: calculate_apply_bqsr/bqsr_bam
       - id: reference_sequence
         source: reference
     out:
