@@ -148,10 +148,6 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 106.6953125
-  - id: duplicate_scoring_strategy
-    type: string?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1456.140625
   - id: create_bam_index
     type: boolean?
     'sbg:x': 643.3182373046875
@@ -274,9 +270,6 @@ steps:
       - id: assume_sorted
         default: true
         source: assume_sorted
-      - id: duplicate_scoring_strategy
-        default: SUM_OF_BASE_QUALITIES
-        source: duplicate_scoring_strategy
     out:
       - id: bam
     run: >-
