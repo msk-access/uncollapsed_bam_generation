@@ -1,6 +1,6 @@
 # Quick Start
 
-## Running the ACCESS standard bam workflow
+## Running the MSK-ACCESS standard bam workflow
 
 ### Step 1 -  Clone the project from GitHub:
 
@@ -8,13 +8,15 @@
 $ git clone --recursive https://github.com/msk-access/standard_bam_processing.git
 ```
 
-### Step 2 - Install Toil and cwltool
+### Step 2 - Install Toil and cwltool using python 2.7
 
 ```text
 $ pip install toil-ionox0'[cwl]'==0.0.7
 ```
 
-Note: you may use any CWL executor available, provided it works with your batch system
+{% hint style="info" %}
+**Note:** you may use any CWL executor available, provided it works with your batch system
+{% endhint %}
 
 ### Step 3 - Generate an inputs file
 
@@ -31,7 +33,7 @@ $ cwltool --make-template ~/standard_bam_processing.cwl > inputs.yaml
 ### Step 4 - Run the workflow with a CWL executor:
 
 ```text
-$ cwltool standard_bam_processing.cwl inputs.json
+$ cwltool standard_bam_processing.cwl inputs.yaml
 ```
 
 Or, to run the workflow on a HPC cluster using toil:
