@@ -5,7 +5,7 @@ description: How to install and run the workflow
 # Installation and Usage
 
 {% tabs %}
-{% tab title="Using cwltool" %}
+{% tab title="Using [cwltool](https://github.com/common-workflow-language/cwltool)" %}
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
@@ -51,7 +51,7 @@ Once we have successfully installed the requirements we can now run the workflow
 ```
 {% endtab %}
 
-{% tab title="Using toil-cwl-runner locally" %}
+{% tab title="Using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) locally" %}
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
@@ -97,7 +97,7 @@ Once we have successfully installed the requirements we can now run the workflow
 ```
 {% endtab %}
 
-{% tab title="Using toil-cwl-runner on JUNO" %}
+{% tab title="Using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) on JUNO for [IBM LSF](https://www.ibm.com/support/knowledgecenter/en/SSETD4/product_welcome_platform_lsf.html)" %}
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
