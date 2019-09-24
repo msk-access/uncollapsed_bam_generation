@@ -148,10 +148,6 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 106.6953125
-  - id: bam_compression_level
-    type: int?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1882.8046875
   - id: duplicate_scoring_strategy
     type: string?
     'sbg:x': 643.3182373046875
@@ -272,9 +268,6 @@ steps:
       - id: validation_stringency
         default: LENIENT
         source: validation_stringency
-      - id: bam_compression_level
-        default: 0
-        source: bam_compression_level
       - id: create_bam_index
         default: true
         source: create_bam_index
