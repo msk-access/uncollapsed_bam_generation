@@ -5,7 +5,10 @@ description: How to install and run the workflow
 # Installation and Usage
 
 {% tabs %}
-{% tab title="Using [cwltool](https://github.com/common-workflow-language/cwltool)" %}
+{% tab title="Using cwltool" %}
+
+Here we use [cwltool](https://github.com/common-workflow-language/cwltool) to run the workflow.
+
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
@@ -51,7 +54,10 @@ Once we have successfully installed the requirements we can now run the workflow
 ```
 {% endtab %}
 
-{% tab title="Using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) locally" %}
+{% tab title="Using toil-cwl-runner locally" %}
+
+Here we show how to run the workflow using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) using single machine interface.
+
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
@@ -97,7 +103,10 @@ Once we have successfully installed the requirements we can now run the workflow
 ```
 {% endtab %}
 
-{% tab title="Using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) on JUNO for [IBM LSF](https://www.ibm.com/support/knowledgecenter/en/SSETD4/product_welcome_platform_lsf.html)" %}
+{% tab title="Using toil-cwl-runner on JUNO" %}
+
+Here we show how to run the workflow using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) on MSKCC internal compute cluster called JUNO which has [IBM LSF](https://www.ibm.com/support/knowledgecenter/en/SSETD4/product_welcome_platform_lsf.html) as a scheduler.
+
 ### Step 1: Create a virtual environment using python 3.7.
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
