@@ -4,6 +4,10 @@ description: Various parameters required to run the workflow
 
 # Inputs Description
 
+{% hint style="warning" %}
+Common workflow language execution engines accept two types of input that JSON or YAML, please make sure to use one of these while generating the input file. For more information refer to: [http://www.commonwl.org/user\_guide/yaml/](http://www.commonwl.org/user_guide/yaml/)
+{% endhint %}
+
 * [Trimgalore](https://github.com/mskcc/cwl-commandlinetools/tree/master/trim_galore_0.6.2)
   * **fastq1:** Read 1 of the paired-end run
   * **fastq2:** Read 2 of the paired-end run
