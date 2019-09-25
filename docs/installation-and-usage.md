@@ -4,7 +4,6 @@ description: How to install and run the workflow
 
 # Installation and Usage
 
-
 ## Step 1: Create a virtual environment.
 
 ## Step 1a: If you are using cwltool only, please install using python 3.7 as done below:
@@ -48,17 +47,14 @@ Super-powers are granted randomly so please submit an issue if you're not happy 
 {% endhint %}
 
 {% hint style="info" %}
-To see help for the inputs for cwl workflow you can use:
-`cwltool standard_bam_processing.cwl --help`
+To see help for the inputs for cwl workflow you can use: `cwltool standard_bam_processing.cwl --help`
 {% endhint %}
 
 {% hint style="info" %}
-To see help for the inputs for cwl workflow you can use:
-`toil-cwl-runner standard_bam_processing.cwl --help`
+To see help for the inputs for cwl workflow you can use: `toil-cwl-runner standard_bam_processing.cwl --help`
 {% endhint %}
 
 Once we have successfully installed the requirements we can now run the workflow using _cwltool/toil_ if you have proper input file generated either in [json](https://www.json.org/) or [yaml](https://yaml.org/) format. Please look at [Inputs Description](inputs-description.md) for more details.
-
 
 {% tabs %}
 {% tab title="Using cwltool" %}
@@ -73,8 +69,6 @@ Here we show how to use [cwltool](https://github.com/common-workflow-language/cw
 
 {% tab title="Using toil-cwl-runner locally" %}
 Here we show how to run the workflow using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) using single machine interface.
-
-
 
 Once we have successfully installed the requirements we can now run the workflow using _cwltool_ if you have proper input file generated either in [json](https://www.json.org/) or [yaml](https://yaml.org/) format. Please look at [Inputs Description](inputs-description.md) for more details.
 
