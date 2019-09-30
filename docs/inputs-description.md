@@ -69,29 +69,29 @@ cwltool --make-template standard_bam_processing.cwl
 read_filter:  # array of type "string" (optional)
   - a_string
 trim_galore_number_of_threads: 0  # type "int" (optional)
-create_bam_index_1: false  # type "boolean" (optional)
+create_bam_index_1: true  # type "boolean" (optional)
 sort_order: a_string  # type "string" (optional)
-M: false  # type "boolean" (optional)
-assume_sorted: false  # type "boolean" (optional)
-create_bam_index: false  # type "boolean" (optional)
+M: true  # type "boolean" (optional)
+assume_sorted: true  # type "boolean" (optional)
+create_bam_index: true  # type "boolean" (optional)
 validation_stringency: a_string  # type "string" (optional)
-number_of_threads: 0  # type "int" (optional)
+number_of_threads: 16  # type "int" (optional)
 adapter: a_string  # type "string" (optional)
 adapter2: a_string  # type "string" (optional)
-length: 0  # type "int" (optional)
-quality: 0  # type "int" (optional)
+length: 25  # type "int" (optional)
+quality: 1  # type "int" (optional)
 stringency: 0  # type "int" (optional)
-consensus_sequence: false  # type "boolean" (optional)
+consensus_sequence: true  # type "boolean" (optional)
 contig_anchor: a_string  # type "string" (optional)
-ignore_bad_assembly: false  # type "boolean" (optional)
-maximum_average_depth: 0  # type "int" (optional)
+ignore_bad_assembly: true  # type "boolean" (optional)
+maximum_average_depth: 1000  # type "int" (optional)
 maximum_mixmatch_rate: 0.1  # type "float" (optional)
 scoring_gap_alignments: a_string  # type "string" (optional)
 soft_clip_contig: a_string  # type "string" (optional)
 window_size: a_string  # type "string" (optional)
 output_file_name: a_string  # type "string" (optional)
 output: a_string  # type "string" (optional)
-P: false  # type "boolean" (optional)
+P: true  # type "boolean" (optional)
 read_group_identifier: a_string  # type "string"
 read_group_library: 0  # type "int"
 read_group_platform_unit: a_string  # type "string"
@@ -101,8 +101,8 @@ read_group_sequnecing_center: a_string  # type "string"
 fastq1:  # type "File"
     class: File
     path: a/file/path
-option_bedgraph: false  # type "boolean" (optional)
-bam_index: false  # type "boolean" (optional)
+option_bedgraph: true  # type "boolean" (optional)
+bam_index: true  # type "boolean" (optional)
 known_sites_2:  # type "File" (optional)
     class: File
     path: a/file/path
