@@ -11,7 +11,7 @@ This is the workflow is written using Common Workflow Language \(CWL\) version 1
 It is meant to be run on a single sample paired-end read 1 and read 2 fastq's, from Illumina sequencing data, but may be generalizable to other sequencing platforms and sequencing panels as well, which produce pair-end data.
 
 
-<img src='https://g.gravizo.com/svg?
+![Alt text](https://g.gravizo.com/svg?
 digraph {compound=true
 "standard_bam_processing.cwl#trim_galore_0_6_2" [label="trim_galore_0_6_2"]
 "standard_bam_processing.cwl#picard_mark_duplicates_2_8_1" [label="picard_mark_duplicates_2_8_1"]
@@ -41,7 +41,7 @@ subgraph "cluster_calculate_apply_bqsr.cwl" { label="calculate_apply_bqsr.cwl"
 "standard_bam_processing.cwl#trim_galore_0_6_2" -> "alignment.cwl#bwa_mem_0_7_5a" [ lhead="cluster_alignment.cwl"]
 "alignment.cwl#bwa_mem_0_7_5a" -> "standard_bam_processing.cwl#picard_mark_duplicates_2_8_1" [ltail="cluster_alignment.cwl"]
 }
-'/>
+)
 
 
 ![Workflow - as viewed from Rabix Composer](.gitbook/assets/screen-shot-2019-09-20-at-10.37.09-am%20%281%29.png)
