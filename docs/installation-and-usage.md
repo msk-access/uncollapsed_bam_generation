@@ -10,37 +10,68 @@ description: How to install and run the workflow
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
 
-```text
-[server]$ pip3 install virtualenv
-[server]$ python3 -m venv my_project
-[server]$ source my_project/bin/activate
+{% code-tabs %}
+{% code-tabs-item title="python3-virtualenv" %}
+```bash
+pip3 install virtualenv
+python3 -m venv my_project
+source my_project/bin/activate
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Step 1b: If you are using toil only, please install using python 2.7 as done below:
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
 
-```text
-[server]$ pip install virtualenv
-[server]$ virtaulenv my_project
-[server]$ source my_project/bin/activate
+{% code-tabs %}
+{% code-tabs-item title="python2-virtaulenv" %}
+```bash
+pip install virtualenv
+virtaulenv my_project
+source my_project/bin/activate
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="info" %}
+Once you execute the above command you will see your bash prompt something on this lines: 
+
+{% code-tabs %}
+{% code-tabs-item title="bash-prompt-example" %}
+```bash
+(my_project)[server]$ 
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
 ## Step 2: Clone the repository
 
-```text
-(my_project)[server]$ git clone --recursive https://github.com/msk-access/standard_bam_processing.git
-(my_project)[server]$ cd standard_bam_processing
-(my_project)[server]$ git submodule update --recursive --remote
+{% code-tabs %}
+{% code-tabs-item title="git-clone-with-submodule" %}
+```bash
+git clone --recursive https://github.com/msk-access/standard_bam_processing.git
+cd standard_bam_processing
+git submodule update --recursive --remote
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Step 3: Install requirements using pip
 
 We have already specified the version of cwltool and other packages in the requirements.txt file. Please use this to install.
 
-```text
-(my_project)[server]$ pip install -r requirements.txt
+{% code-tabs %}
+{% code-tabs-item title="python-package-installation-using-pip" %}
+```bash
+#python2
+pip install -r requirements.txt
+#python3
+pip3 install -r requirements.txt
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="success" %}
 Super-powers are granted randomly so please submit an issue if you're not happy with yours.
@@ -62,9 +93,13 @@ Here we show how to use [cwltool](https://github.com/common-workflow-language/cw
 
 ## Step 4: Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine
 
-```text
-(my_project)[server]$ cwltool standard_bam_processing.cwl inputs.yaml
+{% code-tabs %}
+{% code-tabs-item title="cwltool-execution" %}
+```bash
+cwltool standard_bam_processing.cwl inputs.yaml
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 {% endtab %}
 
 {% tab title="Using toil-cwl-runner locally" %}
@@ -74,9 +109,13 @@ Once we have successfully installed the requirements we can now run the workflow
 
 ## Step 4: Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on single machine
 
-```text
-(my_project)[server]$ toil-cwl-runner standard_bam_processing.cwl inputs.yaml
+{% code-tabs %}
+{% code-tabs-item title="toil-local-execution" %}
+```bash
+toil-cwl-runner standard_bam_processing.cwl inputs.yaml
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 {% endtab %}
 
 {% tab title="Using toil-cwl-runner on JUNO" %}
@@ -84,31 +123,34 @@ Here we show how to run the workflow using [toil-cwl-runner](https://toil.readth
 
 ## Step 4: Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on JUNO \(MSKCC Research Cluster\)
 
-```text
-(my_project)[server]$ TMPDIR=$PWD
-(my_project)[server]$ TOIL_LSF_ARGS='-W 3600'
-(my_project)[server]$ toil-cwl-runner \
-                          --singularity \
-                          --logFile /path/to/toil_log/cwltoil.log  \
-                          --jobStore /path/to/jobStore \
-                          --batchSystem lsf \
-                          --workDir /path/to/toil_log \
-                          --outdir $PWD \
-                          --writeLogs /path/to/toil_log \
-                          --logLevel DEBUG \
-                          --stats \
-                          --retryCount 2 
-                          --disableCaching \
-                          --disableChaining \
-                          --maxLogFileSize 20000000000 \
-                          --cleanWorkDir onSuccess
-                          --preserve-environment PATH PYTHONPATH TOIL_LSF_ARGS \
-                          TMPDIR _JAVA_OPTIONS
-                          /path/to/standard_bam_processing.cwl \
-                          /path/to/inputs.yaml \
-                          > toil.stdout \
-                          2> toil.stderr &
+{% code-tabs %}
+{% code-tabs-item title="toil-lsf-execution" %}
+```bash
+TMPDIR=$PWD
+TOIL_LSF_ARGS='-W 3600'
+toil-cwl-runner \
+       --singularity \
+       --logFile /path/to/toil_log/cwltoil.log  \
+       --jobStore /path/to/jobStore \
+       --batchSystem lsf \
+       --workDir /path/to/toil_log \
+       --outdir $PWD \
+       --writeLogs /path/to/toil_log \
+       --logLevel DEBUG \
+       --stats \
+       --retryCount 2 
+       --disableCaching \
+       --disableChaining \
+       --maxLogFileSize 20000000000 \
+       --cleanWorkDir onSuccess
+       --preserve-environment TOIL_LSF_ARGS TMPDIR \
+       /path/to/standard_bam_processing.cwl \
+       /path/to/inputs.yaml \
+       > toil.stdout \
+       2> toil.stderr &
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 {% endtab %}
 {% endtabs %}
 

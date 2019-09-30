@@ -47,54 +47,77 @@ Common workflow language execution engines accept two types of input that are [J
   * **known\_sites\_1 & known\_sites\_2:** One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis
   * **read\_filter:** Read filters to be applied before analysis
 
-## Example inputs file:
+## Template inputs file:
 
-```text
-{
-    "M": true,
-    "P": true,
-    "assume_sorted": true,
-    "bam_compression_level": 0,
-    "bam_index": true,
-    "create_bam_index": true,
-    "create_bam_index_1": true,
-    "duplicate_scoring_strategy": "SUM_OF_BASE_QUALITIES",
-    "fastq1": {
-        "class": "File",
-        "path": "/ifs/archive/BIC/share/bergerm1/PITT_0236_AHVYTTBBXX/Project_05500_EZ/Sample_TD-seracare-0-5per_IGO_05500_EZ_32/TD-seracare-0-5per_IGO_05500_EZ_32_S25_R1_001.fastq.gz"
-    },
-    "fastq2": {
-        "class": "File",
-        "path": "/ifs/archive/BIC/share/bergerm1/PITT_0236_AHVYTTBBXX/Project_05500_EZ/Sample_TD-seracare-0-5per_IGO_05500_EZ_32/TD-seracare-0-5per_IGO_05500_EZ_32_S25_R2_001.fastq.gz"
-    },
-    "gzip": true,
-    "known_sites_1": {
-        "class": "File",
-        "path": "/ifs/e63data/bergerm1/Resources/DMP/pubdata/dbSNP/VERSIONS/dbsnp_v137/dbsnp_137.b37.vcf"
-    },
-    "known_sites_2": {
-        "class": "File",
-        "path": "/ifs/e63data/bergerm1/Resources/DMP/pubdata/mills-and-1000g/VERSIONS/v20131014/Mills_and_1000G_gold_standard.indels.b37.vcf"
-    },
-    "memory_overhead": null,
-    "memory_per_job": null,
-    "number_of_threads": null,
-    "option_bedgraph": true,
-    "paired": true,
-    "read_group_identifier": "test",
-    "read_group_library": 0,
-    "read_group_platform_unit": "test",
-    "read_group_sample_name": "test",
-    "read_group_sequencing_platform": "test",
-    "read_group_sequnecing_center": "test",
-    "reference": {
-        "class": "File",
-        "path": "/ifs/depot/resources/dmp/data/pubdata/hg-fasta/VERSIONS/hg19/Homo_sapiens_assembly19.fasta"
-    },
-    "sort_order": "coordinate",
-    "validation_stringency": "LENIENT"
-}
+Below is the template input yaml file generated using:
+
+{% code-tabs %}
+{% code-tabs-item title="make-template" %}
+```bash
+cwltool --make-template standard_bam_processing.cwl
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="warning" %}
+**Parameters marked not marked as optional are required**
+{% endhint %}
+
+{% code-tabs %}
+{% code-tabs-item title="template-inputs.yaml" %}
+```yaml
+read_filter:  # array of type "string" (optional)
+  - a_string
+trim_galore_number_of_threads: 0  # type "int" (optional)
+create_bam_index_1: false  # type "boolean" (optional)
+sort_order: a_string  # type "string" (optional)
+M: false  # type "boolean" (optional)
+assume_sorted: false  # type "boolean" (optional)
+create_bam_index: false  # type "boolean" (optional)
+validation_stringency: a_string  # type "string" (optional)
+number_of_threads: 0  # type "int" (optional)
+adapter: a_string  # type "string" (optional)
+adapter2: a_string  # type "string" (optional)
+length: 0  # type "int" (optional)
+quality: 0  # type "int" (optional)
+stringency: 0  # type "int" (optional)
+consensus_sequence: false  # type "boolean" (optional)
+contig_anchor: a_string  # type "string" (optional)
+ignore_bad_assembly: false  # type "boolean" (optional)
+maximum_average_depth: 0  # type "int" (optional)
+maximum_mixmatch_rate: 0.1  # type "float" (optional)
+scoring_gap_alignments: a_string  # type "string" (optional)
+soft_clip_contig: a_string  # type "string" (optional)
+window_size: a_string  # type "string" (optional)
+output_file_name: a_string  # type "string" (optional)
+output: a_string  # type "string" (optional)
+P: false  # type "boolean" (optional)
+read_group_identifier: a_string  # type "string"
+read_group_library: 0  # type "int"
+read_group_platform_unit: a_string  # type "string"
+read_group_sample_name: a_string  # type "string"
+read_group_sequencing_platform: a_string  # type "string"
+read_group_sequnecing_center: a_string  # type "string"
+fastq1:  # type "File"
+    class: File
+    path: a/file/path
+option_bedgraph: false  # type "boolean" (optional)
+bam_index: false  # type "boolean" (optional)
+known_sites_2:  # type "File" (optional)
+    class: File
+    path: a/file/path
+known_sites_1:  # type "File"
+    class: File
+    path: a/file/path
+reference:  # type "File"
+    class: File
+    path: a/file/path
+fastq2:  # type "File"
+    class: File
+    path: a/file/path
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 Note that the paths in the inputs file are relative to the file itself. It is normally easier to use absolute paths whenever possible.
