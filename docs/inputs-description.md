@@ -60,7 +60,7 @@ cwltool --make-template standard_bam_processing.cwl
 {% endcode-tabs %}
 
 {% hint style="warning" %}
-**Parameters marked not marked as optional are required**
+**Parameters not marked as optional are required**
 {% endhint %}
 
 {% code-tabs %}
