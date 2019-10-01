@@ -13,7 +13,11 @@ curl -c ./cookie -s -k -L "https://drive.google.com/uc?export=download&id=$filei
 
 curl -k -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}
 
-tar -xzvf $filename
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    tar --warning=no-unknown-keyword -xzvf $filename
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    tar -xzvf $filename
+fi
 
 rm test-data.tar.gz
 
