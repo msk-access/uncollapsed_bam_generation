@@ -1,14 +1,28 @@
 class: Workflow
 cwlVersion: v1.0
 id: standard_bam_processing_cwl
-label: standard_bam_processing.cwl
+doc: >-
+  This is the workflow is written using Common Workflow Language (CWL) version
+  1.0 (https://www.commonwl.org/v1.0/) and is used at Memorial Sloan Kettering
+  Cancer Center for producing standard bam files from the NY state-approved
+  MSK-ACCESS assay. It is meant to be run on a single sample paired-end read 1
+  and read 2 fastq's, from Illumina sequencing data, but may be generalizable to
+  other sequencing platforms and sequencing panels as well, which produce
+  paired-end data.
+label: Standard BAM Generation
+
 $namespaces:
+  s: https://schema.org/
   sbg: 'https://www.sevenbridges.com/'
+
+$schemas:
+ - https://schema.org/docs/schema_org_rdfa.html
+
 inputs:
   - id: fastq2
     type: File
     'sbg:x': 0
-    'sbg:y': 2987.625
+    'sbg:y': 2991.625
   - id: reference
     type: File
     secondaryFiles:
@@ -20,70 +34,65 @@ inputs:
       - .pac
       - .sa
     'sbg:x': 0
-    'sbg:y': 746.984375
+    'sbg:y': 747.90625
   - id: known_sites_1
     type: File
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2774.234375
+    'sbg:y': 2777.9375
   - id: known_sites_2
     type: File?
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2667.578125
-  - id: bam_index
-    type: boolean?
-    label: abra_bam_index_flag
-    'sbg:x': 0
-    'sbg:y': 3521.0234375
+    'sbg:y': 2671.09375
   - id: option_bedgraph
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2027.4453125
+    'sbg:y': 2030.03125
   - id: fastq1
     type: File
     'sbg:x': 0
-    'sbg:y': 3094.28125
+    'sbg:y': 3098.46875
   - id: read_group_sequnecing_center
     type: string
     'sbg:x': 0
-    'sbg:y': 853.6796875
+    'sbg:y': 854.75
   - id: read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 960.4140625
+    'sbg:y': 961.59375
   - id: read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 1067.1484375
+    'sbg:y': 1068.4375
   - id: read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 1173.8828125
+    'sbg:y': 1175.28125
   - id: read_group_library
     type: int
     'sbg:x': 0
-    'sbg:y': 1280.6171875
+    'sbg:y': 1282.125
   - id: read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 1387.3515625
+    'sbg:y': 1388.96875
   - id: P
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1707.4375
+    'sbg:y': 1709.5
   - id: output
     type: string?
     label: aln_output_file_name
     'sbg:x': 0
-    'sbg:y': 1920.75
+    'sbg:y': 1923.1875
   - id: output_file_name
     type: string?
     label: picard_output_file_name
     'sbg:x': 0
-    'sbg:y': 1814.09375
+    'sbg:y': 1816.34375
   - id: window_size
     type: string?
     'sbg:x': 0
@@ -91,87 +100,83 @@ inputs:
   - id: soft_clip_contig
     type: string?
     'sbg:x': 0
-    'sbg:y': 533.5546875
+    'sbg:y': 534.21875
   - id: scoring_gap_alignments
     type: string?
     'sbg:x': 0
-    'sbg:y': 640.2890625
+    'sbg:y': 641.0625
   - id: maximum_mixmatch_rate
     type: float?
     'sbg:x': 0
-    'sbg:y': 2240.796875
+    'sbg:y': 2243.71875
   - id: maximum_average_depth
     type: int?
     'sbg:x': 0
-    'sbg:y': 2347.4921875
+    'sbg:y': 2350.5625
   - id: ignore_bad_assembly
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2880.9296875
+    'sbg:y': 2884.78125
   - id: contig_anchor
     type: string?
     'sbg:x': 0
-    'sbg:y': 3307.6328125
+    'sbg:y': 3205.3125
   - id: consensus_sequence
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 3414.328125
+    'sbg:y': 3312.15625
   - id: stringency
     type: int?
     label: trim_galore_stringency
     'sbg:x': 0
-    'sbg:y': 320.1640625
+    'sbg:y': 320.53125
   - id: quality
     type: int?
     label: trim_galore_quality
     'sbg:x': 0
-    'sbg:y': 1600.7421875
+    'sbg:y': 1602.65625
   - id: length
     type: int?
     label: trim_galore_length
     'sbg:x': 0
-    'sbg:y': 2560.8828125
+    'sbg:y': 2564.25
   - id: adapter2
     type: string?
     'sbg:x': 0
-    'sbg:y': 3627.71875
+    'sbg:y': 3419
   - id: adapter
     type: string?
     'sbg:x': 0
-    'sbg:y': 3734.375
+    'sbg:y': 3525.84375
   - id: number_of_threads
     type: int?
     label: abra_number_of_threads
     'sbg:x': 0
-    'sbg:y': 2134.140625
+    'sbg:y': 2136.875
   - id: validation_stringency
     type: string?
     'sbg:x': 0
-    'sbg:y': 106.6953125
+    'sbg:y': 106.84375
   - id: create_bam_index
     type: boolean?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1562.8359375
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1458.234375
   - id: assume_sorted
     type: boolean?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1989.4609375
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1778.765625
   - id: M
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2454.1875
+    'sbg:y': 2457.40625
   - id: sort_order
     type: string?
     'sbg:x': 0
-    'sbg:y': 426.859375
-  - id: create_bam_index_1
-    type: boolean?
-    'sbg:x': 0
-    'sbg:y': 3200.9375
+    'sbg:y': 427.375
   - id: trim_galore_number_of_threads
     type: int?
     'sbg:x': 0
-    'sbg:y': 213.4296875
+    'sbg:y': 213.6875
   - id: read_filter
     type:
       - 'null'
@@ -180,49 +185,49 @@ inputs:
         inputBinding:
           prefix: '--read-filter'
     'sbg:x': 0
-    'sbg:y': 1494.046875
+    'sbg:y': 1495.8125
 outputs:
   - id: clstats2
     outputSource:
       - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1669.4921875
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1565.078125
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
     type: File
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1776.1484375
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1671.921875
   - id: bqsr_bam
     outputSource:
       - calculate_apply_bqsr/bqsr_bam
     type: File?
     secondaryFiles:
       - ^.bai
-    'sbg:x': 2205.4384765625
-    'sbg:y': 1920.515625
+    'sbg:x': 2133.903076171875
+    'sbg:y': 1816.34375
   - id: md_bam
     outputSource:
       - picard_mark_duplicates_2_8_1/bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 1431.396728515625
-    'sbg:y': 1729.859375
+    'sbg:x': 1359.8614501953125
+    'sbg:y': 1625.5
   - id: output_file
     outputSource:
       - abra_fx/output_file
     type: File?
     label: indel_realign_targets
-    'sbg:x': 1926.0322265625
-    'sbg:y': 1785.78125
+    'sbg:x': 1854.496826171875
+    'sbg:y': 1681.5
   - id: standard_bam_alignment_metrics
     outputSource:
       - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
     type: File
-    'sbg:x': 2511.433837890625
-    'sbg:y': 1867.1484375
+    'sbg:x': 2439.8984375
+    'sbg:y': 1762.921875
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -255,8 +260,8 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    'sbg:x': 319.140625
-    'sbg:y': 1818.1484375
+    'sbg:x': 319.15625
+    'sbg:y': 1713.921875
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: input
@@ -275,8 +280,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 1106.568603515625
-    'sbg:y': 1832.1875
+    'sbg:x': 1106.5843505859375
+    'sbg:y': 1741.921875
   - id: calculate_apply_bqsr
     in:
       - id: known_sites_1
@@ -294,8 +299,8 @@ steps:
       - id: bqsr_bam
     run: subworkflows/calculate_apply_bqsr.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 1926.0322265625
-    'sbg:y': 1920.515625
+    'sbg:x': 1854.496826171875
+    'sbg:y': 1816.34375
   - id: abra_fx
     in:
       - id: input_bam
@@ -304,7 +309,7 @@ steps:
       - id: reference_fasta
         source: reference
       - id: bam_index
-        source: bam_index
+        source: create_bam_index
       - id: option_bedgraph
         source: option_bedgraph
       - id: window_size
@@ -330,8 +335,8 @@ steps:
       - id: output_file
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
-    'sbg:x': 1431.396728515625
-    'sbg:y': 1920.515625
+    'sbg:x': 1359.8614501953125
+    'sbg:y': 1816.34375
   - id: alignment
     in:
       - id: reference
@@ -352,7 +357,7 @@ steps:
         source: sort_order
       - id: create_bam_index
         default: true
-        source: create_bam_index_1
+        source: create_bam_index
       - id: read_group_sequnecing_center
         source: read_group_sequnecing_center
       - id: read_group_sequencing_platform
@@ -371,8 +376,8 @@ steps:
       - id: bam
     run: subworkflows/alignment.cwl
     label: alignment
-    'sbg:x': 643.3182373046875
-    'sbg:y': 2187.15625
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1976.609375
   - id: picard_collect_alignment_summary_metrics_2_8_1
     in:
       - id: input
@@ -384,8 +389,38 @@ steps:
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_2.8.1
-    'sbg:x': 2205.4384765625
-    'sbg:y': 1806.8203125
+    'sbg:x': 2133.903076171875
+    'sbg:y': 1702.5
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
+
+s:author:
+  - class: s:Person
+    s:identifier: ""
+    s:email: mailto:sumans@mskcc.org
+    s:name: Shalabh Suman
+s:author:
+  - class: s:Person
+    s:identifier: ""
+    s:email: mailto:johnsoni@mskcc.org
+    s:name: Ian Jonhnson
+s:contributor:
+  - class: s:Person
+    s:identifier: ""
+    s:email: mailto:johnsoni@mskcc.org
+    s:name: Ian Jonhnson
+s:contributor:
+  - class: s:Person
+    s:identifier: https://orcid.org/0000-0001-9042-6213
+    s:email: mailto:shahr2@mskcc.org
+    s:name: Ronak Shah
+s:contributor:
+  - class: s:Person
+    s:identifier: ""
+    s:email: mailto:sumans@mskcc.org
+    s:name: Shalabh Suman
+s:citation: ""
+s:codeRepository: https://github.com/msk-access/standard_bam_processing
+s:dateCreated: "2019-10-01"
+s:license: https://spdx.org/licenses/Apache-2.0 
