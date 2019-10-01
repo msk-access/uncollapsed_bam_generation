@@ -400,7 +400,6 @@ s:author:
     s:identifier: ""
     s:email: mailto:sumans@mskcc.org
     s:name: Shalabh Suman
-s:author:
   - class: s:Person
     s:identifier: ""
     s:email: mailto:johnsoni@mskcc.org
@@ -410,12 +409,10 @@ s:contributor:
     s:identifier: ""
     s:email: mailto:johnsoni@mskcc.org
     s:name: Ian Jonhnson
-s:contributor:
   - class: s:Person
     s:identifier: https://orcid.org/0000-0001-9042-6213
     s:email: mailto:shahr2@mskcc.org
     s:name: Ronak Shah
-s:contributor:
   - class: s:Person
     s:identifier: ""
     s:email: mailto:sumans@mskcc.org
