@@ -28,7 +28,7 @@ setup(
     description="Workflow for making MSK-ACCESS standard binary alignment mapping file.",
     install_requires=requirements,
     license="Apache Software License 2.0",
-    long_description=readme + '\n\n' + history,
+    long_description=readme + '\n\n',
     include_package_data=True,
     keywords='standard_bam_processing',
     name='standard_bam_processing',
