@@ -16,7 +16,7 @@ Common workflow language execution engines accept two types of input that are [J
 | **fastq2** | Read 2 of the paired-end run |  |
 | **adapter** | Adapter sequence to be trimmed. | GATCGGAAGAGC |
 | **adapter2** | Optional adapter sequence to be trimmed off read 2 of paired-end files. This option requires '--paired' to be specified as well | AGATCGGAAGAGC |
-| **ality** | Trim low-quality ends from reads in addition to adapter removal. For RRBS samples, quality trimming will be performed first, and adapter trimming is carried in a second round. Other files are quality and adapter trimmed in a single pass. The algorithm is the same as the one used by BWA \(Subtract INT from all qualities; compute partial sums from all indices to the end of the sequence; cut sequence at the index at which the sum is minimal\). | 1 |
+| **quality** | Trim low-quality ends from reads in addition to adapter removal. For RRBS samples, quality trimming will be performed first, and adapter trimming is carried in a second round. Other files are quality and adapter trimmed in a single pass. The algorithm is the same as the one used by BWA \(Subtract INT from all qualities; compute partial sums from all indices to the end of the sequence; cut sequence at the index at which the sum is minimal\). | 1 |
 | **stringency** | Overlap with adapter sequence required to trim a sequence. Defaults to a very stringent setting of '1', i.e. even a single bp of overlapping sequence will be trimmed of the 3' end of any read. | 3 |
 | **length** | Discard reads that became shorter than length INT because of either quality or adapter trimming. A value of '0' effectively disables this behaviour. | 25 |
 
@@ -32,6 +32,8 @@ Common workflow language execution engines accept two types of input that are [J
 | **read\_group\_library** | Read Group Library.  Required |  |
 | **read\_group\_platform\_unit** | Read Group platform unit \(eg. run barcode\)  Required. |  |
 | **read\_group\_sequencing\_platform** | Read Group platform \(e.g. illumina, solid\)  Required. | ILLUMINA |
+| **output** | File name for SAM file from BWA mapping |  |
+| **output\_file\_name** | File name for BAM from from Picard AddOrReplaceReadGroups |  |
 
 ### [Picard MarkDuplicates](https://github.com/mskcc/cwl-commandlinetools/tree/master/picard_mark_duplicates_2.8.1) processing parameters:
 
@@ -48,7 +50,6 @@ Common workflow language execution engines accept two types of input that are [J
 | **contig\_anchor** | Contig anchor \[M\_bases\_at\_contig\_edge,max\_mismatches\_near\_edge\] | 10,1 |
 | **window\_size** | Processing window size and overlap \(size,overlap\) | 800,700 |
 | **consensus\_sequence** | Use positional consensus sequence when aligning high quality soft clipping | true |
-| **output\_file\_name** | Required list of output sam or bam file \(s\) separated by comma |  |
 | **ignore\_bad\_assembly** | Use this option to avoid parsing errors for corrupted assemblies | true |
 | **bam\_index** | Enable BAM index generation when outputting sorted alignments \(may require additional memory\) | true |
 | **no\_sort** | Do not attempt to sort final output |  |
@@ -102,8 +103,8 @@ maximum_mixmatch_rate: 0.1  # type "float" (optional)
 scoring_gap_alignments: a_string  # type "string" (optional)
 soft_clip_contig: a_string  # type "string" (optional)
 window_size: a_string  # type "string" (optional)
-output_file_name: a_string  # type "string" (optional)
-output: a_string  # type "string" (optional)
+output_file_name: a_string  # type "string" (for Picard AddOrReplaceReadGroups BAM file - optional)
+output: a_string  # type "string" (for BWA SAM file - optional)
 P: true  # type "boolean" (optional)
 read_group_identifier: a_string  # type "string"
 read_group_library: 0  # type "int"
