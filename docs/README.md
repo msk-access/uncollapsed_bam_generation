@@ -11,5 +11,4 @@ This is the workflow is written using Common Workflow Language \(CWL\) version 1
 It is meant to be run on a single sample paired-end read 1 and read 2 fastq's, from Illumina sequencing data, but may be generalizable to other sequencing platforms and sequencing panels as well, which produce paired-end data.
 
 ![Workflow - as viewed from Rabix Composer](.gitbook/assets/standard_bam_generation.png?sanitize=true)
-<img src=".gitbook/assets/standard_bam_generation.png?sanitize=true">
 
