@@ -8,7 +8,9 @@ description: Various parameters required to run the workflow
 Common workflow language execution engines accept two types of input that are [JSON](https://json.org) or [YAML](https://yaml.org), please make sure to use one of these while generating the input file. For more information refer to: [http://www.commonwl.org/user\_guide/yaml/](http://www.commonwl.org/user_guide/yaml/)
 {% endhint %}
 
-### [Trimgalore](https://github.com/mskcc/cwl-commandlinetools/tree/master/trim_galore_0.6.2) parameters:
+## Parameters used
+
+### [Trimgalore](https://github.com/msk-access/cwl-commandlinetools/tree/master/trim_galore_0.6.2) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -20,7 +22,7 @@ Common workflow language execution engines accept two types of input that are [J
 | **stringency** | Overlap with adapter sequence required to trim a sequence. Defaults to a very stringent setting of '1', i.e. even a single bp of overlapping sequence will be trimmed of the 3' end of any read. | 3 |
 | **length** | Discard reads that became shorter than length INT because of either quality or adapter trimming. A value of '0' effectively disables this behaviour. | 25 |
 
-### Alignment with [BWA mem](https://github.com/mskcc/cwl-commandlinetools/tree/master/bwa_mem_0.7.12) and [Picard AddOrReplaceReadGroups](https://github.com/mskcc/cwl-commandlinetools/tree/master/picard_add_or_replace_read_groups_1.96) parameters:
+### Alignment with [BWA mem](https://github.com/msk-access/cwl-commandlinetools/tree/master/bwa_mem_0.7.12) and [Picard AddOrReplaceReadGroups](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_add_or_replace_read_groups_1.96) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -35,11 +37,11 @@ Common workflow language execution engines accept two types of input that are [J
 | **output** | File name for SAM file from BWA mapping |  |
 | **output\_file\_name** | File name for BAM from from Picard AddOrReplaceReadGroups |  |
 
-### [Picard MarkDuplicates](https://github.com/mskcc/cwl-commandlinetools/tree/master/picard_mark_duplicates_2.8.1) processing parameters:
+### [Picard MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_mark_duplicates_2.8.1) processing parameters:
 
 * No parameters are exposed for this step
 
-### Indel Realignment with Bedtools [GenomeCov](https://github.com/mskcc/cwl-commandlinetools/tree/master/bedtools_genomecov_v2.28.0_cv2), [Merge](https://github.com/mskcc/cwl-commandlinetools/tree/master/bedtools_merge_v2.28.0_cv2), [ABRA](https://github.com/mskcc/cwl-commandlinetools/tree/master/abra2_2.17), and [Picard FixMateInformation](https://github.com/mskcc/cwl-commandlinetools/tree/master/picard_fix_mate_information_1.96) parameters:
+### Indel Realignment with Bedtools [GenomeCov](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_genomecov_v2.28.0_cv2), [Merge](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_merge_v2.28.0_cv2), [ABRA](https://github.com/msk-access/cwl-commandlinetools/tree/master/abra2_2.17), and [Picard FixMateInformation](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_fix_mate_information_1.96) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -54,7 +56,7 @@ Common workflow language execution engines accept two types of input that are [J
 | **bam\_index** | Enable BAM index generation when outputting sorted alignments \(may require additional memory\) | true |
 | **no\_sort** | Do not attempt to sort final output |  |
 
-### Base Quality Score Recalibration using GATK [BaseRecalibrator](https://github.com/mskcc/cwl-commandlinetools/tree/master/gatk_BaseRecalibrator_4.1.2.0) & [ApplyBQSR](https://github.com/mskcc/cwl-commandlinetools/tree/master/gatk_ApplyBQSR_4.1.2.0) parameters:
+### Base Quality Score Recalibration using GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_BaseRecalibrator_4.1.2.0) & [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_ApplyBQSR_4.1.2.0) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
