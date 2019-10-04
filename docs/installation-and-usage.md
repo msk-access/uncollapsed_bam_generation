@@ -73,10 +73,6 @@ pip3 install -r requirements.txt
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-{% hint style="success" %}
-Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
 {% hint style="info" %}
 To see help for the inputs for cwl workflow you can use: `cwltool standard_bam_processing.cwl --help`
 {% endhint %}
@@ -153,4 +149,8 @@ toil-cwl-runner \
 {% endcode-tabs %}
 {% endtab %}
 {% endtabs %}
+
+{% hint style="success" %}
+You should now be running the workflow on the specified batch system
+{% endhint %}
 
