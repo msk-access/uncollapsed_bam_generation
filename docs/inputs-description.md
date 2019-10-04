@@ -8,7 +8,7 @@ description: Various parameters required to run the workflow
 Common workflow language execution engines accept two types of input that are [JSON](https://json.org) or [YAML](https://yaml.org), please make sure to use one of these while generating the input file. For more information refer to: [http://www.commonwl.org/user\_guide/yaml/](http://www.commonwl.org/user_guide/yaml/)
 {% endhint %}
 
-### [Trimgalore](https://github.com/mskcc/cwl-commandlinetools/tree/master/trim_galore_0.6.2) parameters: 
+### [Trimgalore](https://github.com/mskcc/cwl-commandlinetools/tree/master/trim_galore_0.6.2) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
