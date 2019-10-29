@@ -183,10 +183,16 @@ inputs:
     'sbg:y': 1494.71875
   - id: clstats2_rename
     type: string?
+    doc: >-
+      Name to be used for renaming the trim_galore/cutadapt trimming report file
+      (default:trimming_report_R2.txt)
     'sbg:x': 319.15625
     'sbg:y': 1761.6328125
   - id: clstat1_rename
     type: string?
+    doc: >-
+      Name to be used for renaming the trim_galore/cutadapt trimming report file
+      (default:trimming_report_R1.txt)
     'sbg:x': 319.15625
     'sbg:y': 1868.3984375
 outputs:
