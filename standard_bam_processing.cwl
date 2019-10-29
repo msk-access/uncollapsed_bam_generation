@@ -10,19 +10,14 @@ doc: >-
   other sequencing platforms and sequencing panels as well, which produce
   paired-end data.
 label: Standard BAM Generation
-
 $namespaces:
-  s: https://schema.org/
+  s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
-
-$schemas:
- - https://schema.org/docs/schema_org_rdfa.html
-
 inputs:
   - id: fastq2
     type: File
     'sbg:x': 0
-    'sbg:y': 2991.625
+    'sbg:y': 2989.4375
   - id: reference
     type: File
     secondaryFiles:
@@ -34,65 +29,65 @@ inputs:
       - .pac
       - .sa
     'sbg:x': 0
-    'sbg:y': 747.90625
+    'sbg:y': 747.359375
   - id: known_sites_1
     type: File
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2777.9375
+    'sbg:y': 2775.90625
   - id: known_sites_2
     type: File?
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2671.09375
+    'sbg:y': 2669.140625
   - id: option_bedgraph
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2030.03125
+    'sbg:y': 2028.546875
   - id: fastq1
     type: File
     'sbg:x': 0
-    'sbg:y': 3098.46875
+    'sbg:y': 3096.203125
   - id: read_group_sequnecing_center
     type: string
     'sbg:x': 0
-    'sbg:y': 854.75
+    'sbg:y': 854.125
   - id: read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 961.59375
+    'sbg:y': 960.890625
   - id: read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 1068.4375
+    'sbg:y': 1067.65625
   - id: read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 1175.28125
+    'sbg:y': 1174.421875
   - id: read_group_library
     type: int
     'sbg:x': 0
-    'sbg:y': 1282.125
+    'sbg:y': 1281.1875
   - id: read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 1388.96875
+    'sbg:y': 1387.953125
   - id: P
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1709.5
+    'sbg:y': 1708.25
   - id: output
     type: string?
     label: aln_output_file_name
     'sbg:x': 0
-    'sbg:y': 1923.1875
+    'sbg:y': 1921.78125
   - id: output_file_name
     type: string?
     label: picard_output_file_name
     'sbg:x': 0
-    'sbg:y': 1816.34375
+    'sbg:y': 1815.015625
   - id: window_size
     type: string?
     'sbg:x': 0
@@ -100,83 +95,83 @@ inputs:
   - id: soft_clip_contig
     type: string?
     'sbg:x': 0
-    'sbg:y': 534.21875
+    'sbg:y': 533.828125
   - id: scoring_gap_alignments
     type: string?
     'sbg:x': 0
-    'sbg:y': 641.0625
+    'sbg:y': 640.59375
   - id: maximum_mixmatch_rate
     type: float?
     'sbg:x': 0
-    'sbg:y': 2243.71875
+    'sbg:y': 2242.078125
   - id: maximum_average_depth
     type: int?
     'sbg:x': 0
-    'sbg:y': 2350.5625
+    'sbg:y': 2348.84375
   - id: ignore_bad_assembly
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2884.78125
+    'sbg:y': 2882.671875
   - id: contig_anchor
     type: string?
     'sbg:x': 0
-    'sbg:y': 3205.3125
+    'sbg:y': 3202.96875
   - id: consensus_sequence
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 3312.15625
+    'sbg:y': 3309.734375
   - id: stringency
     type: int?
     label: trim_galore_stringency
     'sbg:x': 0
-    'sbg:y': 320.53125
+    'sbg:y': 320.296875
   - id: quality
     type: int?
     label: trim_galore_quality
     'sbg:x': 0
-    'sbg:y': 1602.65625
+    'sbg:y': 1601.484375
   - id: length
     type: int?
     label: trim_galore_length
     'sbg:x': 0
-    'sbg:y': 2564.25
+    'sbg:y': 2562.375
   - id: adapter2
     type: string?
     'sbg:x': 0
-    'sbg:y': 3419
+    'sbg:y': 3416.5
   - id: adapter
     type: string?
     'sbg:x': 0
-    'sbg:y': 3525.84375
+    'sbg:y': 3523.265625
   - id: number_of_threads
     type: int?
     label: abra_number_of_threads
     'sbg:x': 0
-    'sbg:y': 2136.875
+    'sbg:y': 2135.3125
   - id: validation_stringency
     type: string?
     'sbg:x': 0
-    'sbg:y': 106.84375
+    'sbg:y': 106.765625
   - id: create_bam_index
     type: boolean?
     'sbg:x': 643.3338623046875
-    'sbg:y': 1458.234375
+    'sbg:y': 1677.6328125
   - id: assume_sorted
     type: boolean?
     'sbg:x': 643.3338623046875
-    'sbg:y': 1778.765625
+    'sbg:y': 1784.3984375
   - id: M
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2457.40625
+    'sbg:y': 2455.609375
   - id: sort_order
     type: string?
     'sbg:x': 0
-    'sbg:y': 427.375
+    'sbg:y': 427.0625
   - id: trim_galore_number_of_threads
     type: int?
     'sbg:x': 0
-    'sbg:y': 213.6875
+    'sbg:y': 213.53125
   - id: read_filter
     type:
       - 'null'
@@ -185,20 +180,16 @@ inputs:
         inputBinding:
           prefix: '--read-filter'
     'sbg:x': 0
-    'sbg:y': 1495.8125
+    'sbg:y': 1494.71875
+  - id: clstats2_rename
+    type: string?
+    'sbg:x': 319.15625
+    'sbg:y': 1761.6328125
+  - id: clstat1_rename
+    type: string?
+    'sbg:x': 319.15625
+    'sbg:y': 1868.3984375
 outputs:
-  - id: clstats2
-    outputSource:
-      - trim_galore_0_6_2/clstats2
-    type: File
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1565.078125
-  - id: clstats1
-    outputSource:
-      - trim_galore_0_6_2/clstats1
-    type: File
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1671.921875
   - id: bqsr_bam
     outputSource:
       - calculate_apply_bqsr/bqsr_bam
@@ -206,7 +197,7 @@ outputs:
     secondaryFiles:
       - ^.bai
     'sbg:x': 2133.903076171875
-    'sbg:y': 1816.34375
+    'sbg:y': 1815.015625
   - id: md_bam
     outputSource:
       - picard_mark_duplicates_2_8_1/bam
@@ -214,20 +205,32 @@ outputs:
     secondaryFiles:
       - ^.bai
     'sbg:x': 1359.8614501953125
-    'sbg:y': 1625.5
+    'sbg:y': 1624.25
   - id: output_file
     outputSource:
       - abra_fx/output_file
     type: File?
     label: indel_realign_targets
     'sbg:x': 1854.496826171875
-    'sbg:y': 1681.5
+    'sbg:y': 1680.25
   - id: standard_bam_alignment_metrics
     outputSource:
       - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
     type: File
     'sbg:x': 2439.8984375
-    'sbg:y': 1762.921875
+    'sbg:y': 1761.6328125
+  - id: clstat2
+    outputSource:
+      - mv/out
+    type: File
+    'sbg:x': 1106.5843505859375
+    'sbg:y': 1761.6328125
+  - id: clstat1
+    outputSource:
+      - mv_1/out
+    type: File
+    'sbg:x': 1106.5843505859375
+    'sbg:y': 1868.3984375
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -261,7 +264,7 @@ steps:
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
     'sbg:x': 319.15625
-    'sbg:y': 1713.921875
+    'sbg:y': 1605.8671875
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: input
@@ -281,7 +284,7 @@ steps:
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
     'sbg:x': 1106.5843505859375
-    'sbg:y': 1741.921875
+    'sbg:y': 1633.8671875
   - id: calculate_apply_bqsr
     in:
       - id: known_sites_1
@@ -300,7 +303,7 @@ steps:
     run: subworkflows/calculate_apply_bqsr.cwl
     label: calculate_apply_bqsr.cwl
     'sbg:x': 1854.496826171875
-    'sbg:y': 1816.34375
+    'sbg:y': 1815.015625
   - id: abra_fx
     in:
       - id: input_bam
@@ -336,7 +339,7 @@ steps:
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
     'sbg:x': 1359.8614501953125
-    'sbg:y': 1816.34375
+    'sbg:y': 1815.015625
   - id: alignment
     in:
       - id: reference
@@ -377,7 +380,7 @@ steps:
     run: subworkflows/alignment.cwl
     label: alignment
     'sbg:x': 643.3338623046875
-    'sbg:y': 1976.609375
+    'sbg:y': 1982.1640625
   - id: picard_collect_alignment_summary_metrics_2_8_1
     in:
       - id: input
@@ -390,34 +393,61 @@ steps:
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_2.8.1
     'sbg:x': 2133.903076171875
-    'sbg:y': 1702.5
+    'sbg:y': 1701.25
+  - id: mv
+    in:
+      - id: infile
+        source: trim_galore_0_6_2/clstats2
+      - id: outfile
+        default: trimming_report_R2.txt
+        source: clstats2_rename
+    out:
+      - id: out
+    run: command_line_tools/utilities_ubuntu_18.04/mv.cwl
+    label: mv
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1563.8671875
+  - id: mv_1
+    in:
+      - id: infile
+        source: trim_galore_0_6_2/clstats1
+      - id: outfile
+        default: trimming_report_R1.txt
+        source: clstat1_rename
+    out:
+      - id: out
+    run: command_line_tools/utilities_ubuntu_18.04/mv.cwl
+    label: mv
+    'sbg:x': 643.3338623046875
+    'sbg:y': 1443.1015625
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
-
-s:author:
-  - class: s:Person
-    s:identifier: ""
-    s:email: mailto:sumans@mskcc.org
-    s:name: Shalabh Suman
-  - class: s:Person
-    s:identifier: ""
-    s:email: mailto:johnsoni@mskcc.org
-    s:name: Ian Jonhnson
-s:contributor:
-  - class: s:Person
-    s:identifier: ""
-    s:email: mailto:johnsoni@mskcc.org
-    s:name: Ian Jonhnson
-  - class: s:Person
-    s:identifier: https://orcid.org/0000-0001-9042-6213
-    s:email: mailto:shahr2@mskcc.org
-    s:name: Ronak Shah
-  - class: s:Person
-    s:identifier: ""
-    s:email: mailto:sumans@mskcc.org
-    s:name: Shalabh Suman
-s:citation: ""
-s:codeRepository: https://github.com/msk-access/standard_bam_processing
-s:dateCreated: "2019-10-01"
-s:license: https://spdx.org/licenses/Apache-2.0 
+$schemas:
+  - 'https://schema.org/docs/schema_org_rdfa.html'
+'s:author':
+  - class: 's:Person'
+    's:email': 'mailto:sumans@mskcc.org'
+    's:identifier': ''
+    's:name': Shalabh Suman
+  - class: 's:Person'
+    's:email': 'mailto:johnsoni@mskcc.org'
+    's:identifier': ''
+    's:name': Ian Jonhnson
+'s:citation': ''
+'s:codeRepository': 'https://github.com/msk-access/standard_bam_processing'
+'s:contributor':
+  - class: 's:Person'
+    's:email': 'mailto:johnsoni@mskcc.org'
+    's:identifier': ''
+    's:name': Ian Jonhnson
+  - class: 's:Person'
+    's:email': 'mailto:shahr2@mskcc.org'
+    's:identifier': 'https://orcid.org/0000-0001-9042-6213'
+    's:name': Ronak Shah
+  - class: 's:Person'
+    's:email': 'mailto:sumans@mskcc.org'
+    's:identifier': ''
+    's:name': Shalabh Suman
+'s:dateCreated': '2019-10-01'
+'s:license': 'https://spdx.org/licenses/Apache-2.0'
