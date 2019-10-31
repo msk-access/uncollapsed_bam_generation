@@ -217,12 +217,12 @@ outputs:
     type: File
     'sbg:x': 643.3338623046875
     'sbg:y': 1567.5
-  - id: clfastq2
+  - id: clstats2
     outputSource:
-      - trim_galore_0_6_2/clfastq2
+      - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1674.5
+    'sbg:x': 479.3280334472656
+    'sbg:y': 1460.2579345703125
 steps:
   - id: trim_galore_0_6_2
     in:
