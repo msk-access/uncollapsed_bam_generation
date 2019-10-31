@@ -21,6 +21,7 @@ RESULT_FILES = [
     # Cookie file from test data download step
     'cookie',
     'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt',
+    'test_patient_1_test_investigator_sample_1_R2_001.fastq.gz_trimming_report.txt',
     'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bai',
     'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam',
     'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bai',
@@ -74,7 +75,7 @@ def test_output_json():
 
     # Todo: why do these have the same basename??
     assert output_json['clstats1']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
-    assert output_json['clstats2']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
+    assert output_json['clstats2']['basename'] == 'test_patient_1_test_investigator_sample_1_R2_001.fastq.gz_trimming_report.txt'
     assert output_json['bqsr_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam'
     assert output_json['md_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam'
 
