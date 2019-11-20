@@ -17,7 +17,7 @@ inputs:
   - id: fastq2
     type: File
     'sbg:x': 0
-    'sbg:y': 2996
+    'sbg:y': 2988
   - id: reference
     type: File
     secondaryFiles:
@@ -29,65 +29,61 @@ inputs:
       - .pac
       - .sa
     'sbg:x': 0
-    'sbg:y': 749
+    'sbg:y': 747.046875
   - id: known_sites_1
     type: File
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2782
+    'sbg:y': 2774.578125
   - id: known_sites_2
     type: File?
     secondaryFiles:
       - .idx
     'sbg:x': 0
-    'sbg:y': 2675
+    'sbg:y': 2667.890625
   - id: option_bedgraph
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2033
+    'sbg:y': 2027.6484375
   - id: fastq1
     type: File
     'sbg:x': 0
-    'sbg:y': 3103
-  - id: read_group_sequnecing_center
-    type: string
-    'sbg:x': 0
-    'sbg:y': 856
+    'sbg:y': 3094.6875
   - id: read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 963
+    'sbg:y': 853.7578125
   - id: read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 1070
+    'sbg:y': 1067.2265625
   - id: read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 1177
+    'sbg:y': 1173.9609375
   - id: read_group_library
-    type: int
+    type: string
     'sbg:x': 0
-    'sbg:y': 1284
+    'sbg:y': 1280.6953125
   - id: read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 1391
+    'sbg:y': 1387.4296875
   - id: P
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1712
+    'sbg:y': 1707.5625
   - id: output
     type: string?
     label: aln_output_file_name
     'sbg:x': 0
-    'sbg:y': 1926
+    'sbg:y': 1920.9375
   - id: output_file_name
     type: string?
     label: picard_output_file_name
     'sbg:x': 0
-    'sbg:y': 1819
+    'sbg:y': 1814.25
   - id: window_size
     type: string?
     'sbg:x': 0
@@ -95,83 +91,83 @@ inputs:
   - id: soft_clip_contig
     type: string?
     'sbg:x': 0
-    'sbg:y': 535
+    'sbg:y': 533.6015625
   - id: scoring_gap_alignments
     type: string?
     'sbg:x': 0
-    'sbg:y': 642
+    'sbg:y': 640.3359375
   - id: maximum_mixmatch_rate
     type: float?
     'sbg:x': 0
-    'sbg:y': 2247
+    'sbg:y': 2241.046875
   - id: maximum_average_depth
     type: int?
     'sbg:x': 0
-    'sbg:y': 2354
+    'sbg:y': 2347.7578125
   - id: ignore_bad_assembly
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2889
+    'sbg:y': 2881.2890625
   - id: contig_anchor
     type: string?
     'sbg:x': 0
-    'sbg:y': 3210
+    'sbg:y': 3201.3984375
   - id: consensus_sequence
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 3317
+    'sbg:y': 3308.109375
   - id: stringency
     type: int?
     label: trim_galore_stringency
     'sbg:x': 0
-    'sbg:y': 321
+    'sbg:y': 320.1796875
   - id: quality
     type: int?
     label: trim_galore_quality
     'sbg:x': 0
-    'sbg:y': 1605
+    'sbg:y': 1600.8515625
   - id: length
     type: int?
     label: trim_galore_length
     'sbg:x': 0
-    'sbg:y': 2568
+    'sbg:y': 2561.1796875
   - id: adapter2
     type: string?
     'sbg:x': 0
-    'sbg:y': 3424
+    'sbg:y': 3414.796875
   - id: adapter
     type: string?
     'sbg:x': 0
-    'sbg:y': 3531
+    'sbg:y': 3521.484375
   - id: number_of_threads
     type: int?
     label: abra_number_of_threads
     'sbg:x': 0
-    'sbg:y': 2140
+    'sbg:y': 2134.359375
   - id: validation_stringency
     type: string?
     'sbg:x': 0
-    'sbg:y': 107
+    'sbg:y': 106.7109375
   - id: create_bam_index
     type: boolean?
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1460.5
+    'sbg:x': 643.3494873046875
+    'sbg:y': 1456.34375
   - id: assume_sorted
     type: boolean?
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1781.5
+    'sbg:x': 643.3494873046875
+    'sbg:y': 1776.40625
   - id: M
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2461
+    'sbg:y': 2454.46875
   - id: sort_order
     type: string?
     'sbg:x': 0
-    'sbg:y': 428
+    'sbg:y': 426.890625
   - id: trim_galore_number_of_threads
     type: int?
     'sbg:x': 0
-    'sbg:y': 214
+    'sbg:y': 213.4453125
   - id: read_filter
     type:
       - 'null'
@@ -180,7 +176,11 @@ inputs:
         inputBinding:
           prefix: '--read-filter'
     'sbg:x': 0
-    'sbg:y': 1498
+    'sbg:y': 1494.140625
+  - id: read_group_sequencing_center
+    type: string
+    'sbg:x': 0
+    'sbg:y': 960.4921875
 outputs:
   - id: bqsr_bam
     outputSource:
@@ -188,41 +188,41 @@ outputs:
     type: File?
     secondaryFiles:
       - ^.bai
-    'sbg:x': 2133.903076171875
-    'sbg:y': 1819
+    'sbg:x': 2124.168701171875
+    'sbg:y': 1814.0859375
   - id: md_bam
     outputSource:
       - picard_mark_duplicates_2_8_1/bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 1359.8614501953125
-    'sbg:y': 1628
+    'sbg:x': 1350.1270751953125
+    'sbg:y': 1623.3984375
   - id: output_file
     outputSource:
       - abra_fx/output_file
     type: File?
     label: indel_realign_targets
-    'sbg:x': 1854.496826171875
-    'sbg:y': 1684
+    'sbg:x': 1844.762451171875
+    'sbg:y': 1679.3515625
   - id: standard_bam_alignment_metrics
     outputSource:
       - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
     type: File
-    'sbg:x': 2439.8984375
-    'sbg:y': 1765.5
+    'sbg:x': 2430.1640625
+    'sbg:y': 1760.71875
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
     type: File
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1567.5
+    'sbg:x': 643.3494873046875
+    'sbg:y': 1669.71875
   - id: clstats2
     outputSource:
       - trim_galore_0_6_2/clstats2
     type: File
-    'sbg:x': 479.3280334472656
-    'sbg:y': 1460.2579345703125
+    'sbg:x': 643.3494873046875
+    'sbg:y': 1563.03125
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -255,8 +255,8 @@ steps:
       - id: clstats2
     run: command_line_tools/trim_galore_0.6.2/trim_galore_0.6.2.cwl
     label: trim_galore_0.6.2
-    'sbg:x': 319.15625
-    'sbg:y': 1716.5
+    'sbg:x': 319.171875
+    'sbg:y': 1711.71875
   - id: picard_mark_duplicates_2_8_1
     in:
       - id: input
@@ -275,8 +275,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
     label: picard_mark_duplicates_2.8.1
-    'sbg:x': 1106.5843505859375
-    'sbg:y': 1744.5
+    'sbg:x': 1096.8499755859375
+    'sbg:y': 1739.7421875
   - id: calculate_apply_bqsr
     in:
       - id: known_sites_1
@@ -294,8 +294,8 @@ steps:
       - id: bqsr_bam
     run: subworkflows/calculate_apply_bqsr.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 1854.496826171875
-    'sbg:y': 1819
+    'sbg:x': 1844.762451171875
+    'sbg:y': 1814.0859375
   - id: abra_fx
     in:
       - id: input_bam
@@ -330,8 +330,8 @@ steps:
       - id: output_file
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
-    'sbg:x': 1359.8614501953125
-    'sbg:y': 1819
+    'sbg:x': 1350.1270751953125
+    'sbg:y': 1814.0859375
   - id: alignment
     in:
       - id: reference
@@ -353,8 +353,6 @@ steps:
       - id: create_bam_index
         default: true
         source: create_bam_index
-      - id: read_group_sequnecing_center
-        source: read_group_sequnecing_center
       - id: read_group_sequencing_platform
         source: read_group_sequencing_platform
       - id: read_group_sample_name
@@ -367,12 +365,14 @@ steps:
         source: output_file_name
       - id: output
         source: output
+      - id: read_group_sequencing_center
+        source: read_group_sequencing_center
     out:
       - id: bam
     run: subworkflows/alignment.cwl
     label: alignment
-    'sbg:x': 643.3338623046875
-    'sbg:y': 1979.5
+    'sbg:x': 643.3494873046875
+    'sbg:y': 1974.1171875
   - id: picard_collect_alignment_summary_metrics_2_8_1
     in:
       - id: input
@@ -384,8 +384,8 @@ steps:
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_2.8.1
-    'sbg:x': 2133.903076171875
-    'sbg:y': 1705
+    'sbg:x': 2124.168701171875
+    'sbg:y': 1700.375
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
