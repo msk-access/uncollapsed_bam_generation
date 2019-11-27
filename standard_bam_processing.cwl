@@ -182,7 +182,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 1067.1875
   - id: temporary_directory
-    type: string?
+    type: Directory?
     'sbg:x': 0
     'sbg:y': 320.171875
   - id: optical_duplicate_pixel_distance
