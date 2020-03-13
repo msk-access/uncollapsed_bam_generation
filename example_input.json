@@ -30,11 +30,11 @@
     "option_bedgraph": true,
     "paired": true,
     "read_group_identifier": "test",
-    "read_group_library": 0,
+    "read_group_library": "test",
     "read_group_platform_unit": "test",
     "read_group_sample_name": "test",
     "read_group_sequencing_platform": "test",
-    "read_group_sequnecing_center": "test",
+    "read_group_sequencing_center": "test",
     "reference": {
         "class": "File",
         "path": "test_data_access/fasta/chr14_chr16.fasta"
