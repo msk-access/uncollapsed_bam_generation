@@ -404,7 +404,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
 $schemas:
-  - 'https://schema.org/docs/schema_org_rdfa.html'
+  - 'https://schema.org/version/latest/schema.rdf'
 's:author':
   - class: 's:Person'
     's:email': 'mailto:sumans@mskcc.org'
