@@ -144,18 +144,10 @@ inputs:
     label: abra_number_of_threads
     'sbg:x': 0
     'sbg:y': 2240.984375
-  - id: validation_stringency
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 106.703125
   - id: create_bam_index
     type: boolean?
     'sbg:x': 643.3494873046875
     'sbg:y': 1555.9453125
-  - id: assume_sorted
-    type: boolean?
-    'sbg:x': 643.3494873046875
-    'sbg:y': 1875.9609375
   - id: M
     type: boolean?
     'sbg:x': 0
@@ -187,8 +179,20 @@ inputs:
     'sbg:y': 320.171875
   - id: optical_duplicate_pixel_distance
     type: int?
-    'sbg:x': 643.3494873046875
-    'sbg:y': 1449.2734375
+    'sbg:x': 1322.5758056640625
+    'sbg:y': 1248.2255859375
+  - id: validation_stringency
+    type: string?
+    'sbg:x': 1436.593017578125
+    'sbg:y': 1078.981201171875
+  - id: create_bam_index_1
+    type: boolean?
+    'sbg:x': 1429.4669189453125
+    'sbg:y': 1383.6209716796875
+  - id: assume_sorted
+    type: boolean?
+    'sbg:x': 1361.7691650390625
+    'sbg:y': 1540.3946533203125
 outputs:
   - id: bqsr_bam
     outputSource:
@@ -198,14 +202,6 @@ outputs:
       - ^.bai
     'sbg:x': 2296.3935546875
     'sbg:y': 1867.3203125
-  - id: md_bam
-    outputSource:
-      - picard_mark_duplicates_2_8_1/bam
-    type: File
-    secondaryFiles:
-      - ^.bai
-    'sbg:x': 1475.607666015625
-    'sbg:y': 1669.6484375
   - id: output_file
     outputSource:
       - abra_fx/output_file
@@ -231,6 +227,12 @@ outputs:
     type: File
     'sbg:x': 643.3494873046875
     'sbg:y': 1662.6171875
+  - id: bam
+    outputSource:
+      - picard_mark_duplicates_2_9_0/bam
+    type: File
+    'sbg:x': 1930.0738525390625
+    'sbg:y': 1045.13232421875
 steps:
   - id: trim_galore_0_6_2
     in:
@@ -265,28 +267,6 @@ steps:
     label: trim_galore_0.6.2
     'sbg:x': 319.171875
     'sbg:y': 1764.953125
-  - id: picard_mark_duplicates_2_8_1
-    in:
-      - id: input
-        source: alignment/bam
-      - id: validation_stringency
-        default: LENIENT
-        source: validation_stringency
-      - id: create_bam_index
-        default: true
-        source: create_bam_index
-      - id: assume_sorted
-        default: true
-        source: assume_sorted
-      - id: optical_duplicate_pixel_distance
-        source: optical_duplicate_pixel_distance
-    out:
-      - id: bam
-    run: >-
-      command_line_tools/picard_mark_duplicates_2.8.1/picard_mark_duplicates_2.8.1.cwl
-    label: picard_mark_duplicates_2.8.1
-    'sbg:x': 1140.361083984375
-    'sbg:y': 1785.984375
   - id: calculate_apply_bqsr
     in:
       - id: known_sites_1
@@ -310,7 +290,7 @@ steps:
     in:
       - id: input_bam
         source:
-          - picard_mark_duplicates_2_8_1/bam
+          - picard_mark_duplicates_2_9_0/bam
       - id: reference_fasta
         source: reference
       - id: bam_index
@@ -335,28 +315,15 @@ steps:
         source: consensus_sequence
       - id: number_of_threads
         source: number_of_threads
-      - id: temporary_directory
-        source: temporary_directory
     out:
-      - id: abra_fx_bam
       - id: output_file
+      - id: bam
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
-    'sbg:x': 1475.607666015625
-    'sbg:y': 1867.3203125
+    'sbg:x': 1225.690673828125
+    'sbg:y': 1919.3758544921875
   - id: alignment
     in:
-      - id: reference
-        source: reference
-      - id: reads
-        source:
-          - trim_galore_0_6_2/clfastq1
-          - trim_galore_0_6_2/clfastq2
-      - id: P
-        source: P
-      - id: M
-        default: true
-        source: M
       - id: read_group_identifier
         source: read_group_identifier
       - id: sort_order
@@ -375,12 +342,23 @@ steps:
         source: read_group_library
       - id: output_file_name
         source: output_file_name
-      - id: output
-        source: output
       - id: read_group_sequencing_center
         source: read_group_sequencing_center
       - id: temporary_directory
         source: temporary_directory
+      - id: reference
+        source: reference
+      - id: reads
+        source:
+          - trim_galore_0_6_2/clfastq1
+          - trim_galore_0_6_2/clfastq2
+      - id: P
+        source: P
+      - id: M
+        default: true
+        source: M
+      - id: output
+        source: output
     out:
       - id: bam
     run: subworkflows/alignment.cwl
@@ -400,6 +378,25 @@ steps:
     label: picard_collect_alignment_summary_metrics_2.8.1
     'sbg:x': 2296.3935546875
     'sbg:y': 1753.6171875
+  - id: picard_mark_duplicates_2_9_0
+    in:
+      - id: input
+        source: alignment/bam
+      - id: validation_stringency
+        source: validation_stringency
+      - id: create_bam_index
+        source: create_bam_index_1
+      - id: assume_sorted
+        source: assume_sorted
+      - id: optical_duplicate_pixel_distance
+        source: optical_duplicate_pixel_distance
+    out:
+      - id: bam
+    run: >-
+      command_line_tools/picard_mark_duplicates_2.9.0/picard_mark_duplicates_2.8.1.cwl
+    label: picard_mark_duplicates_2.9.0
+    'sbg:x': 1632.85693359375
+    'sbg:y': 1304.789306640625
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
