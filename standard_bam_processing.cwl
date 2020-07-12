@@ -272,7 +272,9 @@ steps:
       - id: known_sites_1
         source: known_sites_1
       - id: input
-        source: abra_fx/abra_fx_bam
+        source:
+          - abra_fx/abra_fx_bam
+          - abra_fx/bam
       - id: known_sites_2
         source: known_sites_2
       - id: reference
@@ -284,8 +286,8 @@ steps:
       - id: bqsr_bam
     run: subworkflows/calculate_apply_bqsr.cwl
     label: calculate_apply_bqsr.cwl
-    'sbg:x': 2016.9871826171875
-    'sbg:y': 1867.3203125
+    'sbg:x': 1942.7691650390625
+    'sbg:y': 2065.43212890625
   - id: abra_fx
     in:
       - id: input_bam
@@ -320,8 +322,8 @@ steps:
       - id: bam
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
-    'sbg:x': 1225.690673828125
-    'sbg:y': 1919.3758544921875
+    'sbg:x': 1229.882080078125
+    'sbg:y': 1862.8558349609375
   - id: alignment
     in:
       - id: read_group_identifier
