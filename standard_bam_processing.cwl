@@ -127,10 +127,6 @@ inputs:
     type: boolean?
     'sbg:x': 643.3338623046875
     'sbg:y': 1825.1875
-  - id: assume_sorted
-    type: boolean?
-    'sbg:x': 643.3338623046875
-    'sbg:y': 2145.71875
   - id: window_size
     type: string?
     'sbg:x': 0
@@ -200,13 +196,11 @@ inputs:
     type: File
     'sbg:x': 0
     'sbg:y': 3205.3125
+  - id: assume_sorted
+    type: boolean?
+    'sbg:x': 647.7900390625
+    'sbg:y': 2162.13623046875
 outputs:
-  - id: standard_bam_alignment_metrics
-    outputSource:
-      - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
-    type: File
-    'sbg:x': 2555.629150390625
-    'sbg:y': 2083.453125
   - id: clstats1
     outputSource:
       - trim_galore_0_6_2/clstats1
@@ -219,24 +213,30 @@ outputs:
     type: File
     'sbg:x': 643.3338623046875
     'sbg:y': 1932.03125
-  - id: bam
-    outputSource:
-      - picard_mark_duplicates_2_9_0/bam
-    type: File
-    'sbg:x': 1460.5804443359375
-    'sbg:y': 1905.6156005859375
   - id: output_file
     outputSource:
       - abra_fx_cwl/output_file
     type: File?
-    'sbg:x': 1970.2275390625
-    'sbg:y': 2060.364501953125
+    'sbg:x': 2045.767822265625
+    'sbg:y': 1827.5714111328125
   - id: bqsr_bam
     outputSource:
       - calculate_apply_bqsr_cwl/bqsr_bam
     type: File?
-    'sbg:x': 2249.6337890625
-    'sbg:y': 2229.423095703125
+    'sbg:x': 2226.376220703125
+    'sbg:y': 2304.757568359375
+  - id: alignment_metrics
+    outputSource:
+      - picard_collect_alignment_summary_metrics_2_8_1/alignment_metrics
+    type: File
+    'sbg:x': 2505.84375
+    'sbg:y': 2025.2900390625
+  - id: bam
+    outputSource:
+      - picard_mark_duplicates_2_9_0/bam
+    type: File
+    'sbg:x': 1382.2193603515625
+    'sbg:y': 1818.8255615234375
 steps:
   - id: trim_galore_0_6_2
     in:
