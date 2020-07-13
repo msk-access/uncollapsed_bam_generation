@@ -161,12 +161,8 @@ inputs:
     'sbg:y': 2564.25
   - id: maximum_average_depth
     type: int?
-    'sbg:x': 0
-    'sbg:y': 2777.9375
-  - id: maximum_average_depth_1
-    type: int?
-    'sbg:x': 0
-    'sbg:y': 2671.09375
+    'sbg:x': -1.2787723541259766
+    'sbg:y': 2719.114013671875
   - id: ignore_bad_assembly
     type: boolean?
     'sbg:x': 0
@@ -370,9 +366,7 @@ steps:
       - id: maximum_mixmatch_rate
         source: maximum_mixmatch_rate
       - id: maximum_average_depth
-        source:
-          - maximum_average_depth
-          - maximum_average_depth_1
+        source: maximum_average_depth
       - id: ignore_bad_assembly
         source: ignore_bad_assembly
       - id: contig_anchor
