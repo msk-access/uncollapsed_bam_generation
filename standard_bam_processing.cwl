@@ -196,6 +196,30 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 106.734375
+  - id: K
+    type: int?
+    doc: BWA - Seed to ensure deterministic alignment results
+    'sbg:x': -370.25677490234375
+    'sbg:y': 2316.981201171875
+  - id: 'Y'
+    type: boolean?
+    doc: >-
+      BWA - Force soft-clipping rather than default hard-clipping of
+      supplementary alignments
+    'sbg:x': -388.7107238769531
+    'sbg:y': 2124.0283203125
+  - id: T
+    type: int?
+    doc: >-
+      BWA - Don’t output alignment with score lower than INT. This option only
+      affects output.
+    'sbg:x': -356.820068359375
+    'sbg:y': 1974.6993408203125
+  - id: t
+    type: int?
+    doc: BWA - Number of threads
+    'sbg:x': -538.0281372070312
+    'sbg:y': 2264.9677734375
 outputs:
   - id: clstats1
     outputSource:
@@ -304,6 +328,14 @@ steps:
         source: M
       - id: output
         source: output
+      - id: K
+        source: K
+      - id: 'Y'
+        source: 'Y'
+      - id: T
+        source: T
+      - id: t
+        source: t
     out:
       - id: bam
     run: subworkflows/alignment.cwl
