@@ -331,7 +331,7 @@ steps:
       - id: reference_fasta
         source: reference_fasta
       - id: bam_index
-        source: bam_index
+        source: create_bam_index
       - id: option_bedgraph
         source: option_bedgraph
       - id: window_size
