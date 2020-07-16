@@ -184,10 +184,6 @@ inputs:
     type: int?
     'sbg:x': 643.3182373046875
     'sbg:y': 1609.75
-  - id: create_bam_index_2
-    type: boolean?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 1716.484375
   - id: assume_sorted_1
     type: boolean?
     'sbg:x': 643.3182373046875
@@ -416,8 +412,6 @@ steps:
         source: alignment/bam
       - id: validation_stringency
         source: validation_stringency
-      - id: create_bam_index
-        source: create_bam_index_2
       - id: assume_sorted
         source: assume_sorted_1
       - id: optical_duplicate_pixel_distance
