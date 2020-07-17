@@ -184,10 +184,6 @@ inputs:
     type: int?
     'sbg:x': 643.3182373046875
     'sbg:y': 1609.75
-  - id: assume_sorted_1
-    type: boolean?
-    'sbg:x': 643.3182373046875
-    'sbg:y': 2036.6875
   - id: validation_stringency
     type: string?
     'sbg:x': 0
@@ -413,7 +409,7 @@ steps:
       - id: validation_stringency
         source: validation_stringency
       - id: assume_sorted
-        source: assume_sorted_1
+        default: true
       - id: optical_duplicate_pixel_distance
         source: optical_duplicate_pixel_distance_1
     out:
