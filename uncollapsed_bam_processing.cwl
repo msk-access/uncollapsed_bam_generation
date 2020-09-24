@@ -701,7 +701,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
 $schemas:
-  - 'https://schema.org/docs/schema_org_rdfa.html'
+  - 'http://schema.org/version/9.0/schemaorg-current-http.rdf'
 's:author':
   - class: 's:Person'
     's:email': 'mailto:shahr2@mskcc.org'
