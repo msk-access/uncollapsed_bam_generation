@@ -111,3 +111,6 @@ test_data_access
 
 #MAC
 .DS_Store
+
+#VScods
+.vscode

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 
+#https://drive.google.com/file/d/1FnXfQ8oxcYnOq-gUwtr-tbbVCwb6h7Y5/view?usp=sharing
+fileid=1FnXfQ8oxcYnOq-gUwtr-tbbVCwb6h7Y5
 
-fileid=140oio5T5FJ3RTRZipa1oKLJErTfjA5BH
-
-filename=test-data.tar.gz
+filename=test_uncollapsed_bam_generation.gz
 
 # Skip if already have test data
 [[ -f $filename ]] && exit 0
@@ -19,8 +19,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     tar -xzvf $filename
 fi
 
-rm test-data.tar.gz
+rm $filename
 
-
-
-#  https://drive.google.com/open?id=140oio5T5FJ3RTRZipa1oKLJErTfjA5BH
