@@ -108,3 +108,6 @@ venv.bak/
 
 # test data
 test_data_access
+
+#MAC
+.DS_Store
