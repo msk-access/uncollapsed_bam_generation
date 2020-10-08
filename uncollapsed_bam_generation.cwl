@@ -738,7 +738,7 @@ $schemas:
     's:identifier': ''
     's:name': Ronak Shah
 's:citation': ''
-'s:codeRepository': 'https://github.com/msk-access/standard_bam_processing'
+'s:codeRepository': 'https://github.com/msk-access/uncollapsed_bam_generation'
 's:contributor':
   - class: 's:Person'
     's:email': 'mailto:shahr2@mskcc.org'
