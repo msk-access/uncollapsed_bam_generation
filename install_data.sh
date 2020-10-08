@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 
-#https://drive.google.com/file/d/1FnXfQ8oxcYnOq-gUwtr-tbbVCwb6h7Y5/view?usp=sharing
-fileid=1FnXfQ8oxcYnOq-gUwtr-tbbVCwb6h7Y5
+#https://drive.google.com/file/d/1xPpF85YM6trbLM742FqqAqXfPxT17EvF/view?usp=sharing
+fileid=1xPpF85YM6trbLM742FqqAqXfPxT17EvF
 
-filename=test_uncollapsed_bam_generation.gz
+filename=test_uncollapsed_bam_generation.tar.gz
 
 # Skip if already have test data
 [[ -f $filename ]] && exit 0
@@ -18,6 +18,4 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     tar -xzvf $filename
 fi
-
-rm $filename
 
