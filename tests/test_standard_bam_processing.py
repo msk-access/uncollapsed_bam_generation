@@ -13,15 +13,12 @@ from subprocess import Popen, PIPE, STDOUT
 
 
 # Global to store output json for subsequent testing
-OUTPUT_JSON = None
-
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
 EXPECTED_OUTPUT_JSON_FILENAME = "expected_output.json"
 
 RESULT_FILE_NAME = [
     # Cookie file from test data download step
     "cookie",
-    "test_dup_metrics.txt",
     "test_fastp_out.json",
     "test_fastp_out.html",
     "test_dup_metrics.txt",
@@ -80,13 +77,6 @@ def test_output_json():
     General tests for output json
     """
     output_json = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
-
-    assert output_json["fastp_html_output"]
-    assert output_json["fastp_json_output"]
-    assert output_json["picard_mark_duplicates_metrics"]
-    assert output_json["indel_realignment_bam"]
-    assert output_json["uncollapsed_bam"]
-    assert output_json["gatk_collect_alignment_summary_metrics_txt"]
 
     assert output_json["fastp_json_output"]["basename"] == "test_fastp_out.json"
     assert output_json["fastp_html_output"]["basename"] == "test_fastp_out.html"
