@@ -396,7 +396,7 @@ outputs:
     type: File?
     doc: This is the uncollapsed bam used for SV and MSI
     secondaryFiles:
-      - ^.bai?
+      - ^.bai
     'sbg:x': 4307.6748046875
     'sbg:y': 2568
   - id: gatk_collect_alignment_summary_metrics_txt
