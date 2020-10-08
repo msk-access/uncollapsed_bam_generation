@@ -23,11 +23,11 @@ inputs:
     'sbg:x': 0
     'sbg:y': 2889
   - id: sequencing-center
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 321
   - id: sample
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 428
   - id: run-date
@@ -39,7 +39,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 749
   - id: read-group-id
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 856
   - id: fgbio_fastq_to_bam_predicted-insert-size
@@ -47,15 +47,15 @@ inputs:
     'sbg:x': 0
     'sbg:y': 2996
   - id: platform-unit
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 1284
   - id: platform-model
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 1391
   - id: platform
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 1498
   - id: fgbio_fastq_to_bam_output_file_name
@@ -63,7 +63,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 3103
   - id: library
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 1926
   - id: description
@@ -387,7 +387,7 @@ outputs:
     type: File
     doc: This bam file will be used for collapsing
     secondaryFiles:
-      - ^.bai?
+      - ^.bai
     'sbg:x': 3820.9111328125
     'sbg:y': 2519
   - id: uncollapsed_bam
@@ -635,8 +635,7 @@ steps:
       - id: maximum_average_depth
         source: abra2_maximum_average_depth
       - id: input_bam
-        source:
-          - picard_mark_duplicates_4_1_8_1/picard_mark_duplicates_bam
+        source: picard_mark_duplicates_4_1_8_1/picard_mark_duplicates_bam
       - id: contig_anchor
         source: abra2_contig_anchor
       - id: consensus_sequence
