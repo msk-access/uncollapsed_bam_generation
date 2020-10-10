@@ -1,8 +1,7 @@
 language: python
 
 python:
-  - 3.7
-  - 2.7
+  - 3.6
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox-travis
@@ -17,8 +16,8 @@ deploy:
   skip_existing: true
   user: __token__
   password:
-    secure: g9Ja5QDLc1WGu50xpmXl6wcP7qRNzfYZk7i3PEJtQNO6JLPtxEmBgDAb4+RedRxLo9MRmws/n/bFkTOSP837d+tJ91cYN6TFbVu2teWiR6hblDX/Twhbceq/MjdYJyAVsH+KpuORjuJGqzk2I4QLzI+B/0mXuWcE4EPaCZ5mpm0aYYOTLW1Ukxl1j/PoV8wWC2glItLQ02zIvLyr276+en+RAdWYwqW8sY7rn4hI6VaM78OMsc2/cvG27X82SX4rBxJ3/VveslAc3O7Kck02ltOPyOLI3w++HEVvhHAaCK3kDxNEYQCMly1lDYWTfAGm2F5TZ5mgt2adb08AN//0GnWQOfciHh3JUrIt7po7B5Zs8kmZNGGTJFog8o+btU4pAeCDIt61lFyMo7VVpvPzR4ToiGP3zBvGEgnZd7WpTI0H0E4oc821vl9SAN+3aWQhDxDHl+z3VDwpZTA18mgQikFNc7asKDSXCAGoStI/YFWjw3X+tvFGMXR+R6dpmeSplFFSOx9L3TbrtymWProH8MOyxSVNDdQG6Vz41bN9IS47GRI+/1A9jXxwGurKY1ZL7HZDApDx42Fn2RdOFQNyLCeCneI+RUXtkHY56tH3GpBmnnJX6bKPrn4+VIbgd1VCahPrG8INqxx+SE4JojdIQHcxDy924PCL8mS4hakE4Z0=
+    secure: XKMjFhjrU+r3mT93JJ+tpy+tt/CRhiXX+kSr/UJFTxZb7LMYSVVnk6z/8ePx8AC0j7EOTrrCTVjaIEywpLi2seWfQ6YrG1mN/8tcibK09aHvxxhoEZrG0XdSE2F139tCFGQyuWR3oL40hPZs3swq00LRXlcTyYUjv7qqtT9AVcxRbA8dT5CmsykBVAYUlrLp4YRTND9kqP+gZ8D5fQN+kXJ0ZOfrZeUsyOdFVnNtVUR75fcUzQ/1FrkGz4ZUZ64INicufZqRzleCg9XhrmTOKazrDBjXLCtIZNDzV2XBDKE6gFYKRbEu0n4m6nHx3JS01E/H6RLz0XDhMZmvnOVIdy+2G79yBrkjLoKhMbisqRvp0wfthmvUO8rWOr3d2npcYkAatj9pSOKxR0MhjkBTrQ5vxnN+tpfUn8bHcj1RT/lv/Zja8BLhdv5dT9KlMQat45WCKw43xX2KeXxTtvpDj2pTC+HfYUyJkhPEo3AUdj03Ow903+IV6nhEiXPJKM6lI26Ps/gd6oL/vDVX81SacJaLOqIAbW3McEkr96ZDPYDBIyPPI47Inf675Ce13d26TTuDZjokJTfCpAz4fBwkGYOrbiF00+155QoRrt+n7HYr26xb/MN3FUmkFfcjyjNhJbv4z2vJH7h/wluIkuQKx5CY8ziov6kTOAXYgDwBsHQ=
   on:
     tags: true
-    repo: msk-access/standard_bam_processing
-    python: 2.7
+    repo: msk-access/uncollapsed_bam_generation
+    python: 3.6

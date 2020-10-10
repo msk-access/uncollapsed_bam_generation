@@ -1,32 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `standard_bam_processing` package."""
+"""Tests for `uncollapsed_bam_generation` package."""
 
 import os
 import json
-import pprint
 import shutil
-import logging
+import difflib
+import subprocess
 
 from subprocess import Popen, PIPE, STDOUT
 
 
 # Global to store output json for subsequent testing
-OUTPUT_JSON = None
+OUTPUT_JSON_FILENAME = "pipeline_result.json"
+EXPECTED_OUTPUT_JSON_FILENAME = "expected_output.json"
 
-OUTPUT_JSON_FILENAME = 'pipeline_result.json'
-
-RESULT_FILES = [
+RESULT_FILE_NAME = [
     # Cookie file from test data download step
-    'cookie',
-    'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt',
-    'test_patient_1_test_investigator_sample_1_R2_001.fastq.gz_trimming_report.txt',
-    'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bai',
-    'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam',
-    'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bai',
-    'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam',
-    'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.metrics',
+    "cookie",
+    "test_fastp_out.json",
+    "test_fastp_out.html",
+    "test_dup_metrics.txt",
+    "test_fx.bam",
+    "test_fx.bai",
+    "test_fx_bqsr.bam",
+    "test_fx_bqsr.bai",
+    "test_fx_bqsr_alignment_summary_metrics.txt",
+    "pipeline_result.json",
 ]
 
 
@@ -34,52 +35,90 @@ def setup_module():
     """
     Run the workflow with cwltool
     """
-    cmd = [
-        'cwltool',
-        '--preserve-environment',
-        'PATH',
-        'standard_bam_processing.cwl',
-        'example_input.json'
-    ]
+    print("\n### SETUP ###\n")
+    with open(OUTPUT_JSON_FILENAME, "w") as json:
 
-    print('Calling cwltool with cmd:\n{}'.format(cmd))
+        cmd = [
+            "cwltool",
+            "--preserve-environment",
+            "PATH",
+            "uncollapsed_bam_generation.cwl",
+            "test_uncollapsed_bam_generation/test_input/inputs.yaml",
+        ]
 
-    with open(OUTPUT_JSON_FILENAME, 'w') as f:
-        p = Popen(cmd, stdin=PIPE, stdout=f, close_fds=True)
-        p.wait()
+        process = subprocess.Popen(
+            cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
+        )
+
+        ret_code = process.wait()
+        json.flush()
+
+    return ret_code
 
 
 def teardown_module():
     """
-    Delete output files
+    Tear down the setup by deleteing all the files that are downloaded and produced.
     """
-    for file in RESULT_FILES:
-        if os.path.exists(file):
-            os.remove(file)
-
-    #shutil.rmtree('test_data_access')
-
-    os.remove(OUTPUT_JSON_FILENAME)
+    print("\n### TEARDOWN ###\n")
+    for outfile in RESULT_FILE_NAME:
+        try:
+            os.remove(outfile)
+        except OSError as e:
+            print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
+    try:
+        shutil.rmtree("test_uncollapsed_bam_generation")
+    except OSError as e:
+        print("ERROR: cannot remove folder test_uncollapsed_bam_generation : %s" % (e))
 
 
 def test_output_json():
     """
     General tests for output json
     """
-    output_json = json.loads(open(OUTPUT_JSON_FILENAME, 'r').read())
+    output_json = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
 
-    assert output_json['clstats1']
-    assert output_json['clstats2']
-    assert output_json['bqsr_bam']
-    assert output_json['md_bam']
+    assert output_json["fastp_json_output"]["basename"] == "test_fastp_out.json"
+    assert output_json["fastp_html_output"]["basename"] == "test_fastp_out.html"
+    assert (
+        output_json["picard_mark_duplicates_metrics"]["basename"]
+        == "test_dup_metrics.txt"
+    )
+    assert output_json["indel_realignment_bam"]["basename"] == "test_fx.bam"
+    assert output_json["uncollapsed_bam"]["basename"] == "test_fx_bqsr.bam"
+    assert (
+        output_json["gatk_collect_alignment_summary_metrics_txt"]["basename"]
+        == "test_fx_bqsr_alignment_summary_metrics.txt"
+    )
+    
+    
+"""     
+    print("\n### Check if files are the same from alignment metrics calculation ###\n")
 
-    # Todo: why do these have the same basename??
-    assert output_json['clstats1']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001.fastq.gz_trimming_report.txt'
-    assert output_json['clstats2']['basename'] == 'test_patient_1_test_investigator_sample_1_R2_001.fastq.gz_trimming_report.txt'
-    assert output_json['bqsr_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md_abra_fm_bqsr.bam'
-    assert output_json['md_bam']['basename'] == 'test_patient_1_test_investigator_sample_1_R1_001_val_1_srt_md.bam'
+    compare_picard_metrics_files(
+        "test_fx_bqsr_alignment_summary_metrics.txt",
+        "test_uncollapsed_bam_generation/test_output/test_fx_bqsr_alignment_summary_metrics.txt",
+    ) 
+"""
 
 
-if __name__ == '__main__':
-    import pytest
-    pytest.main()
+def compare_picard_metrics_files(output, expected):
+    """
+    Remove lines starting with `#` in picard metrics and use difflib to print differences if any and then assert
+    """
+    lines_result = open(output, "r").readlines()
+    lines_result = list(filter(predicate, lines_result))
+    lines_expected = open(expected, "r").readlines()
+    lines_expected = list(filter(predicate, lines_expected))
+    print("\n".join(difflib.ndiff(lines_result, lines_expected)))
+    assert all([a == b for a, b in zip(lines_result, lines_expected)])
+
+
+def predicate(line):
+    """
+    Remove lines starting with `#`
+    """
+    if "#" in line:
+        return False
+    return True
+
