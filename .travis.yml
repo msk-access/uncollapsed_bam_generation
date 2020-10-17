@@ -7,7 +7,7 @@ python:
 install: pip install -U tox-travis
 
 script:
-- tox
+- travis_wait 120 tox
 
 deploy:
   provider: pypi
