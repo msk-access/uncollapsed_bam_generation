@@ -132,7 +132,7 @@ Common workflow language execution engines accept two types of input that are [J
 | **known\_sites\_1 & known\_sites\_2** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
 | **read\_filter** | Read filters to be applied before analysis | GoodCigarReadFilter |
 
-## Template inputs file:
+## Template inputs file
 
 {% hint style="warning" %}
 **Parameters not marked as optional are required**
