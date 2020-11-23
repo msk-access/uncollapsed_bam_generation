@@ -67,20 +67,17 @@ Common workflow language execution engines accept two types of input that are [J
 
 Below is the template input yaml file generated using:
 
-{% code-tabs %}
-{% code-tabs-item title="make-template" %}
+{% code title="make-template" %}
 ```bash
 cwltool --make-template standard_bam_processing.cwl
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% hint style="warning" %}
 **Parameters not marked as optional are required**
 {% endhint %}
 
-{% code-tabs %}
-{% code-tabs-item title="template-inputs.yaml" %}
+{% code title="template-inputs.yaml" %}
 ```yaml
 read_filter:  # array of type "string" (optional)
   - a_string
@@ -132,8 +129,7 @@ fastq2:  # type "File"
     class: File
     path: a/file/path
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% hint style="info" %}
 Note that the paths in the inputs file are relative to the file itself. It is normally easier to use absolute paths whenever possible.
