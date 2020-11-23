@@ -4,7 +4,7 @@ description: >-
   files having unique molecular index
 ---
 
-# Uncollapsed BAM Generation
+# Introduction
 
 [![Build Status](https://travis-ci.com/msk-access/uncollapsed_bam_generation.svg?branch=master)](https://travis-ci.com/msk-access/uncollapsed_bam_generation) [![Updates](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/) [![Python 3](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/python-3-shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/)
 
