@@ -13,14 +13,14 @@ Common workflow language execution engines accept two types of input that are [J
 ### Common Parameters Across Tools
 
 | **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
+| :---: | :---: | :---: |
 | **sequencing-center** | The sequencing center from which the data originated |  |
 | **sample** | The name of the sequenced sample. |  |
 | **run-date** | Date the run was produced, to insert into the read group header \(Iso8601Date\) |  |
 | **read-group-id** | Read group ID to use in the file header |  |
-| platform-unit | Platform unit \(e.g. ".."\) |  |
+| **platform-unit** | Read-Group Platform Unit \(eg. run barcode\) |  |
 | **platform-model** | Platform model to insert into the group header \(ex. miseq, hiseq2500, hiseqX\) |  |
-| **platform** | Sequencing Platform. |  |
+| **platform** | Read-Group platform \(e.g. ILLUMINA, SOLID\). |  |
 | **library** | The name/ID of the sequenced library. |  |
 | **description** | Description of the read group. |  |
 | **comment** | Comments to include in the output file’s header. |  |
@@ -32,7 +32,7 @@ Common workflow language execution engines accept two types of input that are [J
 ### Fgbio [FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
+| :---: | :---: | :---: |
 | **fgbio\_fastq\_to\_bam\_umi-tag** | Tag in which to store molecular barcodes/UMIs. |  |
 | **fgbio\_fastq\_to\_bam\_sort** | If true, query-name sort the BAM file, otherwise preserve input order. |  |
 | **fgbio\_fastq\_to\_bam\_input** | Fastq files corresponding to each sequencing read \( e.g. R1, I1, etc.\). Please refer to the [template file](inputs-description.md#template-inputs-file) to get this correct.  |  |
@@ -43,13 +43,14 @@ Common workflow language execution engines accept two types of input that are [J
 ### Picard [MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
+| :---: | :---: | :---: |
 | **gatk\_merge\_sam\_files\_output\_file\_name** | SAM or BAM file to write the merged result to |  |
+| **merge\_sam\_files\_sort\_order** | Sort order of output file |  |
 
 ### Picard [SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
+| :---: | :---: | :---: |
 | **unpaired\_fastq\_file** | unpaired fastq output file name |  |
 | **R1\_output\_fastq** | Read1 fastq.gz output file name |  |
 | **R2\_output\_fastq** | Read2 fastq.gz output file name |  |
@@ -59,14 +60,17 @@ Common workflow language execution engines accept two types of input that are [J
 ### [Fastp](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fastp_0.20.1)
 
 | **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
-| **fastp\_unpaired1\_output\_file\_name** | for PE input, if read1 passed QC but read2 not, it will be written to unpaired1. Default is to discard it. |  |
-| fastp\_unpaired2\_output\_file\_name | Read 2 of the paired-end run |  |
-| **adapter** | Adapter sequence to be trimmed. | GATCGGAAGAGC |
-| **adapter2** | Optional adapter sequence to be trimmed off read 2 of paired-end files. This option requires '--paired' to be specified as well | AGATCGGAAGAGC |
-| **quality** | Trim low-quality ends from reads in addition to adapter removal. For RRBS samples, quality trimming will be performed first, and adapter trimming is carried in a second round. Other files are quality and adapter trimmed in a single pass. The algorithm is the same as the one used by BWA \(Subtract INT from all qualities; compute partial sums from all indices to the end of the sequence; cut sequence at the index at which the sum is minimal\). | 1 |
-| **stringency** | Overlap with adapter sequence required to trim a sequence. Defaults to a very stringent setting of '1', i.e. even a single bp of overlapping sequence will be trimmed of the 3' end of any read. | 3 |
-| **length** | Discard reads that became shorter than length INT because of either quality or adapter trimming. A value of '0' effectively disables this behaviour. | 25 |
+| :---: | :---: | :---: |
+| **fastp\_unpaired1\_output\_file\_name** | For PE input, if read1 passed QC but read2 not, it will be written to unpaired1. Default is to discard it. |  |
+| **fastp\_unpaired2\_output\_file\_name** | For PE input, if read2 passed QC but read1 not, it will be written to unpaired2. If --unpaired2 is same as --unpaired1 \(default mode\), both unpaired reads will be written to this same file. |  |
+| **fastp\_read1\_adapter\_sequence** | the adapter for read1. For SE data, if not specified, the adapter will be auto-detected. For PE data, this is used if R1/R2 are found not overlapped. |  |
+| **fastp\_read2\_adapter\_sequence** | The adapter for read2 \(PE data only\). This is used if R1/R2 are found not overlapped. If not specified, it will be the same as  \(string\) | AGATCGGAAGAGC |
+| **fastp\_read1\_output\_file\_name** | Read1 output File Name | 1 |
+| **fastp\_read2\_output\_file\_name** | Read2 output File Name |  |
+| **fastp\_minimum\_read\_length** | reads shorter than length\_required will be discarded | 15 |
+| **fastp\_json\_output\_file\_name** | the json format report file name |  |
+| **fastp\_html\_output\_file\_name** | the html format report file name |  |
+| f**astp\_failed\_reads\_output\_file\_name** | specify the file to store reads that cannot pass the filters. |  |
 
 ### [BWA MEM](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bwa_mem_0.7.17)
 
@@ -84,15 +88,7 @@ Common workflow language execution engines accept two types of input that are [J
 
 | Argument Name | Summary | Default Value |
 | :---: | :---: | :---: |
-| **picard\_addRG\_read\_group\_sequencing\_platform** | Read-Group platform \(e.g. ILLUMINA, SOLID\) |  |
-| **picard\_addRG\_read\_group\_sequencing\_center** | Read-Group sequencing center name |  |
-| **picard\_addRG\_read\_group\_run\_date** | Read-Group date in \(Iso8601Date\) |  |
-| **picard\_addRG\_read\_group\_platform\_unit** | Read-Group Platform Unit \(eg. run barcode\) |  |
-| **picard\_addRG\_read\_group\_library** | Read-Group library |  |
-| **picard\_addRG\_read\_group\_identifier** | Read-Group ID |  |
-| **picard\_addRG\_read\_group\_description** | Read-Group Description |  |
 | **picard\_addRG\_output\_file\_name** | Output BAM file name |  |
-| **picard\_addRG\_read\_group\_sample\_name** | Read-Group sample name |  |
 
 ### GATK [MergeBamAlignment](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0)
 
@@ -102,7 +98,14 @@ Common workflow language execution engines accept two types of input that are [J
 
 ### Picard [MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1)
 
-* No parameters are exposed for this step
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **optical\_duplicate\_pixel\_distance** | The maximum offset between two duplicate clusters in order to consider them optical duplicates. The default is appropriate for unpatterned versions of the Illumina platform. For the patterned flowcell models, 2500 is more appropriate. For other platforms and models, users should experiment to find what works best. |  |
+| **read\_name\_regex** | Regular expression that can be used to parse read names in the incoming SAM file. Read names are parsed to extract three variables: tile/region, x coordinate and y coordinate. These values are used to estimate the rate of optical duplication in order to give a more accurate estimated library size. Set this option to null to disable optical duplicate detection, e.g. for RNA-seq or other data where duplicate sets are extremely large and estimating library complexity is not an aim. Note that without optical duplicate counts, library size estimation will be inaccurate. The regular expression should contain three capture groups for the three variables, in order. It must match the entire read name. Note that if the default regex is specified, a regex match is not actually done, but instead the read name is split on colon character. For 5 element names, the 3rd, 4th and 5th elements are assumed to be tile, x and y values. For 7 element names \(CASAVA 1.8\), the 5th, 6th, and 7th elements are assumed to be tile, x and y values. |  |
+| **duplicate\_scoring\_strategy** | The scoring strategy for choosing the non-duplicate among candidates. |  |
+| **gatk\_mark\_duplicates\_output\_file\_name** | The output file to write marked records to |  |
+| **gatk\_mark\_duplicates\_duplication\_metrics\_file\_name** | File to write duplication metrics to |  |
+| **gatk\_mark\_duplicates\_assume\_sort\_order** | If not null, assume that the input file has this order even if the header says otherwise. |  |
 
 ### bedtools [genomecov](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_genomecov_v2.28.0_cv2)
 
@@ -140,15 +143,16 @@ Common workflow language execution engines accept two types of input that are [J
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-| **known\_sites\_1 & known\_sites\_2** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
-| **read\_filter** | Read filters to be applied before analysis | GoodCigarReadFilter |
+| **gatk\_base\_recalibrator\_known\_sites** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
+| **gatk\_bqsr\_read\_filter** | Read filters to be applied before analysis |  |
+| **base\_recalibrator\_output\_file\_name** | The output recalibration table file to create |  |
 
 ### GATK [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-| **known\_sites\_1 & known\_sites\_2** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
-| **read\_filter** | Read filters to be applied before analysis | GoodCigarReadFilter |
+| **apply\_bqsr\_output\_file\_name** | The output BAM file |  |
+| **gatk\_bqsr\_disable\_read\_filte**r | Read filters to be disabled before analysis | GoodCigarReadFilter |
 
 ## Template inputs file
 
