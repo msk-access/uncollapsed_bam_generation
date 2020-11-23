@@ -7,10 +7,35 @@ description: Various parameters required to run the workflow
 {% hint style="warning" %}
 Common workflow language execution engines accept two types of input that are [JSON](https://json.org) or [YAML](https://yaml.org), please make sure to use one of these while generating the input file. For more information refer to: [http://www.commonwl.org/user\_guide/yaml/](http://www.commonwl.org/user_guide/yaml/)
 {% endhint %}
+## **Parameter Used by Tools**
 
-## Parameters used
+### Common Parameters Across Tools
 
-### [Trimgalore](https://github.com/msk-access/cwl-commandlinetools/tree/master/trim_galore_0.6.2) parameters:
+| **Argument Name** | **Summary** | **Default Value** |
+| :---: | :--- | :---: |
+
+### [Fgbio FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
+
+| **Argument Name** | **Summary** | **Default Value** |
+| :---: | :--- | :---: |
+
+ 
+### [Picard MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
+
+| **Argument Name** | **Summary** | **Default Value** |
+| :---: | :--- | :---: |
+
+### [Picard SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
+
+| **Argument Name** | **Summary** | **Default Value** |
+| :---: | :--- | :---: |
+| **gatk\_sam\_to\_fastq\_output\_name\_unpaired** | unpaired fastq output file name |  |
+| **gatk\_sam\_to\_fastq\_output\_name\_R1** | Read1 fastq.gz output file name |  |
+| **gatk\_sam\_to\_fastq\_output\_name\_R2** | Read2 fastq.gz output file name |  |
+| **gatk\_sam\_to\_fastq\_include\_non\_primary\_alignments** | If true, include non-primary alignments in the output. Support of non-primary alignments in SamToFastq is not comprehensive, so there may be exceptions if this is set to true and there are paired reads with non-primary alignments. |  |
+| **gatk\_sam\_to\_fastq\_include\_non\_pf\_reads** | Include non-PF reads from the SAM file into the output FASTQ files. PF means 'passes filtering'. Reads whose 'not passing quality controls' flag is set are non-PF reads. See GATK Dictionary for more info. |  |
+
+### [Fastp](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fastp_0.20.1)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -22,41 +47,76 @@ Common workflow language execution engines accept two types of input that are [J
 | **stringency** | Overlap with adapter sequence required to trim a sequence. Defaults to a very stringent setting of '1', i.e. even a single bp of overlapping sequence will be trimmed of the 3' end of any read. | 3 |
 | **length** | Discard reads that became shorter than length INT because of either quality or adapter trimming. A value of '0' effectively disables this behaviour. | 25 |
 
-### Alignment with [BWA mem](https://github.com/msk-access/cwl-commandlinetools/tree/master/bwa_mem_0.7.12) and [Picard AddOrReplaceReadGroups](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_add_or_replace_read_groups_1.96) parameters:
+### [BWA MEM](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bwa_mem_0.7.17)
 
-| **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
-| **P** | Skip pairing for BWA; mate rescue performed unless -S also in use | true |
-| **M** | Mark shorter split hits as secondary \(for Picard/GATK compatibility\) | true |
-| **reference** | Reference fasta file |  |
-| **read\_group\_identifier** | Read Group ID  Default value: 1. This option can be set to 'null' to clear the default value  Required |  |
-| **read\_group\_sequencing\_center** | Read Group sequencing center name  Default value: null. Required. | MSKCC |
-| **read\_group\_library** | Read Group Library.  Required |  |
-| **read\_group\_platform\_unit** | Read Group platform unit \(eg. run barcode\)  Required. |  |
-| **read\_group\_sequencing\_platform** | Read Group platform \(e.g. illumina, solid\)  Required. | ILLUMINA |
-| **output** | File name for SAM file from BWA mapping |  |
-| **output\_file\_name** | File name for BAM from from Picard AddOrReplaceReadGroups |  |
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **bwa\_mem\_Y** | Force soft-clipping rather than default hard-clipping of supplementary alignments |  |
+| **bwa\_mem\_T** | Don’t output alignment with score lower than INT. This option only affects output. |  |
+| **bwa\_mem\_P** | In the paired-end mode, perform SW to rescue missing hits only but do not try to find hits that fit a proper pair. |  |
+| **bwa\_mem\_output** | Output SAM file name |  |
+| **bwa\_mem\_M** | Mark shorter split hits as secondary |  |
+| **bwa\_mem\_K** | to achieve deterministic alignment results \(Note: this is a hidden option\) |  |
+| **bwa\_number\_of\_threads** | Number of threads |  |
 
-### [Picard MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_mark_duplicates_2.8.1) processing parameters:
+### Picard [AddOrReplaceReadGroups](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_add_or_replace_read_groups_4.1.8.1)
+
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **picard\_addRG\_read\_group\_sequencing\_platform** | Read-Group platform \(e.g. ILLUMINA, SOLID\) |  |
+| **picard\_addRG\_read\_group\_sequencing\_center** | Read-Group sequencing center name |  |
+| **picard\_addRG\_read\_group\_run\_date** | Read-Group date in \(Iso8601Date\) |  |
+| **picard\_addRG\_read\_group\_platform\_unit** | Read-Group Platform Unit \(eg. run barcode\) |  |
+| **picard\_addRG\_read\_group\_library** | Read-Group library |  |
+| **picard\_addRG\_read\_group\_identifier** | Read-Group ID |  |
+| **picard\_addRG\_read\_group\_description** | Read-Group Description |  |
+| **picard\_addRG\_output\_file\_name** | Output BAM file name |  |
+| **picard\_addRG\_read\_group\_sample\_name** | Read-Group sample name |  |
+
+### GATK [MergeBamAlignment](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0)
+
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **gatk\_merge\_bam\_alignment\_output\_file\_name** | Output BAM file name |  |
+
+
+### [Picard MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1)
 
 * No parameters are exposed for this step
 
-### Indel Realignment with Bedtools [GenomeCov](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_genomecov_v2.28.0_cv2), [Merge](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_merge_v2.28.0_cv2), [ABRA](https://github.com/msk-access/cwl-commandlinetools/tree/master/abra2_2.17), and [Picard FixMateInformation](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_fix_mate_information_1.96) parameters:
+### bedtools [genomecov](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_genomecov_v2.28.0_cv2)
 
-| **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
-| **maximum\_average\_depth** | Regions with average depth exceeding this value will be downsampled | 1000 |
-| **soft\_clip\_contig** | Soft clip contig args \[max\_contigs,min\_base\_qual,frac\_high\_qual\_bases,min\_soft\_clip\_len \] | 100,30,80,15 |
-| **maximum\_mixmatch\_rate** | Max allowed mismatch rate when mapping reads back to contigs | 0.1 |
-| **scoring\_gap\_alignments** | Scoring used for contig alignments \(match,mismatch\_penalty,gap\_open\_penalty,gap\_extend\_penalty\) | 8,32,48,1 |
-| **contig\_anchor** | Contig anchor \[M\_bases\_at\_contig\_edge,max\_mismatches\_near\_edge\] | 10,1 |
-| **window\_size** | Processing window size and overlap \(size,overlap\) | 800,700 |
-| **consensus\_sequence** | Use positional consensus sequence when aligning high quality soft clipping | true |
-| **ignore\_bad\_assembly** | Use this option to avoid parsing errors for corrupted assemblies | true |
-| **bam\_index** | Enable BAM index generation when outputting sorted alignments \(may require additional memory\) | true |
-| **no\_sort** | Do not attempt to sort final output |  |
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **bedtools\_genomecov\_option\_bedgraph** | option flag parameter to choose output file format. -bg refers to bedgraph format |  |
 
-### Base Quality Score Recalibration using GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_BaseRecalibrator_4.1.2.0) & [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_ApplyBQSR_4.1.2.0) parameters:
+### bedtools [merge](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_merge_v2.28.0_cv2)
+
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **bedtools\_merge\_distance\_between\_features** | Maximum distance between features allowed for features to be merged. |  |
+
+### [ABRA2](https://github.com/msk-access/cwl-commandlinetools/tree/develop/abra2_2.22)
+
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **abra2\_window\_size** | Processing window size and overlap \(size,overlap\) \(default: 400,200\) |  |
+| **abra2\_soft\_clip\_contig** | Soft clip contig args \[max_contigs,min\_base\_qual,frac_ high\_qual\_bases,min\_soft\_clip\_len\] \(default:16,13,80,15\) |  |
+| **abra2\_scoring\_gap\_alignments** | Scoring used for contig alignments\(match, mismatch\_penalty,gap\_open\_penalty,gap\_extend\_penalty\) \(default:8,32,48,1\) |  |
+| **abra2\_no\_sort** | Do not attempt to sort final output |  |
+| **abra2\_no\_edge\_complex\_indel** | Prevent output of complex indels at read start or read end |  |
+| **abra2\_maximum\_mixmatch\_rate** | Max allowed mismatch rate when mapping reads back to contigs \(default: 0.05\) |  |
+| **abra2\_maximum\_average\_depth** | Regions with average depth exceeding this value will be downsampled \(default: 1000\) |  |
+| **abra2\_contig\_anchor** | Contig anchor \[M\_bases\_at\_contig\_edge,max\_mismatches\_near\_edge\] \(default:10,2\) |  |
+| **abra2\_consensus\_sequence** | Use positional consensus sequence when aligning high quality soft clipping |  |
+
+### Picard [FixMateInformation](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_fix_mate_information_4.1.8.1)
+
+| Argument Name | Summary | Default Value |
+| :---: | :---: | :---: |
+| **picard\_fixmate\_information\_output\_file\_name** | The output BAM file to write to |  |
+
+### Base Quality Score Recalibration using GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1) & [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1) parameters:
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -77,57 +137,81 @@ cwltool --make-template standard_bam_processing.cwl
 **Parameters not marked as optional are required**
 {% endhint %}
 
-{% code title="template-inputs.yaml" %}
-```yaml
-read_filter:  # array of type "string" (optional)
-  - a_string
-trim_galore_number_of_threads: 0  # type "int" (optional)
-create_bam_index_1: true  # type "boolean" (optional)
-sort_order: a_string  # type "string" (optional)
-M: true  # type "boolean" (optional)
-assume_sorted: true  # type "boolean" (optional)
-create_bam_index: true  # type "boolean" (optional)
-validation_stringency: a_string  # type "string" (optional)
-number_of_threads: 16  # type "int" (optional)
-adapter: a_string  # type "string" (optional)
-adapter2: a_string  # type "string" (optional)
-length: 25  # type "int" (optional)
-quality: 1  # type "int" (optional)
-stringency: 0  # type "int" (optional)
-consensus_sequence: true  # type "boolean" (optional)
-contig_anchor: a_string  # type "string" (optional)
-ignore_bad_assembly: true  # type "boolean" (optional)
-maximum_average_depth: 1000  # type "int" (optional)
-maximum_mixmatch_rate: 0.1  # type "float" (optional)
-scoring_gap_alignments: a_string  # type "string" (optional)
-soft_clip_contig: a_string  # type "string" (optional)
-window_size: a_string  # type "string" (optional)
-output_file_name: a_string  # type "string" (for Picard AddOrReplaceReadGroups BAM file - optional)
-output: a_string  # type "string" (for BWA SAM file - optional)
-P: true  # type "boolean" (optional)
-read_group_identifier: a_string  # type "string"
-read_group_library: 0  # type "int"
-read_group_platform_unit: a_string  # type "string"
-read_group_sample_name: a_string  # type "string"
-read_group_sequencing_platform: a_string  # type "string"
-read_group_sequnecing_center: a_string  # type "string"
-fastq1:  # type "File"
-    class: File
-    path: a/file/path
-option_bedgraph: true  # type "boolean" (optional)
-bam_index: true  # type "boolean" (optional)
-known_sites_2:  # type "File" (optional)
-    class: File
-    path: a/file/path
-known_sites_1:  # type "File"
-    class: File
-    path: a/file/path
-reference:  # type "File"
-    class: File
-    path: a/file/path
-fastq2:  # type "File"
-    class: File
-    path: a/file/path
+{% code title="template-inputs.json" %}
+```json
+{
+    "R1_output_fastq": null,
+    "R2_output_fastq": null,
+    "abra2_bam_index": null,
+    "abra2_consensus_sequence": null,
+    "abra2_contig_anchor": null,
+    "abra2_maximum_average_depth": null,
+    "abra2_maximum_mixmatch_rate": null,
+    "abra2_no_edge_complex_indel": null,
+    "abra2_no_sort": null,
+    "abra2_output_bams": null,
+    "abra2_scoring_gap_alignments": null,
+    "abra2_soft_clip_contig": null,
+    "abra2_window_size": null,
+    "apply_bqsr_output_file_name": null,
+    "base_recalibrator_output_file_name": null,
+    "bedtools_genomecov_option_bedgraph": null,
+    "bedtools_merge_distance_between_features": null,
+    "bwa_mem_K": null,
+    "bwa_mem_M": null,
+    "bwa_mem_P": null,
+    "bwa_mem_T": null,
+    "bwa_mem_Y": null,
+    "bwa_mem_output": null,
+    "bwa_number_of_threads": null,
+    "comment": null,
+    "create_bam_index": null,
+    "description": null,
+    "duplicate_scoring_strategy": null,
+    "fastp_failed_reads_output_file_name": null,
+    "fastp_html_output_file_name": null,
+    "fastp_json_output_file_name": null,
+    "fastp_minimum_read_length": null,
+    "fastp_read1_adapter_sequence": null,
+    "fastp_read1_output_file_name": null,
+    "fastp_read2_adapter_sequence": null,
+    "fastp_read2_output_file_name": null,
+    "fastp_unpaired1_output_file_name": null,
+    "fastp_unpaired2_output_file_name": null,
+    "fgbio_fastq_to_bam_input": null,
+    "fgbio_fastq_to_bam_output_file_name": null,
+    "fgbio_fastq_to_bam_predicted-insert-size": null,
+    "fgbio_fastq_to_bam_sort": null,
+    "fgbio_fastq_to_bam_umi-tag": null,
+    "gatk_base_recalibrator_known_sites": null,
+    "gatk_bqsr_disable_read_filter": null,
+    "gatk_bqsr_read_filter": null,
+    "gatk_mark_duplicates_assume_sort_order": null,
+    "gatk_mark_duplicates_duplication_metrics_file_name": null,
+    "gatk_mark_duplicates_output_file_name": null,
+    "gatk_merge_bam_alignment_output_file_name": null,
+    "gatk_merge_sam_files_output_file_name": null,
+    "gatk_sam_to_fastq_include_non_pf_reads": null,
+    "gatk_sam_to_fastq_include_non_primary_alignments": null,
+    "library": null,
+    "merge_sam_files_sort_order": null,
+    "optical_duplicate_pixel_distance": null,
+    "picard_addRG_output_file_name": null,
+    "picard_fixmateinformation_output_file_name": null,
+    "platform": null,
+    "platform-model": null,
+    "platform-unit": null,
+    "read-group-id": null,
+    "read-structures": null,
+    "read_name_regex": null,
+    "reference_sequence": null,
+    "run-date": null,
+    "sample": null,
+    "sequencing-center": null,
+    "sort_order": null,
+    "unpaired_fastq_file": null,
+    "validation_stringency": null
+}
 ```
 {% endcode %}
 
