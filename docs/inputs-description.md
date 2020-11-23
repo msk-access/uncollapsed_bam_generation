@@ -141,77 +141,115 @@ Common workflow language execution engines accept two types of input that are [J
 {% code title="template-inputs.json" %}
 ```javascript
 {
-    "R1_output_fastq": null,
-    "R2_output_fastq": null,
-    "abra2_bam_index": null,
+    "R1_output_fastq": "processed_fastq_R1.fastq.gz",
+    "R2_output_fastq": "processed_fastq_R2.fastq.gz",
+    "abra2_bam_index": true,
     "abra2_consensus_sequence": null,
     "abra2_contig_anchor": null,
     "abra2_maximum_average_depth": null,
     "abra2_maximum_mixmatch_rate": null,
-    "abra2_no_edge_complex_indel": null,
+    "abra2_no_edge_complex_indel": true,
     "abra2_no_sort": null,
-    "abra2_output_bams": null,
+    "abra2_output_bams": "test_abra.bam",
     "abra2_scoring_gap_alignments": null,
     "abra2_soft_clip_contig": null,
     "abra2_window_size": null,
     "apply_bqsr_output_file_name": null,
     "base_recalibrator_output_file_name": null,
-    "bedtools_genomecov_option_bedgraph": null,
+    "bedtools_genomecov_option_bedgraph": true,
     "bedtools_merge_distance_between_features": null,
-    "bwa_mem_K": null,
+    "bwa_mem_K": 1000000,
     "bwa_mem_M": null,
     "bwa_mem_P": null,
-    "bwa_mem_T": null,
-    "bwa_mem_Y": null,
-    "bwa_mem_output": null,
+    "bwa_mem_T": 30,
+    "bwa_mem_Y": true,
+    "bwa_mem_output": "test_alignment.sam",
     "bwa_number_of_threads": null,
     "comment": null,
-    "create_bam_index": null,
+    "create_bam_index": true,
     "description": null,
     "duplicate_scoring_strategy": null,
     "fastp_failed_reads_output_file_name": null,
-    "fastp_html_output_file_name": null,
-    "fastp_json_output_file_name": null,
-    "fastp_minimum_read_length": null,
-    "fastp_read1_adapter_sequence": null,
-    "fastp_read1_output_file_name": null,
-    "fastp_read2_adapter_sequence": null,
-    "fastp_read2_output_file_name": null,
+    "fastp_html_output_file_name": "test_fastp_out.html",
+    "fastp_json_output_file_name": "test_fastp_out.json",
+    "fastp_minimum_read_length": 25,
+    "fastp_read1_adapter_sequence": "GATCGGAAGAGC",
+    "fastp_read1_output_file_name": "trimmed_fastp_R1.fastq.gz",
+    "fastp_read2_adapter_sequence": "AGATCGGAAGAGC",
+    "fastp_read2_output_file_name": "trimmed_fastp_R2.fastq.gz",
     "fastp_unpaired1_output_file_name": null,
     "fastp_unpaired2_output_file_name": null,
-    "fgbio_fastq_to_bam_input": null,
+    "fgbio_fastq_to_bam_input": [
+[
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/seracare_0-5_R1_001ad.fastq.gz"
+        },
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/seracare_0-5_R2_001ad.fastq.gz"
+        }
+],
+[
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/seracare_0-5_R1_001ae.fastq.gz"
+        },
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/seracare_0-5_R2_001ae.fastq.gz"
+        }
+]
+    ],
     "fgbio_fastq_to_bam_output_file_name": null,
     "fgbio_fastq_to_bam_predicted-insert-size": null,
     "fgbio_fastq_to_bam_sort": null,
     "fgbio_fastq_to_bam_umi-tag": null,
-    "gatk_base_recalibrator_known_sites": null,
+    "gatk_base_recalibrator_known_sites": [
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/test_fastq_to_bam/known_sites/dbsnp_137_14_16.b37.vcf"
+        },
+        {
+            "class": "File",
+            "path": "/Users/shahr2/Documents/test_reference/test_fastq_to_bam/known_sites/Mills_and_1000G_gold_standard-14_16.indels.b37.vcf"
+        }
+    ],
     "gatk_bqsr_disable_read_filter": null,
     "gatk_bqsr_read_filter": null,
     "gatk_mark_duplicates_assume_sort_order": null,
-    "gatk_mark_duplicates_duplication_metrics_file_name": null,
+    "gatk_mark_duplicates_duplication_metrics_file_name": "test_dup_metrics.txt",
     "gatk_mark_duplicates_output_file_name": null,
     "gatk_merge_bam_alignment_output_file_name": null,
-    "gatk_merge_sam_files_output_file_name": null,
+    "gatk_merge_sam_files_output_file_name": "test_unmapped.sam",
     "gatk_sam_to_fastq_include_non_pf_reads": null,
     "gatk_sam_to_fastq_include_non_primary_alignments": null,
-    "library": null,
-    "merge_sam_files_sort_order": null,
-    "optical_duplicate_pixel_distance": null,
-    "picard_addRG_output_file_name": null,
-    "picard_fixmateinformation_output_file_name": null,
-    "platform": null,
-    "platform-model": null,
-    "platform-unit": null,
-    "read-group-id": null,
-    "read-structures": null,
+    "library": "test",
+    "merge_sam_files_sort_order": "queryname",
+    "optical_duplicate_pixel_distance": 1500,
+    "picard_addRG_output_file_name": "test_addRG.bam",
+    "picard_fixmateinformation_output_file_name": "test_fx.bam",
+    "platform": "ILLUMINA",
+    "platform-model": "novaseq",
+    "platform-unit": "IDT11",
+    "read-group-id": "test",
+    "read-structures": [
+        "3M2S+T",
+        "3M2S+T"
+    ],
     "read_name_regex": null,
-    "reference_sequence": null,
+    "reference_sequence": {
+        "class": "File",
+        "metadata": {},
+        "path": "/Users/shahr2/Documents/test_reference/test_uncollapsed_bam_generation/reference/chr14_chr16.fasta",
+        "secondaryFiles": []
+    },
     "run-date": null,
-    "sample": null,
-    "sequencing-center": null,
-    "sort_order": null,
+    "sample": "test",
+    "sequencing-center": "MSKCC",
+    "sort_order": "coordinate",
     "unpaired_fastq_file": null,
-    "validation_stringency": null
+    "validation_stringency": "LENIENT"
 }
 ```
 {% endcode %}
