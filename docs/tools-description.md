@@ -6,14 +6,17 @@ description: Versions of tools in order of process
 
 | Tool | Version |
 | :--- | :--- |
-| [**Trimgalore**](https://github.com/msk-access/cwl-commandlinetools/tree/master/trim_galore_0.6.2) | **0.6.2** |
-| [**BWA mem**](https://github.com/msk-access/cwl-commandlinetools/tree/master/bwa_mem_0.7.12) | **0.7.5a** |
-| [**AddOrReplaceReadGroups**](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_add_or_replace_read_groups_1.96) **\(Picard tools\)** | **1.96** |
-| [**MarkDuplicates**](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_mark_duplicates_2.8.1) **\(Picard tools\)** | **2.8.1** |
+| [**FastqToBam**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0) **\(Fgbio\)** | **1.2.0** |
+| [**SamToFastq**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0) **\(Picard tools part of GATK\)** | **4.1.8.0** |
+| [**MergeSamFiles**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0) | **4.1.8.0** |
+| [**BWA mem**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bwa_mem_0.7.17) | **0.7.17** |
+| [**AddOrReplaceReadGroups**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_add_or_replace_read_groups_4.1.8.1) **\(Picard tools part of GATK\)** | **4.1.8.1** |
+| [**MergeBamAlignment**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0) **\(Picard tools part of GATK\)** | **4.1.8.0** |
+| [**MarkDuplicates**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1) **\(Picard tools part of GATK\)** | **4.1.8.1** |
 | [**GenomeCov**](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_genomecov_v2.28.0_cv2) **\(Bedtools\)** | **2.28.0\_cv2** |
 | [**Merge**](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_merge_v2.28.0_cv2) **\(Bedtools\)** | **2.28.0\_cv2** |
-| [**ABRA**](https://github.com/msk-access/cwl-commandlinetools/tree/master/abra2_2.17) | **2.17** |
-| [**FixMateInformation**](https://github.com/msk-access/cwl-commandlinetools/tree/master/picard_fix_mate_information_1.96) **\(Picard tools\)** | **1.96** |
-| [**BaseRecalibrator**](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_BaseRecalibrator_4.1.2.0) **\(GATK\)** | **4.1.2.0** |
-| [**ApplyBQSR**](https://github.com/msk-access/cwl-commandlinetools/tree/master/gatk_ApplyBQSR_4.1.2.0) **\(GATK\)** | **4.1.2.0** |
+| [**ABRA**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/abra2_2.22) | **2.22** |
+| [**FixMateInformation**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_fix_mate_information_4.1.8.1) **\(Picard tools part of GATK\)** | **4.1.8.1** |
+| [**BaseRecalibrator**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1) **\(GATK\)** | **4.1.8.1** |
+| [**ApplyBQSR**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1) **\(GATK\)** | **4.1.8.1** |
 
