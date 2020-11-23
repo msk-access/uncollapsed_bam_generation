@@ -7,6 +7,7 @@ description: Various parameters required to run the workflow
 {% hint style="warning" %}
 Common workflow language execution engines accept two types of input that are [JSON](https://json.org) or [YAML](https://yaml.org), please make sure to use one of these while generating the input file. For more information refer to: [http://www.commonwl.org/user\_guide/yaml/](http://www.commonwl.org/user_guide/yaml/)
 {% endhint %}
+
 ## **Parameter Used by Tools**
 
 ### Common Parameters Across Tools
@@ -14,16 +15,18 @@ Common workflow language execution engines accept two types of input that are [J
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
 
+
 ### [Fgbio FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
 
- 
+
 ### [Picard MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
+
 
 ### [Picard SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
 
@@ -79,7 +82,6 @@ Common workflow language execution engines accept two types of input that are [J
 | :---: | :---: | :---: |
 | **gatk\_merge\_bam\_alignment\_output\_file\_name** | Output BAM file name |  |
 
-
 ### [Picard MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1)
 
 * No parameters are exposed for this step
@@ -125,20 +127,12 @@ Common workflow language execution engines accept two types of input that are [J
 
 ## Template inputs file:
 
-Below is the template input yaml file generated using:
-
-{% code title="make-template" %}
-```bash
-cwltool --make-template standard_bam_processing.cwl
-```
-{% endcode %}
-
 {% hint style="warning" %}
 **Parameters not marked as optional are required**
 {% endhint %}
 
 {% code title="template-inputs.json" %}
-```json
+```javascript
 {
     "R1_output_fastq": null,
     "R2_output_fastq": null,
