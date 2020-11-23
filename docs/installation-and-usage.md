@@ -6,7 +6,7 @@ description: How to install and run the workflow
 
 ## Step 1: Create a virtual environment.
 
-## Step 1a: If you are using cwltool only, please install using python 3.7 as done below:
+## Step 1: For cwltool/toil, please install using python 3.6 as done below:
 
 Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
 
@@ -15,20 +15,6 @@ Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](http
 ```bash
 pip3 install virtualenv
 python3 -m venv my_project
-source my_project/bin/activate
-```
-{% endtab %}
-{% endtabs %}
-
-## Step 1b: If you are using toil only, please install using python 2.7 as done below:
-
-Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
-
-{% tabs %}
-{% tab title="python2-virtaulenv" %}
-```bash
-pip install virtualenv
-virtaulenv my_project
 source my_project/bin/activate
 ```
 {% endtab %}
