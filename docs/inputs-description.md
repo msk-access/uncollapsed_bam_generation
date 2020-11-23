@@ -14,27 +14,45 @@ Common workflow language execution engines accept two types of input that are [J
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-
+| **sequencing-center** | The sequencing center from which the data originated |  |
+| **sample** | The name of the sequenced sample. |  |
+| **run-date** | Date the run was produced, to insert into the read group header \(Iso8601Date\) |  |
+| **read-group-id** | Read group ID to use in the file header |  |
+| platform-unit | Platform unit \(e.g. ".."\) |  |
+| **platform-model** | Platform model to insert into the group header \(ex. miseq, hiseq2500, hiseqX\) |  |
+| **platform** | Sequencing Platform. |  |
+| **library** | The name/ID of the sequenced library. |  |
+| **description** | Description of the read group. |  |
+| **comment** | Comments to include in the output file’s header. |  |
+| **validation\_stringency** | Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data \(read, qualities, tags\) do not otherwise need to be decoded. The --VALIDATION\_STRINGENCY argument is an enumerated type \(ValidationStringency\), which can have one of the following values: STRICT or LENIENT or SILENT |  |
+| **sort\_order** | GATK: The order in which the reads should be output. |  |
+| **create\_bam\_index** | GATK: Generate BAM index file when possible |  |
+| **reference\_sequence** | Reference sequence file. Please include ".fai", "^.dict", ".amb" , ".sa", ".bwt", ".pac", ".ann" as secondary files if they are not present in the same location as the ".fasta" file |  |
 
 ### Fgbio [FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-
+| **fgbio\_fastq\_to\_bam\_umi-tag** | Tag in which to store molecular barcodes/UMIs. |  |
+| **fgbio\_fastq\_to\_bam\_sort** | If true, query-name sort the BAM file, otherwise preserve input order. |  |
+| **fgbio\_fastq\_to\_bam\_input** | Fastq files corresponding to each sequencing read \( e.g. R1, I1, etc.\). Please refer to the [template file](inputs-description.md#template-inputs-file) to get this correct.  |  |
+| \*\*\*\*[**read-structures**](https://github.com/fulcrumgenomics/fgbio/wiki/Read-Structures)\*\*\*\* | Read structures, one for each of the FASTQs. Refer to the [tool ](https://github.com/fulcrumgenomics/fgbio/wiki/Read-Structures)for more details |  |
+| **fgbio\_fastq\_to\_bam\_predicted-insert-size** | Predicted median insert size, to insert into the read group header |  |
+| **fgbio\_fastq\_to\_bam\_output\_file\_name** | The output SAM or BAM file to be written. |  |
 
 ### Picard [MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-
+| **gatk\_merge\_sam\_files\_output\_file\_name** | SAM or BAM file to write the merged result to |  |
 
 ### Picard [SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-| **gatk\_sam\_to\_fastq\_output\_name\_unpaired** | unpaired fastq output file name |  |
-| **gatk\_sam\_to\_fastq\_output\_name\_R1** | Read1 fastq.gz output file name |  |
-| **gatk\_sam\_to\_fastq\_output\_name\_R2** | Read2 fastq.gz output file name |  |
+| **unpaired\_fastq\_file** | unpaired fastq output file name |  |
+| **R1\_output\_fastq** | Read1 fastq.gz output file name |  |
+| **R2\_output\_fastq** | Read2 fastq.gz output file name |  |
 | **gatk\_sam\_to\_fastq\_include\_non\_primary\_alignments** | If true, include non-primary alignments in the output. Support of non-primary alignments in SamToFastq is not comprehensive, so there may be exceptions if this is set to true and there are paired reads with non-primary alignments. |  |
 | **gatk\_sam\_to\_fastq\_include\_non\_pf\_reads** | Include non-PF reads from the SAM file into the output FASTQ files. PF means 'passes filtering'. Reads whose 'not passing quality controls' flag is set are non-PF reads. See GATK Dictionary for more info. |  |
 
@@ -42,8 +60,8 @@ Common workflow language execution engines accept two types of input that are [J
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
-| **fastq1** | Read 1 of the paired-end run |  |
-| **fastq2** | Read 2 of the paired-end run |  |
+| **fastp\_unpaired1\_output\_file\_name** | for PE input, if read1 passed QC but read2 not, it will be written to unpaired1. Default is to discard it. |  |
+| fastp\_unpaired2\_output\_file\_name | Read 2 of the paired-end run |  |
 | **adapter** | Adapter sequence to be trimmed. | GATCGGAAGAGC |
 | **adapter2** | Optional adapter sequence to be trimmed off read 2 of paired-end files. This option requires '--paired' to be specified as well | AGATCGGAAGAGC |
 | **quality** | Trim low-quality ends from reads in addition to adapter removal. For RRBS samples, quality trimming will be performed first, and adapter trimming is carried in a second round. Other files are quality and adapter trimmed in a single pass. The algorithm is the same as the one used by BWA \(Subtract INT from all qualities; compute partial sums from all indices to the end of the sequence; cut sequence at the index at which the sum is minimal\). | 1 |
