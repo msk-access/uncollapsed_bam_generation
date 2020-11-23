@@ -4,7 +4,7 @@ description: Here are the various outputs of the workflow
 
 # Outputs Description
 
-If you run the workflow with default settings, these following files are expected:
+If you run the workflow with default settings, the following files are expected:
 
 | File Name | File Description |
 | :--- | :--- |

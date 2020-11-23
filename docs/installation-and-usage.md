@@ -21,7 +21,7 @@ source my_project/bin/activate
 {% endtabs %}
 
 {% hint style="info" %}
-Once you execute the above command you will see your bash prompt something on this lines:
+Once you execute the above command you will see your bash prompt something on these lines:
 
 ```bash
 (my_project)[server]$
