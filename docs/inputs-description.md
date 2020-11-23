@@ -16,19 +16,19 @@ Common workflow language execution engines accept two types of input that are [J
 | :---: | :--- | :---: |
 
 
-### [Fgbio FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
+### Fgbio [FastqToBam](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_fastq_to_bam_1.2.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
 
 
-### [Picard MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
+### Picard [MergeSamFiles](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_sam_files_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
 
 
-### [Picard SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
+### Picard [SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
@@ -82,7 +82,7 @@ Common workflow language execution engines accept two types of input that are [J
 | :---: | :---: | :---: |
 | **gatk\_merge\_bam\_alignment\_output\_file\_name** | Output BAM file name |  |
 
-### [Picard MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1)
+### Picard [MarkDuplicates](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_mark_duplicates_4.1.8.1)
 
 * No parameters are exposed for this step
 
@@ -118,7 +118,14 @@ Common workflow language execution engines accept two types of input that are [J
 | :---: | :---: | :---: |
 | **picard\_fixmate\_information\_output\_file\_name** | The output BAM file to write to |  |
 
-### Base Quality Score Recalibration using GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1) & [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1) parameters:
+### GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1)
+
+| **Argument Name** | **Summary** | **Default Value** |
+| :---: | :--- | :---: |
+| **known\_sites\_1 & known\_sites\_2** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
+| **read\_filter** | Read filters to be applied before analysis | GoodCigarReadFilter |
+
+### GATK [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1)
 
 | **Argument Name** | **Summary** | **Default Value** |
 | :---: | :--- | :---: |
