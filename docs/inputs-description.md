@@ -89,6 +89,7 @@ Common workflow language execution engines accept two types of input that are [J
 | Argument Name | Summary | Default Value |
 | :---: | :---: | :---: |
 | **picard\_addRG\_output\_file\_name** | Output BAM file name |  |
+| **picard\_addRG\_sort\_order** | Sort order for the BAM file |  |
 
 ### GATK [MergeBamAlignment](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0)
 
@@ -249,6 +250,7 @@ Common workflow language execution engines accept two types of input that are [J
     "library": "test",
     "merge_sam_files_sort_order": "queryname",
     "optical_duplicate_pixel_distance": 1500,
+    "picard_addRG_sort_order": "queryname",
     "picard_addRG_output_file_name": "test_addRG.bam",
     "picard_fixmateinformation_output_file_name": "test_fx.bam",
     "platform": "ILLUMINA",

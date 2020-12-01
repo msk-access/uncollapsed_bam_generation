@@ -43,7 +43,7 @@ def setup_module():
             "--preserve-environment",
             "PATH",
             "uncollapsed_bam_generation.cwl",
-            "test_uncollapsed_bam_generation/test_input/inputs.yaml",
+            "test_uncollapsed_bam_generation/test_input/inputs.json",
         ]
 
         process = subprocess.Popen(

@@ -85,6 +85,7 @@
     "library": "test",
     "merge_sam_files_sort_order": "queryname",
     "optical_duplicate_pixel_distance": 1500,
+    "picard_addRG_sort_order": "queryname",
     "picard_addRG_output_file_name": "test_addRG.bam",
     "picard_fixmateinformation_output_file_name": "test_fx.bam",
     "platform": "ILLUMINA",
