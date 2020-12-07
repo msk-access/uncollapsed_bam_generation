@@ -24,9 +24,6 @@ RESULT_FILE_NAME = [
     "test_dup_metrics.txt",
     "test_fx.bam",
     "test_fx.bai",
-    "test_fx_bqsr.bam",
-    "test_fx_bqsr.bai",
-    "test_fx_bqsr_alignment_summary_metrics.txt",
     "pipeline_result.json",
 ]
 
@@ -85,11 +82,6 @@ def test_output_json():
         == "test_dup_metrics.txt"
     )
     assert output_json["indel_realignment_bam"]["basename"] == "test_fx.bam"
-    assert output_json["uncollapsed_bam"]["basename"] == "test_fx_bqsr.bam"
-    assert (
-        output_json["gatk_collect_alignment_summary_metrics_txt"]["basename"]
-        == "test_fx_bqsr_alignment_summary_metrics.txt"
-    )
     
     
 """     

@@ -7,13 +7,11 @@
     "abra2_maximum_average_depth": null,
     "abra2_maximum_mixmatch_rate": null,
     "abra2_no_edge_complex_indel": true,
-    "abra2_no_sort": null,
+    "abra2_no_sort": true,
     "abra2_output_bams": "test_abra.bam",
     "abra2_scoring_gap_alignments": null,
     "abra2_soft_clip_contig": null,
     "abra2_window_size": null,
-    "apply_bqsr_output_file_name": null,
-    "base_recalibrator_output_file_name": null,
     "bedtools_genomecov_option_bedgraph": true,
     "bedtools_merge_distance_between_features": null,
     "bwa_mem_K": 1000000,
@@ -73,8 +71,6 @@
             "path": "/path/to/known_sites/Mills_and_1000G_gold_standard-14_16.indels.b37.vcf"
         }
     ],
-    "gatk_bqsr_disable_read_filter": null,
-    "gatk_bqsr_read_filter": null,
     "gatk_mark_duplicates_assume_sort_order": null,
     "gatk_mark_duplicates_duplication_metrics_file_name": "test_dup_metrics.txt",
     "gatk_mark_duplicates_output_file_name": null,

@@ -140,21 +140,6 @@ Common workflow language execution engines accept two types of input that are [J
 | :---: | :---: | :---: |
 | **picard\_fixmate\_information\_output\_file\_name** | The output BAM file to write to |  |
 
-### GATK [BaseRecalibrator](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1)
-
-| **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
-| **gatk\_base\_recalibrator\_known\_sites** | One or more databases of known polymorphic sites used to exclude regions around known polymorphisms from analysis |  |
-| **gatk\_bqsr\_read\_filter** | Read filters to be applied before analysis |  |
-| **base\_recalibrator\_output\_file\_name** | The output recalibration table file to create |  |
-
-### GATK [ApplyBQSR](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1)
-
-| **Argument Name** | **Summary** | **Default Value** |
-| :---: | :--- | :---: |
-| **apply\_bqsr\_output\_file\_name** | The output BAM file |  |
-| **gatk\_bqsr\_disable\_read\_filte**r | Read filters to be disabled before analysis | GoodCigarReadFilter |
-
 ## Template inputs file
 
 {% hint style="warning" %}
@@ -177,8 +162,6 @@ Common workflow language execution engines accept two types of input that are [J
     "abra2_scoring_gap_alignments": null,
     "abra2_soft_clip_contig": null,
     "abra2_window_size": null,
-    "apply_bqsr_output_file_name": null,
-    "base_recalibrator_output_file_name": null,
     "bedtools_genomecov_option_bedgraph": true,
     "bedtools_merge_distance_between_features": null,
     "bwa_mem_K": 1000000,
@@ -228,18 +211,6 @@ Common workflow language execution engines accept two types of input that are [J
     "fgbio_fastq_to_bam_predicted-insert-size": null,
     "fgbio_fastq_to_bam_sort": null,
     "fgbio_fastq_to_bam_umi-tag": null,
-    "gatk_base_recalibrator_known_sites": [
-        {
-            "class": "File",
-            "path": "/Users/shahr2/Documents/test_reference/test_fastq_to_bam/known_sites/dbsnp_137_14_16.b37.vcf"
-        },
-        {
-            "class": "File",
-            "path": "/Users/shahr2/Documents/test_reference/test_fastq_to_bam/known_sites/Mills_and_1000G_gold_standard-14_16.indels.b37.vcf"
-        }
-    ],
-    "gatk_bqsr_disable_read_filter": null,
-    "gatk_bqsr_read_filter": null,
     "gatk_mark_duplicates_assume_sort_order": null,
     "gatk_mark_duplicates_duplication_metrics_file_name": "test_dup_metrics.txt",
     "gatk_mark_duplicates_output_file_name": null,

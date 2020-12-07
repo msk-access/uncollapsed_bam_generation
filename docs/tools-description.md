@@ -18,6 +18,4 @@ description: Versions of tools in order of process
 | [**Merge**](https://github.com/msk-access/cwl-commandlinetools/tree/master/bedtools_merge_v2.28.0_cv2) **\(Bedtools\)** | **2.28.0\_cv2** |
 | [**ABRA**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/abra2_2.22) | **2.22** |
 | [**FixMateInformation**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_fix_mate_information_4.1.8.1) **\(Picard tools part of GATK\)** | **4.1.8.1** |
-| [**BaseRecalibrator**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_base_recalibrator_4.1.8.1) **\(GATK\)** | **4.1.8.1** |
-| [**ApplyBQSR**](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_apply_bqsr_4.1.8.1) **\(GATK\)** | **4.1.8.1** |
 
