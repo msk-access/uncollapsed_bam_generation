@@ -1,5 +1,5 @@
 name: test_uncollapsed_bam_generation
-on: pull_request
+on: [push, pull_request]
 jobs:
   test_uncollapsed_bam_generation:
     runs-on: macos-latest

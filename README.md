@@ -14,4 +14,4 @@ It is meant to be run on a single sample paired-end fastq's with unique molecula
 
 For documentation visit : https://msk-access.gitbook.io/uncollapsed-bam-generation/
 
-![Workflow - Overview](./docs/.gitbook/assets/uncollapsed_bam_generation.pnguncollapsed_bam_generation.png)
+![Workflow - Overview](./docs/.gitbook/assets/uncollapsed_bam_generation.png)
