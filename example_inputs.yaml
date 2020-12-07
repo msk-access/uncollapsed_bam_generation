@@ -61,16 +61,6 @@
     "fgbio_fastq_to_bam_predicted-insert-size": null,
     "fgbio_fastq_to_bam_sort": null,
     "fgbio_fastq_to_bam_umi-tag": null,
-    "gatk_base_recalibrator_known_sites": [
-        {
-            "class": "File",
-            "path": "/path/to/known_sites/dbsnp_137_14_16.b37.vcf"
-        },
-        {
-            "class": "File",
-            "path": "/path/to/known_sites/Mills_and_1000G_gold_standard-14_16.indels.b37.vcf"
-        }
-    ],
     "gatk_mark_duplicates_assume_sort_order": null,
     "gatk_mark_duplicates_duplication_metrics_file_name": "test_dup_metrics.txt",
     "gatk_mark_duplicates_output_file_name": null,
