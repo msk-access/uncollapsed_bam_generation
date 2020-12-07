@@ -11,6 +11,7 @@ on:
 jobs:
   test_uncollapsed_bam_generation:
     runs-on: ${{ matrix.platform }}
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
     strategy:
       max-parallel: 2
       matrix:
@@ -33,14 +34,14 @@ jobs:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
           nvm install node
-      - name: Setup Docker for MacOS    
+      - name: Setup Docker   
         uses: docker-practice/actions-setup-docker@master
         with:
           docker_channel: nightly
         # this value please see https://github.com/AkihiroSuda/moby-snapshot/releases
           docker_nightly_version: snapshot-20201109
         env:
-          PLATFORM: macos-latest
+          PLATFORM: ${{ matrix.platform }}
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
