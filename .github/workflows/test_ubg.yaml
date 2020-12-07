@@ -1,5 +1,13 @@
 name: test_uncollapsed_bam_generation
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+    - 'docs/**'
+    - '**.md'
+  pull_request:
+    paths-ignore:
+    - 'docs/**'
+    - '**.md'
 jobs:
   test_uncollapsed_bam_generation:
     runs-on: macos-latest
@@ -15,4 +23,4 @@ jobs:
           pip install tox tox-gh-actions
       - name: Run Tox
         id: run-tox
-        run: tox
+        run: tox -vv

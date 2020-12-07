@@ -5,8 +5,8 @@ description: >-
 ---
 
 # Un-collapsed Binary Alignment Map (BAM) file Generation
-
-[![Build Status](https://travis-ci.com/msk-access/uncollapsed_bam_generation.svg?branch=master)](https://travis-ci.com/msk-access/uncollapsed_bam_generation)  [![Updates](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/) [![Python 3](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/python-3-shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/msk-access/uncollapsed_bam_generation/test_uncollapsed_bam_generation/develop)
+ [![Updates](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/) [![Python 3](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/python-3-shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/)
 
 This is the workflow is written using Common Workflow Language \(CWL\) version 1.0 \([https://www.commonwl.org/v1.0/](https://www.commonwl.org/v1.0/)\) and is used at Memorial Sloan Kettering Cancer Center for producing standard bam files from the NY state-approved MSK-ACCESS assay.
 
