@@ -31,6 +31,7 @@ jobs:
         with:
           node-version: '12'
           check-latest: true
+      - name : Install NodeJS
         run: |
           npm install
           npm test
