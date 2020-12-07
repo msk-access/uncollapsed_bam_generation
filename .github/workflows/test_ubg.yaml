@@ -8,9 +8,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+          submodules: true
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install tox tox-gh-actions
       - name: Run Tox
+        id: run-tox
         run: tox
