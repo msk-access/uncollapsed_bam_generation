@@ -27,14 +27,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name : Set up NodeJS
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-          check-latest: true
-      - name : Install NodeJS
         run: |
-          npm install
-          npm test
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+          nvm install node
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
