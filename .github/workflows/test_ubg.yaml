@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '12'
           check-latest: true
-        run: |
+      - run: |
           npm install
           npm test
       - name: Install dependencies
