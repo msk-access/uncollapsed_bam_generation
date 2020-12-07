@@ -19,3 +19,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     tar -xzvf $filename
 fi
 
+rm -rf $filename
+

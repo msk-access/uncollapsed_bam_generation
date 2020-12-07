@@ -12,9 +12,9 @@ jobs:
   test_uncollapsed_bam_generation:
     runs-on: ${{ matrix.platform }}
     strategy:
-      max-parallel: 3
+      max-parallel: 2
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-latest, macos-latest]
         python-version: [3.6]
     steps:
       - name: Checkout repo
