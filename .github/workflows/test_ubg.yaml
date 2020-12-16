@@ -51,3 +51,5 @@ jobs:
         run: tox -vv
         env:
           PLATFORM: ${{ matrix.platform }}
+          SINGULARITY_DOCKER_USERNAME: rhshah
+          SINGULARITY_DOCKER_PASSWORD: ${{ secrets.RS_PAT }}
