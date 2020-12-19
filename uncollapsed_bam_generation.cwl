@@ -445,6 +445,10 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 213.625
+  - id: fgbio_async_io
+    type: string?
+    'sbg:x': 383.6767272949219
+    'sbg:y': 2878.35009765625
 outputs:
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
@@ -530,6 +534,8 @@ steps:
         source: run-date
       - id: temporary_directory
         source: temporary_directory
+      - id: async_io
+        source: fgbio_async_io
     out:
       - id: fgbio_fastq_to_bam_ubam
     run: command_line_tools/fgbio_fastq_to_bam_1.2.0/fgbio_fastq_to_bam_1.2.0.cwl
