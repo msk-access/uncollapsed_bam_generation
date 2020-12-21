@@ -1,21 +1,17 @@
-# ACCESS standard bam processing
-
-[![](https://travis-ci.com/msk-access/standard_bam_processing.svg?branch=feature%2Fstandard_bam_workflow)](https://travis-ci.com/msk-access/standard_bam_processing)
-
-### [Documentation](https://msk-access.gitbook.io/standard-bam-processing/)
-
+---
+description: >-
+  CWL Workflow for producing genomic alignment files (BAM) from
+  compressed FASTQ files having unique molecular index
 ---
 
-#### Workflow for generating MSK-ACCESS standard binary alignment mapping files
+# Un-collapsed Binary Alignment Map (BAM) file Generation
+![GitHub Workflow Status (branch)](https://github.com/msk-access/uncollapsed_bam_generation/workflows/test_uncollapsed_bam_generation/badge.svg)
+ [![Updates](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/) [![Python 3](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/python-3-shield.svg)](https://pyup.io/repos/github/msk-access/uncollapsed_bam_generation/)
 
-This workflow will produce bam files that adhere to the [GATK best practices](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11165)
+This is the workflow is written using Common Workflow Language \(CWL\) version 1.0 \([https://www.commonwl.org/v1.0/](https://www.commonwl.org/v1.0/)\) and is used at Memorial Sloan Kettering Cancer Center for producing standard bam files from the NY state-approved MSK-ACCESS assay.
 
-It consists of the following steps:
+It is meant to be run on a single sample paired-end fastq's with unique molecular index(UMI), from Illumina sequencing data, but may be generalizable to other sequencing platforms and sequencing panels as well, which produce paired-end data with UMIs.
 
-1. Adapter trimming with [Trimgalore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
-2. Read mapping to a reference genome with [BWA mem](http://bio-bwa.sourceforge.net/)
-3. Conversion of SAM to BAM file with [Picard AddOrReplaceReadGroups](https://broadinstitute.github.io/picard/command-line-overview.html#AddOrReplaceReadGroups)
-4. Duplicates Marking with [Picard MarkDuplicates](https://broadinstitute.github.io/picard/command-line-overview.html#MarkDuplicates)
-5. Indel Realignment with [ABRA2](https://github.com/mozack/abra2)
-6. Fixing Mate Information with [Picard FixMateInformation](https://broadinstitute.github.io/picard/command-line-overview.html#FixMateInformation)
-7. Base Quality Score Recalibration with [GATK BaseRecalibrator / PrintReads](https://software.broadinstitute.org/gatk/documentation/article?id=11081)
+For documentation visit : https://msk-access.gitbook.io/uncollapsed-bam-generation/
+
+![Workflow - Overview](./docs/.gitbook/assets/uncollapsed_bam_generation.png)
