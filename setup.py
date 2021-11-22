@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = ['toil[all]==5.0.0', ]
+requirements = ['toil[cwl]==5.5.0', ]
 
 setup_requirements = ['pytest-runner', ]
 
@@ -36,6 +36,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/msk-access/uncollapsed_bam_generation',
-    version='0.1.2',
+    version='1.1.0',
     zip_safe=False,
 )
