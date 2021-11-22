@@ -36,6 +36,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/msk-access/uncollapsed_bam_generation',
-    version='1.0.0',
+    version='0.1.2',
     zip_safe=False,
 )

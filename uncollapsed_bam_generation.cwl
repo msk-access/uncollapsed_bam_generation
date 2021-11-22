@@ -18,85 +18,85 @@ inputs:
     type: string?
     doc: 'Fgbio FastqToBam: Tag in which to store molecular barcodes/UMIs.'
     'sbg:x': 0
-    'sbg:y': 2670.3125
+    'sbg:y': 2776.71875
   - id: fgbio_fastq_to_bam_sort
     type: boolean?
     doc: >-
       Fgbio FastqToBam: If true, queryname sort the BAM file, otherwise 
       preserve input order.
     'sbg:x': 0
-    'sbg:y': 2777.125
+    'sbg:y': 2883.515625
   - id: sequencing-center
     type: string
     doc: The sequencing center from which the data originated
     'sbg:x': 0
-    'sbg:y': 427.25
+    'sbg:y': 427.1875
   - id: sample
     type: string
     doc: The name of the sequenced sample.
     'sbg:x': 0
-    'sbg:y': 534.0625
+    'sbg:y': 533.984375
   - id: run-date
     type: string?
     doc: >-
       Date the run was produced, to insert into the read group header 
       (Iso8601Date)
     'sbg:x': 0
-    'sbg:y': 640.875
+    'sbg:y': 640.78125
   - id: read-structures
     type: 'string[]?'
     doc: 'Fgbio FastqToBam: Read structures, one for each of the FASTQs.'
     'sbg:x': 0
-    'sbg:y': 854.5
+    'sbg:y': 854.375
   - id: read-group-id
     type: string
     doc: Read group ID to use in the file header.
     'sbg:x': 0
-    'sbg:y': 961.3125
+    'sbg:y': 961.171875
   - id: fgbio_fastq_to_bam_predicted-insert-size
     type: int?
     doc: >-
       Fgbio FastqToBam: Predicted median insert size, to insert into the read 
       group header
     'sbg:x': 0
-    'sbg:y': 2883.9375
+    'sbg:y': 2990.3125
   - id: platform-unit
     type: string
     doc: Platform unit (e.g. "..")
     'sbg:x': 0
-    'sbg:y': 1388.5625
+    'sbg:y': 1388.359375
   - id: platform-model
     type: string
     doc: >-
       Platform model to insert into the group header (ex. miseq, hiseq2500, 
       hiseqX)
     'sbg:x': 0
-    'sbg:y': 1495.375
+    'sbg:y': 1495.15625
   - id: platform
     type: string
     doc: Sequencing Platform.
     'sbg:x': 0
-    'sbg:y': 1602.1875
+    'sbg:y': 1601.953125
   - id: fgbio_fastq_to_bam_output_file_name
     type: string?
     doc: 'Fgbio FastqToBam: The output SAM or BAM file to be written.'
     'sbg:x': 0
-    'sbg:y': 2990.75
+    'sbg:y': 3097.109375
   - id: library
     type: string
     doc: The name/ID of the sequenced library.
     'sbg:x': 0
-    'sbg:y': 2136.25
+    'sbg:y': 2242.734375
   - id: description
     type: string?
     doc: Description of the read group.
     'sbg:x': 0
-    'sbg:y': 4272.5
+    'sbg:y': 4485.46875
   - id: comment
     type: string?
     doc: Comments to include in the output file’s header.
     'sbg:x': 0
-    'sbg:y': 4379.3125
+    'sbg:y': 4592.265625
   - id: validation_stringency
     type: string
     doc: >-
@@ -112,12 +112,12 @@ inputs:
     type: string?
     doc: Name of the Unpaired Fastq File
     'sbg:x': 0
-    'sbg:y': 106.8125
+    'sbg:y': 106.796875
   - id: gatk_sam_to_fastq_include_non_primary_alignments
     type: boolean?
     doc: "\tIf true, include non-primary alignments in the output. Support of \n\tnon-primary alignments in SamToFastq is not comprehensive, so there \n\tmay be exceptions if this is set to true and there are paired reads \n\twith non-primary alignments."
     'sbg:x': 0
-    'sbg:y': 2243.0625
+    'sbg:y': 2349.53125
   - id: gatk_sam_to_fastq_include_non_pf_reads
     type: boolean?
     doc: >-
@@ -125,17 +125,17 @@ inputs:
       means 'passes filtering'. Reads whose 'not passing quality controls'  flag
       is set are non-PF reads. See GATK Dictionary for more info.
     'sbg:x': 0
-    'sbg:y': 2349.875
+    'sbg:y': 2456.328125
   - id: R1_output_fastq
     type: string
     doc: Name of the R1 output Fastq File
     'sbg:x': 0
-    'sbg:y': 1281.75
+    'sbg:y': 1281.5625
   - id: R2_output_fastq
     type: string
     doc: Name of the R2 Fastq File
     'sbg:x': 0
-    'sbg:y': 1174.9375
+    'sbg:y': 1174.765625
   - id: reference_sequence
     type: File
     doc: >-
@@ -151,7 +151,7 @@ inputs:
       - .bwt
       - .pac
     'sbg:x': 0
-    'sbg:y': 747.6875
+    'sbg:y': 747.578125
   - id: fastp_unpaired2_output_file_name
     type: string?
     doc: >-
@@ -159,19 +159,19 @@ inputs:
       to  unpaired2. If --unpaired2 is same as --unpaired1 (default mode), both 
       unpaired reads will be written to this same file.
     'sbg:x': 0
-    'sbg:y': 3204.375
+    'sbg:y': 3417.5
   - id: fastp_unpaired1_output_file_name
     type: string?
     doc: >-
       Fastp: for PE input, if read1 passed QC but read2 not, it will be  written
       to unpaired1. Default is to discard it.
     'sbg:x': 0
-    'sbg:y': 3311.1875
+    'sbg:y': 3524.296875
   - id: fastp_read2_output_file_name
     type: string?
     doc: 'Fastp: Read2 output File Name'
     'sbg:x': 0
-    'sbg:y': 3418
+    'sbg:y': 3631.09375
   - id: fastp_read2_adapter_sequence
     type: string?
     doc: >-
@@ -179,12 +179,12 @@ inputs:
       found not overlapped. If not specified, it will be the same as 
       <adapter_sequence> (string)
     'sbg:x': 0
-    'sbg:y': 3524.8125
+    'sbg:y': 3737.890625
   - id: fastp_read1_output_file_name
     type: string
     doc: 'Fastp: Read1 output File Name'
     'sbg:x': 0
-    'sbg:y': 3631.625
+    'sbg:y': 3844.6875
   - id: fastp_read1_adapter_sequence
     type: string?
     doc: >-
@@ -192,81 +192,81 @@ inputs:
       will be auto-detected. For PE data, this is used if R1/R2 are found not
       overlapped.
     'sbg:x': 0
-    'sbg:y': 3738.4375
+    'sbg:y': 3951.484375
   - id: fastp_minimum_read_length
     type: int?
     doc: >-
       Fastp: reads shorter than length_required will be discarded, default is
       15.
     'sbg:x': 0
-    'sbg:y': 3845.25
+    'sbg:y': 4058.28125
   - id: fastp_json_output_file_name
     type: string
     doc: 'Fastp: the json format report file name'
     'sbg:x': 0
-    'sbg:y': 3952.0625
+    'sbg:y': 4165.078125
   - id: fastp_html_output_file_name
     type: string
     doc: 'Fastp: the html format report file name'
     'sbg:x': 0
-    'sbg:y': 4058.875
+    'sbg:y': 4271.875
   - id: fastp_failed_reads_output_file_name
     type: string?
     doc: 'Fastp: specify the file to store reads that cannot pass the filters.'
     'sbg:x': 0
-    'sbg:y': 4165.6875
+    'sbg:y': 4378.671875
   - id: bwa_mem_Y
     type: boolean?
     doc: 'BWA MEM: use soft clipping for supplementary alignments'
     'sbg:x': 0
-    'sbg:y': 4592.9375
+    'sbg:y': 4805.859375
   - id: bwa_mem_T
     type: int?
     doc: 'BWA MEM: minimum score to output [30]'
     'sbg:x': 0
-    'sbg:y': 4699.75
+    'sbg:y': 4912.65625
   - id: sort_order
     type: string
     doc: 'GATK: The order in which the reads should be output.'
     'sbg:x': 0
-    'sbg:y': 320.4375
+    'sbg:y': 320.390625
   - id: bwa_mem_P
     type: boolean?
     doc: 'BWA MEM: skip pairing; mate rescue performed unless -S also in use'
     'sbg:x': 0
-    'sbg:y': 4806.5625
+    'sbg:y': 5019.453125
   - id: picard_addRG_output_file_name
     type: string?
     doc: Output BAM file name
     'sbg:x': 0
-    'sbg:y': 1922.625
+    'sbg:y': 1922.34375
   - id: bwa_mem_output
     type: string?
     doc: Output SAM file name
     'sbg:x': 0
-    'sbg:y': 4913.375
+    'sbg:y': 5126.25
   - id: bwa_mem_M
     type: boolean?
     doc: 'BWA MEM: mark shorter split hits as secondary'
     'sbg:x': 0
-    'sbg:y': 5020.1875
+    'sbg:y': 5233.046875
   - id: bwa_mem_K
     type: int?
     doc: >-
       process INT input bases in each batch regardless of nThreads (for
       reproducibility)
     'sbg:x': 0
-    'sbg:y': 5127
+    'sbg:y': 5339.84375
   - id: create_bam_index
     type: boolean
     doc: 'GATK: Generate BAM index file when possible'
-    'sbg:x': 1456.3748779296875
-    'sbg:y': 2723.71875
+    'sbg:x': 1470.083740234375
+    'sbg:y': 2830.1171875
   - id: gatk_merge_bam_alignment_output_file_name
     type: string?
     doc: Output BAM file name
     'sbg:x': 0
-    'sbg:y': 2563.5
+    'sbg:y': 2669.921875
   - id: optical_duplicate_pixel_distance
     type: int?
     doc: >-
@@ -275,15 +275,15 @@ inputs:
       for unpatterned versions of the Illumina platform. For the patterned 
       flowcell models, 2500 is more appropriate. For other platforms and
       models,  users should experiment to find what works best.
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2056.65625
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2156.1328125
   - id: duplicate_scoring_strategy
     type: string?
     doc: >-
       Picard MarkDuplicates: The scoring strategy for choosing the 
       non-duplicate among candidates.
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 3070.34375
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 3183.7109375
   - id: read_name_regex
     type: string?
     doc: >-
@@ -303,121 +303,121 @@ inputs:
       to be tile, x and y values. For 7 element names (CASAVA 1.8), the 5th, 
       6th, and 7th elements are assumed to be tile, x and y values.
     'sbg:x': 0
-    'sbg:y': 1068.125
+    'sbg:y': 1067.96875
   - id: gatk_mark_duplicates_output_file_name
     type: string?
     doc: 'Picard MarkDuplicates: The output file to write marked records to'
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2461.09375
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2560.5234375
   - id: gatk_mark_duplicates_duplication_metrics_file_name
     type: string
     doc: 'Picard MarkDuplicates: File to write duplication metrics to'
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2567.90625
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2667.3203125
   - id: gatk_mark_duplicates_assume_sort_order
     type: string?
     doc: >-
       Picard MarkDuplicates: If not null, assume that the input file has this 
       order even if the header says otherwise.
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2674.71875
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2774.1171875
   - id: abra2_window_size
     type: string?
     doc: >-
       ABRA2: Processing window size and overlap (size,overlap)  (default:
       400,200)
-    'sbg:x': 2538.884765625
-    'sbg:y': 2603.6875
+    'sbg:x': 2566.080078125
+    'sbg:y': 2710.125
   - id: abra2_soft_clip_contig
     type: string?
     doc: >-
       ABRA2: Soft clip contig args [maxcontigs,min_base_qual,frac 
       high_qual_bases,min_soft_clip_len] (default:16,13,80,15)
-    'sbg:x': 2538.884765625
-    'sbg:y': 2710.5
+    'sbg:x': 2566.080078125
+    'sbg:y': 2816.921875
   - id: abra2_scoring_gap_alignments
     type: string?
-    'sbg:x': 2538.884765625
-    'sbg:y': 2817.3125
+    'sbg:x': 2566.080078125
+    'sbg:y': 2923.71875
   - id: abra2_output_bams
     type:
       - string
       - type: array
         items: string
     doc: Required list of output sam or bam file
-    'sbg:x': 2538.884765625
-    'sbg:y': 2924.125
+    'sbg:x': 2566.080078125
+    'sbg:y': 3030.515625
   - id: abra2_maximum_average_depth
     type: int?
     doc: >-
       ABRA2: Regions with average depth exceeding this value will be 
       downsampled (default: 1000)
-    'sbg:x': 2538.884765625
-    'sbg:y': 3351.375
+    'sbg:x': 2566.080078125
+    'sbg:y': 3457.703125
   - id: abra2_bam_index
     type: boolean?
     doc: 'ABRA2: Generate BAM Index'
-    'sbg:x': 2538.884765625
-    'sbg:y': 3671.8125
+    'sbg:x': 2566.080078125
+    'sbg:y': 3778.09375
   - id: abra2_contig_anchor
     type: string?
-    'sbg:x': 2538.884765625
-    'sbg:y': 3458.1875
+    'sbg:x': 2566.080078125
+    'sbg:y': 3564.5
   - id: abra2_consensus_sequence
     type: boolean?
     doc: >-
       ABRA2: Contig anchor [M_bases_at_contig_edge,max_mismatches_near_edge] 
       (default:10,2)
-    'sbg:x': 2538.884765625
-    'sbg:y': 3565
+    'sbg:x': 2566.080078125
+    'sbg:y': 3671.296875
   - id: bedtools_merge_distance_between_features
     type: int?
-    'sbg:x': 2538.884765625
-    'sbg:y': 1989.25
+    'sbg:x': 2566.080078125
+    'sbg:y': 2095.734375
   - id: abra2_maximum_mixmatch_rate
     type: float?
     doc: |-
       max allowed mismatch rate when mapping
       reads back to contigs (default: 0.05)
-    'sbg:x': 2538.884765625
-    'sbg:y': 3244.5625
+    'sbg:x': 2566.080078125
+    'sbg:y': 3350.90625
   - id: bedtools_genomecov_option_bedgraph
     type: boolean?
     doc: >-
       bedtools genomecov: option flag parameter to choose output file format. 
       -bg refers to bedgraph format
-    'sbg:x': 2538.884765625
-    'sbg:y': 2096.0625
+    'sbg:x': 2566.080078125
+    'sbg:y': 2202.53125
   - id: picard_fixmateinformation_output_file_name
     type: string?
     doc: 'Picard FixMateInformation: The output BAM file to write to'
     'sbg:x': 0
-    'sbg:y': 1709
+    'sbg:y': 1708.75
   - id: abra2_no_sort
     type: boolean?
     doc: 'ABRA2: Do not attempt to sort final output'
-    'sbg:x': 2538.884765625
-    'sbg:y': 3030.9375
+    'sbg:x': 2566.080078125
+    'sbg:y': 3137.3125
   - id: abra2_no_edge_complex_indel
     type: boolean?
     doc: 'ABRA2: Prevent output of complex indels at read start or read end'
-    'sbg:x': 2538.884765625
-    'sbg:y': 3137.75
+    'sbg:x': 2566.080078125
+    'sbg:y': 3244.109375
   - id: merge_sam_files_sort_order
     type: string
     doc: 'GATK MergeSamFiles: Sort order of output file'
     'sbg:x': 0
-    'sbg:y': 2029.4375
+    'sbg:y': 2029.140625
   - id: gatk_merge_sam_files_output_file_name
     type: string?
     doc: 'GATK MergeSamFiles: SAM or BAM file to write merged result to'
     'sbg:x': 0
-    'sbg:y': 2456.6875
+    'sbg:y': 2563.125
   - id: bwa_number_of_threads
     type: int?
     doc: 'BWA MEM: Number of threads'
     'sbg:x': 0
-    'sbg:y': 4486.125
+    'sbg:y': 4699.0625
   - id: fgbio_fastq_to_bam_input
     type:
       type: array
@@ -428,64 +428,68 @@ inputs:
       Fgbio FastqToBam: Fastq files corresponding to each sequencing read ( e.g.
       R1, I1, etc.).
     'sbg:x': 0
-    'sbg:y': 3097.5625
+    'sbg:y': 3203.90625
   - id: picard_addRG_sort_order
     type: string
     'sbg:x': 0
-    'sbg:y': 1815.8125
+    'sbg:y': 1815.546875
   - id: disable_trim_poly_g
     type: boolean?
-    'sbg:x': 1456.3748779296875
-    'sbg:y': 2510.09375
+    'sbg:x': 1470.083740234375
+    'sbg:y': 2616.5234375
   - id: disable_quality_filtering
     type: boolean?
-    'sbg:x': 1456.3748779296875
-    'sbg:y': 2616.90625
+    'sbg:x': 1470.083740234375
+    'sbg:y': 2723.3203125
   - id: temporary_directory
     type: string?
     'sbg:x': 0
-    'sbg:y': 213.625
+    'sbg:y': 213.59375
   - id: fgbio_async_io
     type: string?
-    'sbg:x': 383.6767272949219
-    'sbg:y': 2878.35009765625
+    'sbg:x': 0
+    'sbg:y': 3310.703125
+  - id: maximum_read_length
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 2135.9375
 outputs:
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_unpaired_fastq
     type: File?
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2163.46875
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2262.9296875
   - id: fastp_unpaired2_output
     outputSource:
       - fastp_0_20_1/fastp_unpaired2_output
     type: File?
-    'sbg:x': 2538.884765625
-    'sbg:y': 1562
+    'sbg:x': 2566.080078125
+    'sbg:y': 1668.546875
   - id: fastp_unpaired1_output
     outputSource:
       - fastp_0_20_1/fastp_unpaired1_output
     type: File?
-    'sbg:x': 2538.884765625
-    'sbg:y': 1668.8125
+    'sbg:x': 2566.080078125
+    'sbg:y': 1775.34375
   - id: fastp_json_output
     outputSource:
       - fastp_0_20_1/fastp_json_output
     type: File
-    'sbg:x': 2538.884765625
-    'sbg:y': 1775.625
+    'sbg:x': 2566.080078125
+    'sbg:y': 1882.140625
   - id: fastp_html_output
     outputSource:
       - fastp_0_20_1/fastp_html_output
     type: File
-    'sbg:x': 2538.884765625
-    'sbg:y': 1882.4375
+    'sbg:x': 2566.080078125
+    'sbg:y': 1988.9375
   - id: picard_mark_duplicates_metrics
     outputSource:
       - picard_mark_duplicates_4_1_8_1/picard_mark_duplicates_metrics
     type: File
-    'sbg:x': 3310.43603515625
-    'sbg:y': 2377.09375
+    'sbg:x': 3337.63134765625
+    'sbg:y': 2483.5234375
   - id: indel_realignment_bam
     outputSource:
       - indel_realignment/indel_realignment_bam
@@ -493,8 +497,8 @@ outputs:
     doc: This bam file will be used for collapsing
     secondaryFiles:
       - ^.bai
-    'sbg:x': 3918.8408203125
-    'sbg:y': 2563.5
+    'sbg:x': 3946.0361328125
+    'sbg:y': 2669.921875
 steps:
   - id: fgbio_fastq_to_bam_1_2_0
     in:
@@ -543,8 +547,8 @@ steps:
     scatter:
       - input
     scatterMethod: dotproduct
-    'sbg:x': 477.953125
-    'sbg:y': 2451.5
+    'sbg:x': 477.984375
+    'sbg:y': 2550.921875
   - id: gatk_sam_to_fastq_4_1_8_0
     in:
       - id: fastq
@@ -571,8 +575,8 @@ steps:
       - id: gatk_sam_to_fastq_second_end_fastq
     run: command_line_tools/gatk_sam_to_fastq_4.1.8.0/gatk_sam_to_fastq_4.1.8.0.cwl
     label: GATK-SamToFastq
-    'sbg:x': 1456.3748779296875
-    'sbg:y': 2347.28125
+    'sbg:x': 1470.083740234375
+    'sbg:y': 2453.7265625
   - id: fastp_0_20_1
     in:
       - id: read1_input
@@ -595,6 +599,8 @@ steps:
         source: fastp_read2_adapter_sequence
       - id: minimum_read_length
         source: fastp_minimum_read_length
+      - id: maximum_read_length
+        source: maximum_read_length
       - id: json_output_path
         source: fastp_json_output_file_name
       - id: html_output_path
@@ -612,8 +618,8 @@ steps:
       - id: fastp_unpaired2_output
     run: command_line_tools/fastp_0.20.1/fastp_0.20.1.cwl
     label: fastp_0.20.1
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2872.53125
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2978.9140625
   - id: alignment
     in:
       - id: create_bam_index
@@ -666,8 +672,8 @@ steps:
       - id: picard_add_or_replace_read_groups_bam
     run: subworkflows/alignment/alignment.cwl
     label: alignment
-    'sbg:x': 2538.884765625
-    'sbg:y': 2349.875
+    'sbg:x': 2566.080078125
+    'sbg:y': 2456.328125
   - id: gatk_merge_bam_alignment_4_1_8_0
     in:
       - id: unmapped_bam
@@ -691,8 +697,8 @@ steps:
     run: >-
       command_line_tools/gatk_merge_bam_alignment_4.1.8.0/gatk_merge_bam_alignment_4.1.8.0.cwl
     label: GATK-MergeBamAlignment
-    'sbg:x': 2024.1610107421875
-    'sbg:y': 2312.28125
+    'sbg:x': 2037.8697509765625
+    'sbg:y': 2411.7265625
   - id: picard_mark_duplicates_4_1_8_1
     in:
       - id: input
@@ -721,8 +727,8 @@ steps:
     run: >-
       command_line_tools/picard_mark_duplicates_4.1.8.1/picard_mark_duplicates_4.1.8.1.cwl
     label: picard_mark_duplicates_4.1.8.1
-    'sbg:x': 2538.884765625
-    'sbg:y': 1392.1875
+    'sbg:x': 2566.080078125
+    'sbg:y': 1498.75
   - id: indel_realignment
     in:
       - id: window_size
@@ -770,8 +776,8 @@ steps:
       - id: indel_realignment_bam
     run: subworkflows/indel_realignment/indel_realignment.cwl
     label: indel_realignment
-    'sbg:x': 3310.43603515625
-    'sbg:y': 2616.90625
+    'sbg:x': 3337.63134765625
+    'sbg:y': 2723.3203125
   - id: gatk_merge_sam_files_4_1_8_0
     in:
       - id: input
@@ -792,8 +798,8 @@ steps:
     run: >-
       command_line_tools/gatk_merge_sam_files_4.1.8.0/gatk_merge_sam_files_4.1.8.0.cwl
     label: GATK-MergeSamFiles
-    'sbg:x': 1039.828125
-    'sbg:y': 2528.5
+    'sbg:x': 1053.5369873046875
+    'sbg:y': 2634.921875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
