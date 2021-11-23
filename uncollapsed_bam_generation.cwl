@@ -449,10 +449,18 @@ inputs:
     type: string?
     'sbg:x': 0
     'sbg:y': 3310.703125
-  - id: maximum_read_length
+  - id: fastp_maximum_read_length
     type: int?
     'sbg:x': 0
     'sbg:y': 2135.9375
+  - id: fastp_max_len_read1
+    type: int?
+    'sbg:x': 1773.6907958984375
+    'sbg:y': 3302.252197265625
+  - id: fastp_max_len_read2
+    type: int?
+    'sbg:x': 1686.5479736328125
+    'sbg:y': 3223.680908203125
 outputs:
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
@@ -600,7 +608,11 @@ steps:
       - id: minimum_read_length
         source: fastp_minimum_read_length
       - id: maximum_read_length
-        source: maximum_read_length
+        source: fastp_maximum_read_length
+      - id: max_len_read1
+        source: fastp_max_len_read1
+      - id: max_len_read2
+        source: fastp_max_len_read2
       - id: json_output_path
         source: fastp_json_output_file_name
       - id: html_output_path
