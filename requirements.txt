@@ -1,6 +1,6 @@
 toil[cwl]==5.5.0
 pip==21.3.1
-pytz
+pytz==2021.3
 typing
 bumpversion
 flake8
