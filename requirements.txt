@@ -2,7 +2,7 @@ toil[cwl]==5.5.0
 pip==21.3.1
 pytz==2021.3
 typing==3.10.0.0
-bumpversion
+bumpversion==0.6.0
 flake8
 tox
 twine
