@@ -1,5 +1,5 @@
 toil[cwl]==5.8.0
-pip
+pip==23.0
 pytz
 typing
 bumpversion
