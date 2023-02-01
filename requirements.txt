@@ -1,4 +1,4 @@
-toil[cwl]
+toil[cwl]==5.8.0
 pip
 pytz
 typing
