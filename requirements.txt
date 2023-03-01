@@ -7,4 +7,4 @@ flake8==6.0.0
 tox==4.4.6
 twine==4.0.2
 pytest==7.2.1
-pytest-runner
+pytest-runner==6.0.0
