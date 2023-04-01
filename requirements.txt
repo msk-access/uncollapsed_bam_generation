@@ -5,6 +5,6 @@ typing==3.10.0.0
 bumpversion==0.6.0
 flake8==6.0.0
 tox==4.4.8
-twine
+twine==4.0.2
 pytest
 pytest-runner
