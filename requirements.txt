@@ -4,7 +4,7 @@ pytz==2023.3.post1
 typing==3.10.0.0
 bumpversion==0.6.0
 flake8==6.1.0
-tox
+tox==4.11.3
 twine
 pytest
 pytest-runner
