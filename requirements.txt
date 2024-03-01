@@ -6,5 +6,5 @@ bumpversion==0.6.0
 flake8==7.0.0
 tox==4.13.0
 twine==5.0.0
-pytest
+pytest==8.0.2
 pytest-runner
