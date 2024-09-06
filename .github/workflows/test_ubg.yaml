@@ -40,7 +40,7 @@ jobs:
           pip install tox tox-gh-actions
       - name: Install Test data
         run: |
-          bash get_test_data.sh
+          bash install_data.sh
       - name: Test with tox
         id: run-tox
         run: tox -vv
