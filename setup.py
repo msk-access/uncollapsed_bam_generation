@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = ['toil[cwl]==5.5.0', ]
+requirements = ['toil[cwl]==5.10.0', ]
 
 setup_requirements = ['pytest-runner', ]
 
@@ -22,7 +22,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.10',
     ],
     description="Workflow for making MSK-ACCESS standard binary alignment mapping file.",
     install_requires=requirements,
@@ -36,6 +36,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/msk-access/uncollapsed_bam_generation',
-    version='1.2.0',
+    version='1.3.0',
     zip_safe=False,
 )
