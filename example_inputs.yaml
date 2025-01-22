@@ -2,6 +2,10 @@
     "R1_output_fastq": "processed_fastq_R1.fastq.gz",
     "R2_output_fastq": "processed_fastq_R2.fastq.gz",
     "abra2_bam_index": true,
+    "abra2_targets": {
+    "class": "File",
+    "path": "/path/to/abra2_targets.bed"
+    },
     "abra2_consensus_sequence": null,
     "abra2_contig_anchor": null,
     "abra2_maximum_average_depth": null,
