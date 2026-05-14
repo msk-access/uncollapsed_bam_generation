@@ -451,7 +451,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 4160.3984375
   - id: abra2_targets
-    type: File
+    type: File?
     'sbg:x': 2590.802734375
     'sbg:y': 2760.2421875
 outputs:
