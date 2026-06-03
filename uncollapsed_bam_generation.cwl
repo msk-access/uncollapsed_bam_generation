@@ -454,6 +454,14 @@ inputs:
     type: File?
     'sbg:x': 2590.802734375
     'sbg:y': 2760.2421875
+  - id: abra2_memory_per_job
+    type: int?
+    'sbg:x': 2590.802734375
+    'sbg:y': 2866.9296875
+  - id: abra2_memory_overhead
+    type: int?
+    'sbg:x': 2590.802734375
+    'sbg:y': 2973.6171875
 outputs:
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
@@ -775,6 +783,10 @@ steps:
         source: temporary_directory
       - id: targets
         source: abra2_targets
+      - id: memory_per_job
+        source: abra2_memory_per_job
+      - id: memory_overhead
+        source: abra2_memory_overhead
     out:
       - id: indel_realignment_bam
     run: subworkflows/indel_realignment/indel_realignment_staticbed.cwl
