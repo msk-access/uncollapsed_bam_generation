@@ -504,8 +504,6 @@ outputs:
       - indel_realignment_staticbed/indel_realignment_bam
     type: File
     doc: This bam file will be used for collapsing
-    secondaryFiles:
-      - ^.bai
     'sbg:x': 3953.07421875
     'sbg:y': 2773.2890625
 steps:
